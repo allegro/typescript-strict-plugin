@@ -1,6 +1,16 @@
 {
   "name": "scoped-typescript-plugin",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "version": "1.1.1",
+  "description": "TypeScript Scoped plugin",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "TSS_LOG='-file tsserver.log -level verbose' node node_modules/typescript/bin/tsserver < input.ldjson"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vscode-languageserver-types": "^3.16.0",
+    "typescript": "^4.2.3",
+    "prettier": "^2.2.1"
+  }
 }
