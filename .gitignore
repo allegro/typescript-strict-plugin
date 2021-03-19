@@ -1,5 +1,4 @@
 tsserver.log
-input.ldjson
 node_modules
 dist/**/*
 .idea/**/*
