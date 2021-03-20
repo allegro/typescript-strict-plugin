@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2018",
     "module": "commonjs",
-    "lib": ["esnext", "dom"],
+    "lib": ["es2018"],
     "outDir": "./dist",
-    "rootDir": ".",
-    "esModuleInterop": true,
-    "declaration": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "downlevelIteration": true
+    "strict": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true
   },
-  "include": ["src"]
+  "exclude": [
+    "./sample-project"
+  ]
 }
