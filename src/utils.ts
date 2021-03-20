@@ -1,24 +1,13 @@
-import path from 'path';
 import * as ts_module from 'typescript/lib/tsserverlibrary';
 import { CompilerOptions } from 'typescript';
 
-const TS_STRICT_COMMENT = '@ts-strict';
-
-export function isTsStrictCommentPresent(
-  info: ts_module.server.PluginCreateInfo,
-  fileName: string,
-): boolean {
-  const tsStrictComments = info.languageService.getTodoComments(fileName, [
-    { text: TS_STRICT_COMMENT, priority: 0 },
-  ]);
-
-  return tsStrictComments.length > 0;
+export interface Config {
+  paths?: string[];
 }
 
-export function turnOnStrictMode(
-  info: ts_module.server.PluginCreateInfo,
-  currentOptions: CompilerOptions,
-): void {
+export type PluginInfo = ts_module.server.PluginCreateInfo;
+
+export function turnOnStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {
   if (!currentOptions.strict) {
     info.project.setCompilerOptions({
       ...currentOptions,
@@ -27,10 +16,7 @@ export function turnOnStrictMode(
   }
 }
 
-export function turnOffStrictMode(
-  info: ts_module.server.PluginCreateInfo,
-  currentOptions: CompilerOptions,
-): void {
+export function turnOffStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {
   if (currentOptions.strict) {
     info.project.setCompilerOptions({
       ...currentOptions,
@@ -39,7 +25,7 @@ export function turnOffStrictMode(
   }
 }
 
-export function setupProxy(info: ts_module.server.PluginCreateInfo) {
+export function setupProxy(info: PluginInfo) {
   const proxy: ts.LanguageService = Object.create(null);
   for (const k of Object.keys(info.languageService) as Array<keyof ts.LanguageService>) {
     const serviceFunction = info.languageService[k];
@@ -50,6 +36,6 @@ export function setupProxy(info: ts_module.server.PluginCreateInfo) {
   return proxy;
 }
 
-export function getProjectRootPath(info: ts_module.server.PluginCreateInfo) {
-  return path.dirname(info.project.getProjectName());
+export function log(info: PluginInfo, message: string) {
+  info.project.projectService.logger.info('[scoped-typescript-plugin]: ' + message);
 }

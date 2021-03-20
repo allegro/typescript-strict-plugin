@@ -1,36 +1,24 @@
-import * as ts_module from 'typescript/lib/tsserverlibrary';
-import {
-  getProjectRootPath,
-  isTsStrictCommentPresent,
-  setupProxy,
-  turnOffStrictMode,
-  turnOnStrictMode,
-} from './utils';
+import { PluginInfo, setupProxy, turnOffStrictMode, turnOnStrictMode } from './utils';
+import { StrictFileChecker } from './strictFiles';
 
-function init(): { create: (info: ts.server.PluginCreateInfo) => ts.LanguageService } {
-  function create(info: ts_module.server.PluginCreateInfo) {
-    function log(name: string, message: string) {
-      info.project.projectService.logger.info('dupa ' + name);
-      info.project.projectService.logger.info(message);
-    }
-
+function init(): { create: (info: PluginInfo) => ts.LanguageService } {
+  function create(info: PluginInfo) {
     const proxy = setupProxy(info);
 
     proxy.getSemanticDiagnostics = function (fileName) {
-      const tsStrictPresent = isTsStrictCommentPresent(info, fileName);
-      log('dupa', getProjectRootPath(info));
+      const strictFile = new StrictFileChecker(info).isFileStrict(fileName);
 
-      if (!tsStrictPresent) {
-        return info.languageService.getSemanticDiagnostics(fileName);
+      if (strictFile) {
+        return getDiagnosticsWithStrictMode(info, fileName);
       }
 
-      return getDiagnosticsWithStrictMode(info, fileName);
+      return info.languageService.getSemanticDiagnostics(fileName);
     };
 
     return proxy;
   }
 
-  function getDiagnosticsWithStrictMode(info: ts_module.server.PluginCreateInfo, fileName: string) {
+  function getDiagnosticsWithStrictMode(info: PluginInfo, fileName: string) {
     const currentOptions = info.project.getCompilerOptions();
 
     turnOnStrictMode(info, currentOptions);

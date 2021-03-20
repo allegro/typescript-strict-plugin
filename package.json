@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "tsc",
-    "watch": "watch 'echo restarting && npm run build && echo done' src --interval=1"
+    "dev": "watch 'echo restarting && npm run build && echo done' src --interval=1 --wait=1"
   },
   "keywords": [
     "TypeScript",
@@ -19,18 +19,17 @@
   "author": "Sebastián Gurin",
   "license": "MIT",
   "dependencies": {
-    "typescript": "^3.1.4",
-    "watch": "^1.0.2"
+    "typescript": "^3.1.4"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
-    "docco": "^0.8.0",
     "eslint": "^7.22.0",
     "husky": "4.3.8",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "watch": "^1.0.2"
   },
   "lint-staged": {
     "*.(js|ts)": [

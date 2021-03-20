@@ -8,11 +8,10 @@
     "strict": false,
     "esModuleInterop": true,
     "noImplicitAny": true,
-    "plugins": [{
-        "name": "scoped-typescript-plugin",
-        "paths": [
-          "./src"
-        ]
-    }]
+    "plugins": [
+      {
+        "name": "scoped-typescript-plugin"
+      }
+    ]
   }
 }
