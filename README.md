@@ -21,15 +21,15 @@ and add plugin to your `tsconfig.json`:
  "compilerOptions": {
    ...
    "strict": false,
-  "plugins": [
-   {
-    "name": "scoped-typescript-plugin"
-   }
-  ]
+   "plugins": [
+    {
+     "name": "scoped-typescript-plugin"
+    }
+   ]
  }
 }
 ```
-Thats it!
+That's it!
 
 ## Configuration
 Plugin takes one extra non mandatory argument `paths` that is an array of relative or absolute paths of directories that should be included.
@@ -52,7 +52,7 @@ Plugin takes one extra non mandatory argument `paths` that is an array of relati
 ```
 All files contained in those paths will be be strictly checked. Yay!
 
-#Examples
+## Examples
 Let's consider this type and a variable
 ```typescript
 interface TestType {

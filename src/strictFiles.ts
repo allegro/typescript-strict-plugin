@@ -17,7 +17,7 @@ export class StrictFileChecker {
       return true;
     }
 
-    return pathsToTurnOnStrictMode?.some((strictPath) => this.isFileOnPath(filePath, strictPath));
+    return !!pathsToTurnOnStrictMode?.some((strictPath) => this.isFileOnPath(filePath, strictPath));
   }
 
   private isFileOnPath(currentFilePath: string, pathToStrictFiles: string) {
