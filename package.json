@@ -1,11 +1,11 @@
 {
   "name": "typescript-strict-plugin",
-  "version": "1.0.12",
+  "version": "1.0.0-beta.1",
   "description": "https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin",
   "main": "dist/index.js",
-  "private": true,
+  "private": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "npm run e2e",
     "build": "tsc",
     "dev": "tsc --watch -p .",
     "e2e": "node e2e/run.js",
