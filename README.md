@@ -7,7 +7,7 @@ This plugin was created for bigger repositories that want to incorporate typescr
 
 ## How to install
 
- Use your favourite install tool:
+ Use `npm`:
 ```bash
 npm i --save-dev typescript-strict-plugin
 ```
@@ -29,7 +29,7 @@ and add plugin to your `tsconfig.json`:
  }
 }
 ```
-That's it!
+That's it! You should be able to use `@ts-strict` comment to strictly check your files.
 
 ## Configuration
 Plugin takes one extra non mandatory argument `paths` that is an array of relative or absolute paths of directories that should be included.
@@ -122,3 +122,30 @@ If file is not in the diretory but there is `ts-strict` file will be check with 
 ...
 const boo = foo.bar; // TS2532: Object is possibly 'undefined'. 
 ```
+
+## Testing the plugin
+### Manually
+run
+```bash
+npm i
+```
+inside root folder and `sample-project` folder and then run 
+```bash
+npm run build
+```
+or
+```bash
+npm run dev
+```
+and restart typescript service inside `sample-project`. Files in `sample-project` folder should use a local plugin.
+After you made changes to a plugin you should probably restart typescript service in order to reload the plugin.
+
+### E2E tests
+In order to run e2e tests run 
+
+```bash
+npm run build && npm run e2e
+```
+
+## Contributing
+Feel free to create PR's and issues.
