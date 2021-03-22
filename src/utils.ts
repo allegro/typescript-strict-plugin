@@ -37,5 +37,5 @@ export function setupProxy(info: PluginInfo) {
 }
 
 export function log(info: PluginInfo, message: string) {
-  info.project.projectService.logger.info('[strict-typescript-plugin]: ' + message);
+  info.project.projectService.logger.info('[typescript-strict-plugin]: ' + message);
 }

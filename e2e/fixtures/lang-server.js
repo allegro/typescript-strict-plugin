@@ -11,7 +11,7 @@ class TSServer {
 
     // to open ts log from tests
     // process.env['TSS_LOG'] =
-    //   '-logToFile true -file /Users/jaroslaw.glegola/Documents/Praca/strict-typescript-plugin/log1.txt -level
+    //   '-logToFile true -file /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/log1.txt -level
     //   verbose';
     const server = fork(tsserverPath, {
       cwd: path.join(__dirname, '../project-fixture/src'),

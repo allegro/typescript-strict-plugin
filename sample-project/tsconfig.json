@@ -10,7 +10,7 @@
     "noImplicitAny": true,
     "plugins": [
       {
-        "name": "strict-typescript-plugin"
+        "name": "typescript-strict-plugin"
       }
     ]
   }

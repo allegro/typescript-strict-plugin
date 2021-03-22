@@ -9,11 +9,11 @@ This plugin was created for bigger repositories that want to incorporate typescr
 
  Use your favourite install tool:
 ```bash
-npm i --save-dev strict-typescript-plugin
+npm i --save-dev typescript-strict-plugin
 ```
 or yarn 
 ```bash
-yarn add -D strict-typescript-plugin
+yarn add -D typescript-strict-plugin
 ```
 and add plugin to your `tsconfig.json`:
 ```json
@@ -23,7 +23,7 @@ and add plugin to your `tsconfig.json`:
    "strict": false,
    "plugins": [
     {
-     "name": "strict-typescript-plugin"
+     "name": "typescript-strict-plugin"
     }
    ]
  }
@@ -40,7 +40,7 @@ Plugin takes one extra non mandatory argument `paths` that is an array of relati
     "strict": false,
     "plugins": [
       {
-        "name": "strict-typescript-plugin",
+        "name": "typescript-strict-plugin",
         "paths": [
           "./src",
           "/absolute/path/to/source/"
@@ -70,7 +70,7 @@ With `tsconfig.json` like this:
     "strict": false,
     "plugins": [
       {
-        "name": "strict-typescript-plugin"
+        "name": "typescript-strict-plugin"
       }
     ]
   }
@@ -98,7 +98,7 @@ const boo = foo.bar; // no error here
     "strict": false,
     "plugins": [
       {
-        "name": "strict-typescript-plugin",
+        "name": "typescript-strict-plugin",
          "path": "./src"
       }
     ]

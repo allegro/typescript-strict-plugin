@@ -1,5 +1,5 @@
 {
-  "name": "strict-typescript-plugin",
+  "name": "typescript-strict-plugin",
   "version": "1.0.12",
   "description": "https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin",
   "main": "dist/index.js",
