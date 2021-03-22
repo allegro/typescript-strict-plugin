@@ -15,7 +15,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.3.2",
-    "scoped-typescript-plugin": "file:../../scoped-typescript-plugin",
+    "strict-typescript-plugin": "file:../../strict-typescript-plugin",
     "typescript": "4.2.3"
   }
 }

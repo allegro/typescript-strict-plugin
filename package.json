@@ -1,5 +1,5 @@
 {
-  "name": "scoped-typescript-plugin",
+  "name": "strict-typescript-plugin",
   "version": "1.0.12",
   "description": "https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin",
   "main": "dist/index.js",
