@@ -1,0 +1,21 @@
+{
+  "name": "sample-project",
+  "version": "1.0.0",
+  "description": "https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "tsc",
+    "doc": "echo nothing && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.3.2",
+    "typescript-strict-plugin": "file:../../typescript-strict-plugin",
+    "typescript": "4.2.3"
+  }
+}

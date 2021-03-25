@@ -5,8 +5,10 @@
     "lib": ["es2018"],
     "outDir": "./dist",
     "strict": true,
-    "strictNullChecks": false,
     "esModuleInterop": true
   },
-  "include": ["src"]
+  "exclude": [
+    "./sample-project",
+    "./e2e"
+  ]
 }
