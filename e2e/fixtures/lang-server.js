@@ -9,10 +9,8 @@ class TSServer {
     this._responseCommandEmitter = new EventEmitter();
     const tsserverPath = require.resolve('typescript/lib/tsserver');
 
-    // to open ts log from tests
-    // process.env['TSS_LOG'] =
-    //   '-logToFile true -file /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/log1.txt -level
-    //   verbose';
+    // to create ts log from tests
+    // process.env['TSS_LOG'] = '-logToFile true -file /path/typescript-strict-plugin/log1.txt -level verbose';
     const server = fork(tsserverPath, {
       cwd: path.join(__dirname, '../project-fixture/src'),
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],

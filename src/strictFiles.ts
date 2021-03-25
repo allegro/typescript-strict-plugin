@@ -11,13 +11,13 @@ export class StrictFileChecker {
   }
 
   public isFileStrict(filePath: string): boolean {
-    const { paths: pathsToTurnOnStrictMode } = this.info.config as Config;
+    const { paths: pathsToTurnOnStrictMode = [] } = this.info.config as Config;
 
     if (this.isTsStrictCommentPresent(filePath)) {
       return true;
     }
 
-    return !!pathsToTurnOnStrictMode?.some((strictPath) => this.isFileOnPath(filePath, strictPath));
+    return pathsToTurnOnStrictMode.some((strictPath) => this.isFileOnPath(filePath, strictPath));
   }
 
   private isFileOnPath(currentFilePath: string, pathToStrictFiles: string) {
