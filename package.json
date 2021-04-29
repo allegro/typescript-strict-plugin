@@ -1,7 +1,20 @@
 {
   "name": "typescript-strict-plugin",
   "version": "1.0.0-beta.2",
-  "description": "https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin",
+  "description": "Typescript plugin that allows turning on strict mode in specific files or directories.",
+  "author": "Allegro",
+  "contributors": [
+    "Jaroslaw Glegola <jaroslaw.glegola@allegro.pl>",
+    "Kamil Krysiak <kamil.krysiak@allegro.pl>"
+  ],
+  "bugs": {
+    "url": "https://github.com/kamkry/typescript-strict-plugin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamkry/typescript-strict-plugin.git"
+  },
+  "license": "MIT",
   "main": "dist/index.js",
   "private": false,
   "files": [
@@ -15,14 +28,10 @@
     "e2e:coverage": "c8 -o e2e_coverage -x e2e -r html -i \"src/**/*\" node e2e/run.js"
   },
   "keywords": [
-    "TypeScript",
-    "TypeScript plugin tutorial",
-    "TypeScript Language Service",
-    "tutorial",
-    "example"
+    "TypeScript Strict",
+    "TypeScript plugin",
+    "TypeScript Language Service"
   ],
-  "author": "Sebastián Gurin",
-  "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.14.35",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
