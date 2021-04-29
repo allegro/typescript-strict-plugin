@@ -4,6 +4,7 @@ Typescript plugin that allows turning on strict mode in specific files or direct
 
 ## Do i need this plugin?
 This plugin was created for bigger repositories that want to incorporate typescript strict mode, but project is so big that refactoring everything would take ages. This plugin allows user to simply put `//@ts-strict` comment to a top of a file and turn a strict mode to that file. If needed, strict mode can be turned on to directories too.
+NOTE: this plugin doesn't work in compile time. It will show errors in your IDE but they won't appear during compilation.
 
 ## How to install
 
