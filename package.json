@@ -8,11 +8,11 @@
     "Kamil Krysiak <kamil.krysiak@allegro.pl>"
   ],
   "bugs": {
-    "url": "https://github.com/kamkry/typescript-strict-plugin/issues"
+    "url": "https://github.com/allegro/typescript-strict-plugin/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kamkry/typescript-strict-plugin.git"
+    "url": "https://github.com/allegro/typescript-strict-plugin.git"
   },
   "license": "MIT",
   "main": "dist/index.js",
