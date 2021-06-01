@@ -1,6 +1,6 @@
 {
   "name": "typescript-strict-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript plugin that allows turning on strict mode in specific files or directories.",
   "author": "Allegro",
   "contributors": [
