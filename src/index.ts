@@ -1,5 +1,5 @@
-import { PluginInfo, setupProxy, turnOffStrictMode, turnOnStrictMode, log } from './utils';
 import { StrictFileChecker } from './strictFiles';
+import { log, PluginInfo, setupProxy, turnOffStrictMode, turnOnStrictMode } from './utils';
 
 const init: ts.server.PluginModuleFactory = () => {
   function create(info: PluginInfo) {
@@ -10,23 +10,15 @@ const init: ts.server.PluginModuleFactory = () => {
       const strictFile = new StrictFileChecker(info).isFileStrict(fileName);
 
       if (strictFile) {
-        return getDiagnosticsWithStrictMode(info, fileName);
+        turnOnStrictMode(info, info.project.getCompilerOptions());
+      } else {
+        turnOffStrictMode(info, info.project.getCompilerOptions());
       }
 
       return info.languageService.getSemanticDiagnostics(fileName);
     };
 
     return proxy;
-  }
-
-  function getDiagnosticsWithStrictMode(info: PluginInfo, fileName: string) {
-    turnOnStrictMode(info, info.project.getCompilerOptions());
-
-    const diagnostics = info.languageService.getSemanticDiagnostics(fileName);
-
-    turnOffStrictMode(info, info.project.getCompilerOptions());
-
-    return diagnostics;
   }
 
   return { create };
