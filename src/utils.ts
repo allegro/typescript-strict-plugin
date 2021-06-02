@@ -1,5 +1,5 @@
-import * as ts_module from 'typescript/lib/tsserverlibrary';
 import { CompilerOptions } from 'typescript';
+import * as ts_module from 'typescript/lib/tsserverlibrary';
 
 export interface Config {
   paths?: string[];
@@ -8,21 +8,17 @@ export interface Config {
 export type PluginInfo = ts_module.server.PluginCreateInfo;
 
 export function turnOnStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {
-  if (!currentOptions.strict) {
-    info.project.setCompilerOptions({
-      ...currentOptions,
-      strict: true,
-    });
-  }
+  info.project.setCompilerOptions({
+    ...currentOptions,
+    strict: true,
+  });
 }
 
 export function turnOffStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {
-  if (currentOptions.strict) {
-    info.project.setCompilerOptions({
-      ...currentOptions,
-      strict: false,
-    });
-  }
+  info.project.setCompilerOptions({
+    ...currentOptions,
+    strict: false,
+  });
 }
 
 export function setupProxy(info: PluginInfo) {
