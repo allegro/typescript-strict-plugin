@@ -10,7 +10,7 @@
     "noImplicitAny": true,
     "plugins": [
       {
-        "name": "../../dist",
+        "name": "../../dist/plugin",
         "paths": [
           "./lib"
         ]
