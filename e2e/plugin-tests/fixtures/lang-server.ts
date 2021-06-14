@@ -3,7 +3,30 @@ const { fork } = require('child_process');
 const path = require('path');
 const { EventEmitter } = require('events');
 
-class TSServer {
+export interface ServerResponse {
+  command: string;
+  event: string;
+  type: string;
+  body: any;
+}
+
+export interface ServerRequest {
+  command?: string;
+  event?: string;
+  type?: string;
+  arguments: any;
+}
+
+export class TSServer {
+  public responses: ServerResponse[];
+
+  private _responseEventEmitter: NodeJS.EventEmitter;
+  private _responseCommandEmitter: NodeJS.EventEmitter;
+  private _exitPromise: Promise<string>;
+  private _isClosed: boolean;
+  private _server: any;
+  private _seq: number;
+
   constructor() {
     this._responseEventEmitter = new EventEmitter();
     this._responseCommandEmitter = new EventEmitter();
@@ -16,13 +39,13 @@ class TSServer {
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
     });
     this._exitPromise = new Promise((resolve, reject) => {
-      server.on('exit', (code) => resolve(code));
-      server.on('error', (reason) => reject(reason));
+      server.on('exit', (code: string) => resolve(code));
+      server.on('error', (reason: string) => reject(reason));
     });
     server.stdout.setEncoding('utf-8');
-    server.stdout.on('data', (data) => {
+    server.stdout.on('data', (data: string) => {
       const [, , res] = data.split('\n');
-      const obj = JSON.parse(res);
+      const obj = JSON.parse(res) as ServerResponse;
       if (obj.type === 'event') {
         this._responseEventEmitter.emit(obj.event, obj);
       } else if (obj.type === 'response') {
@@ -36,7 +59,7 @@ class TSServer {
     this.responses = [];
   }
 
-  send(command) {
+  send(command: ServerRequest) {
     const seq = ++this._seq;
     const req = JSON.stringify(Object.assign({ seq: seq, type: 'request' }, command)) + '\n';
     this._server.stdin.write(req);
@@ -50,8 +73,8 @@ class TSServer {
     return this._exitPromise;
   }
 
-  waitEvent(eventName) {
-    return new Promise((res) => this._responseEventEmitter.once(eventName, () => res()));
+  waitEvent(eventName: string) {
+    return new Promise((res) => this._responseEventEmitter.once(eventName, () => res(undefined)));
   }
 }
 
@@ -59,4 +82,4 @@ function createServer() {
   return new TSServer();
 }
 
-module.exports = createServer;
+module.exports = { createServer };

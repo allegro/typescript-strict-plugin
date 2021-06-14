@@ -1,6 +1,7 @@
+import { ServerResponse, TSServer } from '../fixtures/lang-server';
+
 const assert = require('assert');
 const path = require('path');
-const it = require('../it');
 
 const fileContent = `
 //@ts-strict
@@ -19,11 +20,11 @@ const foo1: TestType | undefined = undefined;
 const boo1 = foo1.bar;
 `;
 
-function findResponse(responses, eventName) {
+function findResponse(responses: ServerResponse[], eventName: string) {
   return responses.filter((response) => response.event === eventName);
 }
 
-async function run(server) {
+async function run(server: TSServer) {
   const rootPath = path.resolve(__dirname, '../project-fixture/');
   const file = path.resolve(__dirname, '../project-fixture/' + 'src/notOnPath.ts');
   const otherFile = path.resolve(__dirname, '../project-fixture/' + 'src/otherFileNotOnPath.ts');
