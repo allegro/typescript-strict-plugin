@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "typescript-strict-plugin-compile": "typescript-strict-plugin-compile",
+    "ts-strict-plugin-compile": "ts-strict-plugin-compile",
     "build": "tsc",
     "doc": "echo nothing && exit 0"
   },
