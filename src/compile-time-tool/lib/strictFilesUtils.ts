@@ -1,6 +1,7 @@
 import { isAbsolute, resolve } from 'path';
 import fs from 'fs';
 import * as typescript from './typescript';
+import { PLUGIN_NAME, TS_STRICT_COMMENT } from '../../common/constants';
 
 const getAbsolutePath = (projectRootPath: string, filePath: string) => {
   if (isAbsolute(filePath)) return filePath;
@@ -18,7 +19,7 @@ export const getStrictFilePaths = async (): Promise<string[]> => {
   const tscConfig = JSON.parse(tscConfigRaw);
   const plugins = tscConfig?.compilerOptions?.plugins;
 
-  return plugins?.find((plugin: any) => plugin.name === 'typescript-strict-plugin')?.paths ?? [];
+  return plugins?.find((plugin: any) => plugin.name === PLUGIN_NAME)?.paths ?? [];
 };
 
 export const filterFilesWithStrictComment = (filesCheckedByTS: string[]) => {
@@ -31,7 +32,7 @@ export const filterFilesWithStrictComment = (filesCheckedByTS: string[]) => {
         .filter((char) => char !== '/')
         .join('')
         .trim()
-        .startsWith('@ts-strict'),
+        .startsWith(TS_STRICT_COMMENT),
     );
   });
 };

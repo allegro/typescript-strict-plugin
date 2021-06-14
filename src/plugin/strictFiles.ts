@@ -1,7 +1,6 @@
 import { Config, PluginInfo } from './utils';
 import path from 'path';
-
-const TS_STRICT_COMMENT = '@ts-strict';
+import { TS_STRICT_COMMENT } from '../common/constants';
 
 export class StrictFileChecker {
   private readonly currentDirectory: string;

@@ -1,6 +1,6 @@
 {
   "name": "typescript-strict-plugin",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Typescript plugin that allows turning on strict mode in specific files or directories.",
   "author": "Allegro",
   "contributors": [
@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "bin": {
-    "typescript-strict-plugin-compile": "dist/compile-time-tool/cli.js"
+    "ts-strict-plugin-compile": "dist/compile-time-tool/cli.js"
   },
   "main": "dist/plugin/index.js",
   "private": false,

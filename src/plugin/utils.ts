@@ -1,5 +1,6 @@
 import { CompilerOptions } from 'typescript';
 import * as ts_module from 'typescript/lib/tsserverlibrary';
+import { PLUGIN_NAME } from '../common/constants';
 
 export interface Config {
   paths?: string[];
@@ -33,5 +34,5 @@ export function setupProxy(info: PluginInfo) {
 }
 
 export function log(info: PluginInfo, message: string) {
-  info.project.projectService.logger.info('[typescript-strict-plugin]: ' + message);
+  info.project.projectService.logger.info(`[${PLUGIN_NAME}]: ` + message);
 }
