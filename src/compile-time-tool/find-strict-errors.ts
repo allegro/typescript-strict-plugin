@@ -1,3 +1,4 @@
+import ora from 'ora';
 import { findStrictFiles } from './lib/strictFiles';
 import { compile } from './lib/compile';
 
@@ -14,7 +15,7 @@ export interface Result {
 export const findStrictErrors = async (args: Args): Promise<Result> => {
   const { onFoundChangedFiles, onCheckFile } = args;
 
-  const strictFilePaths = await findStrictFiles();
+  const strictFilePaths = await waitWithSpinner(findStrictFiles, 'Looking for strict files...');
 
   onFoundChangedFiles(strictFilePaths);
 
@@ -24,7 +25,7 @@ export const findStrictErrors = async (args: Args): Promise<Result> => {
     return { success: true, errors: 0 };
   }
 
-  const tscErrorMap = await compile();
+  const tscErrorMap = await waitWithSpinner(compile, 'Compiling with strict mode...');
 
   const errorCount = strictFilePaths.reduce<number>((currentErrorCount, fileName) => {
     const fileErrors = tscErrorMap.get(fileName) ?? [];
@@ -43,3 +44,11 @@ export const findStrictErrors = async (args: Args): Promise<Result> => {
     errors: errorCount,
   };
 };
+
+async function waitWithSpinner<T>(callback: () => Promise<T>, message: string): Promise<T> {
+  const spinner = ora(message).start();
+  const callbackResult = await callback();
+  spinner.stop();
+
+  return callbackResult;
+}

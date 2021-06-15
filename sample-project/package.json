@@ -13,7 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.3.2",
     "typescript-strict-plugin": "file:../../typescript-strict-plugin",
