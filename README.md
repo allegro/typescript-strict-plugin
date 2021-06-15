@@ -5,7 +5,7 @@ Typescript plugin that allows turning on strict mode in specific files or direct
 ## Do i need this plugin?
 This plugin was created for bigger repositories that want to incorporate typescript strict mode, but project is so big that refactoring everything would take ages. This plugin allows user to simply put `//@ts-strict` comment to a top of a file and turn a strict mode to that file. If needed, strict mode can be turned on to directories too.
 Plugins in general doesn't work in compile time. They will show errors in your IDE but they won't appear during compilation.
-To check strict errors in marked files you can use our script `ts-strict-plugin-compile`.
+To check strict errors in marked files you can use our script `tsc-strict`.
 This command line tool is created to check for files that should be checked with strict rules in compilation time.
 It finds all files with `//@ts-strict` comment and checks for strict typescript errors only for that files.
 Therefore, we have strict errors inside our files and during build time
@@ -63,14 +63,14 @@ To add cli tool to your build time you can add a script to scripts list in packa
 {
   "scripts": {
     ...,
-    "ts-strict-plugin-compile": "ts-strict-plugin-compile"
+    "tsc-strict": "tsc-strict"
   },
 }
 ```
 
 Then you can simply run 
 ```shell
-yarn ts-strict-plugin-compile
+yarn tsc-strict
 ```
 
 All your strict files should be checked from command line.

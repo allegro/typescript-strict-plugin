@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "bin": {
-    "ts-strict-plugin-compile": "dist/compile-time-tool/cli.js"
+    "tsc-strict": "dist/compile-time-tool/cli.js"
   },
   "main": "dist/plugin/index.js",
   "private": false,
