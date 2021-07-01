@@ -28,7 +28,7 @@
     "build": "tsc",
     "dev": "tsc --watch -p .",
     "e2e": "ts-node e2e/plugin-tests/run.ts && jest",
-    "e2e:coverage": "c8 -o e2e_coverage -x e2e -r html -i \\\\\\\"src/**/*\\\\\\\" node e2e/plugin-tests/run.ts"
+    "e2e:coverage": "c8 -o e2e_coverage -x e2e -r html -i \"src/**/*\" ts-node e2e/plugin-tests/run.ts"
   },
   "keywords": [
     "TypeScript Strict",
