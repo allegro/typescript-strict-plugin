@@ -6,13 +6,13 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "tsc-strict": "tsc-strict",
     "build": "tsc",
     "doc": "echo nothing && exit 0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.3.2",
     "typescript-strict-plugin": "file:../../typescript-strict-plugin",

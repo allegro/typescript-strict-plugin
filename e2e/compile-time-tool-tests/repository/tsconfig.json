@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "plugins": [
+      {
+        "name": "typescript-strict-plugin",
+        "paths": ["./lib"]
+      }
+    ]
+  }
+}

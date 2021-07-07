@@ -4,7 +4,12 @@ Typescript plugin that allows turning on strict mode in specific files or direct
 
 ## Do i need this plugin?
 This plugin was created for bigger repositories that want to incorporate typescript strict mode, but project is so big that refactoring everything would take ages. This plugin allows user to simply put `//@ts-strict` comment to a top of a file and turn a strict mode to that file. If needed, strict mode can be turned on to directories too.
-NOTE: this plugin doesn't work in compile time. It will show errors in your IDE but they won't appear during compilation.
+Plugins in general doesn't work in compile time. They will show errors in your IDE but they won't appear during compilation.
+To check strict errors in marked files you can use our script `tsc-strict`.
+This command line tool is created to check for files that should be checked with strict rules in compilation time.
+It finds all files with `//@ts-strict` comment and files specified in `paths` parameter and checks for strict typescript errors only for that files.
+Therefore, we have strict errors inside our files and during build time.
+
 
 ## How to install
 
@@ -33,7 +38,7 @@ and add plugin to your `tsconfig.json`:
 That's it! You should be able to use `@ts-strict` comment to strictly check your files.
 
 ## Configuration
-Plugin takes one extra non mandatory argument `paths` that is an array of relative or absolute paths of directories that should be included.
+Plugin takes one extra non-mandatory argument `paths` that is an array of relative or absolute paths of directories that should be included.
 ```json
 {
   "compilerOptions": {
@@ -51,7 +56,24 @@ Plugin takes one extra non mandatory argument `paths` that is an array of relati
   }
 }
 ```
-All files contained in those paths will be be strictly checked. Yay!
+All files contained in those paths will be strictly checked. Yay!
+
+To add cli tool to your build time you can add a script to scripts list in package.json
+```json
+{
+  "scripts": {
+    ...,
+    "typecheck": "tsc && tsc-strict",
+  },
+}
+```
+
+Then you can simply run 
+```shell
+yarn tsc-strict
+```
+
+All your strict files should be checked from command line.
 
 ## Examples
 Let's consider this type and a variable

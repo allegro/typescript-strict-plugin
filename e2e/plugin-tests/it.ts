@@ -1,11 +1,18 @@
+import { ServerResponse, TSServer } from './fixtures/lang-server';
+
 const assert = require('assert');
 const path = require('path');
 
-function findResponse(responses, eventName) {
+function findResponse(responses: ServerResponse[], eventName: string) {
   return responses.find((response) => response.event === eventName);
 }
 
-async function it(fileName, server, fileContent, assertionCallback) {
+async function it(
+  fileName: string,
+  server: TSServer,
+  fileContent: string,
+  assertionCallback: (args: any[]) => void,
+) {
   const file = path.resolve(__dirname, './project-fixture/' + fileName);
 
   server.send({ command: 'open', arguments: { file, fileContent, scriptKindName: 'TS' } });
@@ -19,7 +26,7 @@ async function it(fileName, server, fileContent, assertionCallback) {
   return server.close().then(() => {
     const semanticDiagEvent = findResponse(server.responses, 'semanticDiag');
     assert(!!semanticDiagEvent);
-    assertionCallback(semanticDiagEvent.body.diagnostics);
+    assertionCallback(semanticDiagEvent?.body.diagnostics);
   });
 }
 
