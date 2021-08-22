@@ -2,6 +2,7 @@ import { isAbsolute, resolve } from 'path';
 import fs from 'fs';
 import * as typescript from './typescript';
 import { PLUGIN_NAME, TS_STRICT_COMMENT } from '../../common/constants';
+import { getPosixFilePath } from '../../common/utils';
 
 const getAbsolutePath = (projectRootPath: string, filePath: string) => {
   if (isAbsolute(filePath)) return filePath;
@@ -11,7 +12,7 @@ const getAbsolutePath = (projectRootPath: string, filePath: string) => {
 export const isFileOnStrictPath = (currentFilePath: string, pathToStrictFiles: string) => {
   const absolutePathToStrictFiles = getAbsolutePath(process.cwd(), pathToStrictFiles);
 
-  return currentFilePath.startsWith(absolutePathToStrictFiles);
+  return getPosixFilePath(currentFilePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));
 };
 
 export const getStrictFilePaths = async (): Promise<string[]> => {

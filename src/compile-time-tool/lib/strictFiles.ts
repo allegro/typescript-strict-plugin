@@ -1,3 +1,4 @@
+import { getPosixFilePath } from '../../common/utils';
 import {
   filterFilesWithStrictComment,
   getStrictFilePaths,
@@ -10,12 +11,13 @@ const filterOutNodeModulesFiles = (files: string[]): string[] =>
 
 const getFilesCheckedByTs = async (): Promise<string[]> => {
   const filesCheckedByTs = await typescript.listFilesOnly();
+  const filePaths = filesCheckedByTs.split('\n').map(getPosixFilePath);
 
-  return filterOutNodeModulesFiles(filesCheckedByTs.split('\n'));
+  return filterOutNodeModulesFiles(filePaths);
 };
 
 export const findStrictFiles = async (): Promise<string[]> => {
-  const strictPaths = await getStrictFilePaths();
+  const strictPaths = (await getStrictFilePaths()).map(getPosixFilePath);
   const filesCheckedByTS = await getFilesCheckedByTs();
 
   const filesWithTsStrictComment = filterFilesWithStrictComment(filesCheckedByTS);
