@@ -11,7 +11,7 @@ const filterOutNodeModulesFiles = (files: string[]): string[] =>
 
 const getFilesCheckedByTs = async (): Promise<string[]> => {
   const filesCheckedByTs = await typescript.listFilesOnly();
-  const filePaths = filesCheckedByTs.split('\n').map(getPosixFilePath);
+  const filePaths = filesCheckedByTs.split(/\r?\n/).map(getPosixFilePath);
 
   return filterOutNodeModulesFiles(filePaths);
 };
