@@ -25,10 +25,13 @@ function findResponse(responses: ServerResponse[], eventName: string) {
 }
 
 async function run(server: TSServer) {
-  const projectFixture =toFileSystemSlash('../project-fixture/');
+  const projectFixture = path.join('..', 'project-fixture');
   const rootPath = path.resolve(__dirname, projectFixture);
-  const file = path.resolve(__dirname, projectFixture + toFileSystemSlash('src/notOnPath.ts'));
-  const otherFile = path.resolve(__dirname, projectFixture + toFileSystemSlash('src/otherFileNotOnPath.ts'));
+  const file = path.resolve(__dirname, path.join(projectFixture, 'src', 'notOnPath.ts'));
+  const otherFile = path.resolve(
+    __dirname,
+    path.join(projectFixture, 'src', 'otherFileNotOnPath.ts'),
+  );
 
   // open two files
   server.send({
@@ -64,7 +67,9 @@ async function run(server: TSServer) {
   return server.close().then(() => {
     const semanticDiagEvent = findResponse(server.responses, 'semanticDiag');
     const fileEvent = semanticDiagEvent.filter((it) => toFileSystemSlash(it.body.file) === file)[0];
-    const otherFileEvent = semanticDiagEvent.filter((it) => toFileSystemSlash(it.body.file) === otherFile)[0];
+    const otherFileEvent = semanticDiagEvent.filter(
+      (it) => toFileSystemSlash(it.body.file) === otherFile,
+    )[0];
 
     assert(!!fileEvent);
     assert(!!otherFileEvent);
@@ -76,5 +81,5 @@ async function run(server: TSServer) {
 module.exports = run;
 
 function toFileSystemSlash(file: string): string {
-  return file.split('/').join(path.sep)
+  return file.split('/').join(path.sep);
 }

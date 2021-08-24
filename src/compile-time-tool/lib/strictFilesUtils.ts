@@ -4,6 +4,8 @@ import * as typescript from './typescript';
 import { PLUGIN_NAME, TS_STRICT_COMMENT } from '../../common/constants';
 import { getPosixFilePath } from '../../common/utils';
 
+const COMMENT_START = '//';
+
 const getAbsolutePath = (projectRootPath: string, filePath: string) => {
   if (isAbsolute(filePath)) return filePath;
   return resolve(projectRootPath, filePath);
@@ -26,7 +28,7 @@ export const getStrictFilePaths = async (): Promise<string[]> => {
 export const filterFilesWithStrictComment = (filesCheckedByTS: string[]) => {
   return filesCheckedByTS.filter((fileName) => {
     const allLines = fs.readFileSync(fileName).toString().split('\n');
-    const comments = allLines.filter((line) => line.startsWith('//'));
+    const comments = allLines.filter((line) => line.startsWith(COMMENT_START));
 
     return comments.some((comment) =>
       Array.from(comment)
