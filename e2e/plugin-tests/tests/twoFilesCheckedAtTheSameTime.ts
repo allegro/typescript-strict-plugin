@@ -66,15 +66,16 @@ async function run(server: TSServer) {
 
   return server.close().then(() => {
     const semanticDiagEvent = findResponse(server.responses, 'semanticDiag');
-    const fileEvent = semanticDiagEvent.filter((it) => toFileSystemSlash(it.body.file) === file)[0];
-    const otherFileEvent = semanticDiagEvent.filter(
+    const fileEvent = semanticDiagEvent.find((it) => toFileSystemSlash(it.body.file) === file);
+    const otherFileEvent = semanticDiagEvent.find(
       (it) => toFileSystemSlash(it.body.file) === otherFile,
-    )[0];
+    );
 
     assert(!!fileEvent);
     assert(!!otherFileEvent);
-    assert.strictEqual(fileEvent.body.diagnostics.length, 1);
-    assert.strictEqual(otherFileEvent.body.diagnostics.length, 0);
+
+    assert.strictEqual(fileEvent!.body.diagnostics.length, 1);
+    assert.strictEqual(otherFileEvent!.body.diagnostics.length, 0);
   });
 }
 
