@@ -44,7 +44,7 @@ export const compile = async (): Promise<Map<string, string[]>> => {
     await typescript.compile();
   } catch (error) {
     const { all } = error;
-    tscOutput = (all as string).split('\n');
+    tscOutput = (all as string).split(/\r?\n/);
   }
 
   return getPathToErrorsMap(tscOutput);
