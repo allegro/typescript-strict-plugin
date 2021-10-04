@@ -7,12 +7,17 @@
     "Jaroslaw Glegola <jaroslaw.glegola@allegro.pl>",
     "Kamil Krysiak <kamil.krysiak@allegro.pl>"
   ],
+  "keywords": [
+    "TypeScript Strict",
+    "TypeScript plugin",
+    "TypeScript Language Service"
+  ],
   "bugs": {
     "url": "https://github.com/allegro/typescript-strict-plugin/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/allegro/typescript-strict-plugin.git"
+    "url": "git+https://github.com/allegro/typescript-strict-plugin.git"
   },
   "license": "MIT",
   "bin": {
@@ -24,17 +29,13 @@
     "dist"
   ],
   "scripts": {
-    "test": "npm run e2e",
+    "test": "jest",
     "build": "tsc",
-    "dev": "tsc --watch -p .",
-    "e2e": "ts-node e2e/plugin-tests/run.ts && jest",
-    "e2e:coverage": "c8 -o e2e_coverage -x e2e -r html -i \\\\\\\"src/**/*\\\\\\\" node e2e/plugin-tests/run.ts"
+    "dev": "tsc --watch -p ."
   },
-  "keywords": [
-    "TypeScript Strict",
-    "TypeScript plugin",
-    "TypeScript Language Service"
-  ],
+  "jest": {
+    "preset": "ts-jest"
+  },
   "dependencies": {
     "chalk": "^3.0.0",
     "execa": "^4.0.0",
@@ -49,19 +50,20 @@
     "@types/ora": "^3.2.0",
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
-    "c8": "^7.6.0",
-    "glob": "^7.1.6",
-    "lint-staged": "^10.5.4",
     "eslint": "7.28.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
+    "glob": "^7.1.6",
     "husky": "4.2.3",
-    "jest": "25.1.0",
+    "jest": "27.2.3",
+    "lint-staged": "^10.5.4",
     "prettier": "2.3.1",
     "pretty-quick": "3.1.0",
     "tmp-promise": "2.0.2",
+    "ts-jest": "^27.0.5",
     "ts-node": "10.0.0",
-    "typescript": "4.1.3"
+    "typescript": "4.1.3",
+    "which-module": "^2.0.0"
   },
   "lint-staged": {
     "*.(js|ts)": [
@@ -73,5 +75,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "homepage": "https://github.com/allegro/typescript-strict-plugin#readme"
 }

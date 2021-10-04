@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const runInPath = async (path: string): Promise<string> => {
   const cwd = process.cwd();
-  const cli = join(cwd, 'dist/compile-time-tool/cli.js');
+  const cli = join(cwd, 'dist/cli/cli.js');
 
   process.chdir(path);
   return execa('node', [cli], {
@@ -21,15 +21,21 @@ const runInPath = async (path: string): Promise<string> => {
     .finally(() => process.chdir(cwd));
 };
 
-test('files are detected correctly', async () => {
+beforeEach(() => {
   jest.setTimeout(20000);
-  const path = process.cwd() + '/e2e/compile-time-tool-tests/repository';
+});
 
-  await runInPath(path).then((stdout) => {
-    expect(stdout).toMatch(/notOnPath.ts/);
-    expect(stdout).toMatch(/onPath.ts/);
-    expect(stdout).toMatch(/TS2532: Object is possibly 'undefined'/);
-    expect(stdout).toMatch(/Found 2 strict files/);
-    expect(stdout).toMatch(/2 errors found/);
-  });
+it('files are detected correctly', async () => {
+  // given
+  const path = process.cwd() + '/test/cli/repository';
+
+  // when
+  const stdout = await runInPath(path);
+
+  // then
+  expect(stdout).toMatch(/notOnPath.ts/);
+  expect(stdout).toMatch(/onPath.ts/);
+  expect(stdout).toMatch(/TS2532: Object is possibly 'undefined'/);
+  expect(stdout).toMatch(/Found 2 strict files/);
+  expect(stdout).toMatch(/2 errors found/);
 });
