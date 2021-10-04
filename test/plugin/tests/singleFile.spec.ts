@@ -3,6 +3,8 @@ import {
   FILE_CONTENT_WITHOUT_STRICT,
   NULL_ERROR_MESSAGE,
   FILE_CONTENT_WITH_STRICT,
+  FILE_CONTENT_WITH_IGNORE,
+  FILE_CONTENT_WITH_STRICT_AND_IGNORE,
 } from '../fileContents';
 
 describe('single file diagnostics', () => {
@@ -43,5 +45,24 @@ describe('single file diagnostics', () => {
     // then
     expect(diagnostics).toHaveLength(1);
     expect(diagnostics[0].text).toBe(NULL_ERROR_MESSAGE);
+  });
+
+  it('should not enable strict mode when file contains both strict and strict-ignore comments', async () => {
+    // when
+    const diagnostics = await getDiagnostics(
+      FILE_CONTENT_WITH_STRICT_AND_IGNORE,
+      'src/notOnPath.ts',
+    );
+
+    // then
+    expect(diagnostics).toHaveLength(0);
+  });
+
+  it('should not enable strict mode when file is on path and contains strict-ignore comments', async () => {
+    // when
+    const diagnostics = await getDiagnostics(FILE_CONTENT_WITH_STRICT_AND_IGNORE, 'lib/onPath.ts');
+
+    // then
+    expect(diagnostics).toHaveLength(0);
   });
 });

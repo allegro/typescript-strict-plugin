@@ -1,6 +1,6 @@
 import { Config, PluginInfo } from './utils';
 import path from 'path';
-import { TS_STRICT_COMMENT } from '../common/constants';
+import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../common/constants';
 import { getPosixFilePath } from '../common/utils';
 
 export class StrictFileChecker {
@@ -13,7 +13,11 @@ export class StrictFileChecker {
   public isFileStrict(filePath: string): boolean {
     const { paths: pathsToTurnOnStrictMode = [] } = this.info.config as Config;
 
-    if (this.isTsStrictCommentPresent(filePath)) {
+    if (this.isTsCommentPresent(TS_STRICT_IGNORE_COMMENT, filePath)) {
+      return false;
+    }
+
+    if (this.isTsCommentPresent(TS_STRICT_COMMENT, filePath)) {
       return true;
     }
 
@@ -28,9 +32,9 @@ export class StrictFileChecker {
     );
   }
 
-  private isTsStrictCommentPresent(fileName: string): boolean {
+  private isTsCommentPresent(comment: string, fileName: string): boolean {
     const tsStrictComments = this.info.languageService.getTodoComments(fileName, [
-      { text: TS_STRICT_COMMENT, priority: 0 },
+      { text: comment, priority: 0 },
     ]);
 
     return tsStrictComments.length > 0;

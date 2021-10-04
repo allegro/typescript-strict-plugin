@@ -29,9 +29,8 @@ it('files are detected correctly', async () => {
   const stdout = await runInPath(path);
 
   // then
-  expect(stdout).toMatch(/notOnPath.ts/);
   expect(stdout).toMatch(/onPath.ts/);
-  expect(stdout).toMatch(/TS2532: Object is possibly 'undefined'/);
+  expect(stdout).toMatch(/TS2322: Type 'null' is not assignable to type 'string'/);
   expect(stdout).toMatch(/Found 2 strict files/);
   expect(stdout).toMatch(/2 errors found/);
 });

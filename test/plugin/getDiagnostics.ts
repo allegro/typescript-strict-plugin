@@ -1,5 +1,5 @@
 import { ServerResponse, TSServer } from './fixtures/lang-server';
-import path from 'path';
+import { resolve } from 'path';
 
 function findResponse(responses: ServerResponse[], eventName: string) {
   return responses.find((response) => response.event === eventName);
@@ -8,7 +8,7 @@ function findResponse(responses: ServerResponse[], eventName: string) {
 export async function getDiagnostics(fileContent: string, fileName = 'src/notOnPath.ts') {
   const server = new TSServer();
 
-  const file = path.resolve(__dirname, 'project-fixture', fileName);
+  const file = resolve(__dirname, 'project-fixture', fileName);
 
   server.send({ command: 'open', arguments: { file, fileContent, scriptKindName: 'TS' } });
 

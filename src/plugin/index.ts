@@ -1,4 +1,4 @@
-import { StrictFileChecker } from './strictFiles';
+import { StrictFileChecker } from './StrictFileChecker';
 import { log, PluginInfo, setupProxy, turnOffStrictMode, turnOnStrictMode } from './utils';
 
 const init: ts.server.PluginModuleFactory = () => {

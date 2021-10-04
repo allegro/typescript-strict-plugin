@@ -1,7 +1,7 @@
 import { isAbsolute, resolve } from 'path';
 import fs from 'fs';
 import * as typescript from './typescript';
-import { PLUGIN_NAME, TS_STRICT_COMMENT } from '../../common/constants';
+import { PLUGIN_NAME, TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../../common/constants';
 import { getPosixFilePath } from '../../common/utils';
 
 const COMMENT_START = '//';
@@ -25,7 +25,7 @@ export const getStrictFilePaths = async (): Promise<string[]> => {
   return plugins?.find((plugin: any) => plugin.name === PLUGIN_NAME)?.paths ?? [];
 };
 
-export const filterFilesWithStrictComment = (filesCheckedByTS: string[]) => {
+export const filterFilesWithComment = (text: string, filesCheckedByTS: string[]) => {
   return filesCheckedByTS.filter((fileName) => {
     const allLines = fs.readFileSync(fileName).toString().split('\n');
     const comments = allLines.filter((line) => line.startsWith(COMMENT_START));
@@ -35,7 +35,8 @@ export const filterFilesWithStrictComment = (filesCheckedByTS: string[]) => {
         .filter((char) => char !== '/')
         .join('')
         .trim()
-        .startsWith(TS_STRICT_COMMENT),
+        .split(' ')
+        .includes(text),
     );
   });
 };

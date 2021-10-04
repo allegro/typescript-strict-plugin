@@ -1,7 +1,3 @@
-interface TestType {
-  bar: string;
-}
+const text: string = null;
 
-const foo: TestType | undefined = undefined;
-
-const boo = foo.bar;
+export {};
