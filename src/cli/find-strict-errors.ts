@@ -1,6 +1,7 @@
 import ora from 'ora';
 import { findStrictFiles } from './lib/strictFiles';
 import { compile } from './lib/compile';
+import path from 'path';
 
 export interface Args {
   onFoundChangedFiles: (changedFiles: string[]) => void;
@@ -20,15 +21,13 @@ export const findStrictErrors = async (args: Args): Promise<Result> => {
   onFoundChangedFiles(strictFilePaths);
 
   if (strictFilePaths.length === 0) {
-    console.log('No strict files were found');
-
     return { success: true, errors: 0 };
   }
 
   const tscErrorMap = await waitWithSpinner(compile, 'Compiling with strict mode...');
 
   const errorCount = strictFilePaths.reduce<number>((currentErrorCount, fileName) => {
-    const fileErrors = tscErrorMap.get(fileName) ?? [];
+    const fileErrors = tscErrorMap.get(path.resolve(fileName)) ?? [];
     const errorCount = fileErrors.length;
     const hasErrors = errorCount > 0;
 

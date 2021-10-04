@@ -1,6 +1,7 @@
 import { Config, PluginInfo } from './utils';
 import path from 'path';
 import { TS_STRICT_COMMENT } from '../common/constants';
+import { getPosixFilePath } from '../common/utils';
 
 export class StrictFileChecker {
   private readonly currentDirectory: string;
@@ -22,7 +23,9 @@ export class StrictFileChecker {
   private isFileOnPath(currentFilePath: string, pathToStrictFiles: string) {
     const absolutePathToStrictFiles = getAbsolutePath(this.currentDirectory, pathToStrictFiles);
 
-    return currentFilePath.startsWith(absolutePathToStrictFiles);
+    return getPosixFilePath(currentFilePath).startsWith(
+      getPosixFilePath(absolutePathToStrictFiles),
+    );
   }
 
   private isTsStrictCommentPresent(fileName: string): boolean {

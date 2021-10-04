@@ -7,8 +7,8 @@ This plugin was created for bigger repositories that want to incorporate typescr
 Plugins in general doesn't work in compile time. They will show errors in your IDE but they won't appear during compilation.
 To check strict errors in marked files you can use our script `tsc-strict`.
 This command line tool is created to check for files that should be checked with strict rules in compilation time.
-It finds all files with `//@ts-strict` comment and checks for strict typescript errors only for that files.
-Therefore, we have strict errors inside our files and during build time
+It finds all files with `//@ts-strict` comment and files specified in `paths` parameter and checks for strict typescript errors only for that files.
+Therefore, we have strict errors inside our files and during build time.
 
 
 ## How to install
@@ -63,7 +63,7 @@ To add cli tool to your build time you can add a script to scripts list in packa
 {
   "scripts": {
     ...,
-    "tsc-strict": "tsc-strict"
+    "typecheck": "tsc && tsc-strict",
   },
 }
 ```
