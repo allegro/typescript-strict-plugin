@@ -34,7 +34,8 @@
     "dev": "tsc --watch -p ."
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "testTimeout": 10000
   },
   "dependencies": {
     "chalk": "^3.0.0",

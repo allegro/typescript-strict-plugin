@@ -21,10 +21,6 @@ const runInPath = async (path: string): Promise<string> => {
     .finally(() => process.chdir(cwd));
 };
 
-beforeEach(() => {
-  jest.setTimeout(20000);
-});
-
 it('files are detected correctly', async () => {
   // given
   const path = process.cwd() + '/test/cli/repository';
