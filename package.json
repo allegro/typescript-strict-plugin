@@ -40,7 +40,8 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "execa": "^4.0.0",
-    "ora": "^5.4.1"
+    "ora": "^5.4.1",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
