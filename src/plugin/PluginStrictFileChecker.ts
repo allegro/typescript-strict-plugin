@@ -1,27 +1,25 @@
-import { Config, PluginInfo } from './utils';
+import { PluginInfo } from './utils';
 import path from 'path';
-import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../common/constants';
 import { getPosixFilePath } from '../common/utils';
+import { Config, StrictFileChecker } from '../common/types';
+import { isFileStrict } from '../common/isFileStrict';
 
-export class StrictFileChecker {
+export class PluginStrictFileChecker implements StrictFileChecker {
   private readonly currentDirectory: string;
+  private readonly config: Config;
 
   public constructor(private readonly info: PluginInfo) {
     this.currentDirectory = info.project.getCurrentDirectory();
+    this.config = info.config as Config;
   }
 
   public isFileStrict(filePath: string): boolean {
-    const { paths: pathsToTurnOnStrictMode = [] } = this.info.config as Config;
-
-    if (this.isTsCommentPresent(TS_STRICT_IGNORE_COMMENT, filePath)) {
-      return false;
-    }
-
-    if (this.isTsCommentPresent(TS_STRICT_COMMENT, filePath)) {
-      return true;
-    }
-
-    return pathsToTurnOnStrictMode.some((strictPath) => this.isFileOnPath(filePath, strictPath));
+    return isFileStrict({
+      filePath,
+      config: this.config,
+      isFileOnPath: this.isFileOnPath.bind(this),
+      isCommentPresent: this.isCommentPresent.bind(this),
+    });
   }
 
   private isFileOnPath(currentFilePath: string, pathToStrictFiles: string) {
@@ -32,7 +30,7 @@ export class StrictFileChecker {
     );
   }
 
-  private isTsCommentPresent(comment: string, fileName: string): boolean {
+  private isCommentPresent(comment: string, fileName: string): boolean {
     const tsStrictComments = this.info.languageService.getTodoComments(fileName, [
       { text: comment, priority: 0 },
     ]);

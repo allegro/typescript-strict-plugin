@@ -1,4 +1,2 @@
 // @ts-strict-ignore
-const text: string = null;
-
-export {};
+export const text: string = null;

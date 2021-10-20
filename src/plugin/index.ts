@@ -1,4 +1,4 @@
-import { StrictFileChecker } from './StrictFileChecker';
+import { PluginStrictFileChecker } from './PluginStrictFileChecker';
 import { log, PluginInfo, setupProxy, turnOffStrictMode, turnOnStrictMode } from './utils';
 
 const init: ts.server.PluginModuleFactory = () => {
@@ -7,7 +7,7 @@ const init: ts.server.PluginModuleFactory = () => {
     log(info, 'Plugin initialized');
 
     proxy.getSemanticDiagnostics = function (fileName) {
-      const strictFile = new StrictFileChecker(info).isFileStrict(fileName);
+      const strictFile = new PluginStrictFileChecker(info).isFileStrict(fileName);
 
       if (strictFile) {
         turnOnStrictMode(info, info.project.getCompilerOptions());
