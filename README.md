@@ -163,7 +163,7 @@ npm run dev
 and restart typescript service inside `sample-project`. Files in `sample-project` folder should use a local plugin.
 After you made changes to a plugin you should probably restart typescript service in order to reload the plugin.
 
-### tests
+### Tests
 In order to run tests run 
 
 ```bash
