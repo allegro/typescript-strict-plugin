@@ -19,4 +19,7 @@ export const showConfig = async (): Promise<string> => {
 };
 
 export const compile = () =>
-  execa('tsc', ['--strict', '--noEmit'], { all: true, preferLocal: true });
+  execa('tsc', ['--strict', '--noEmit', ...process.argv.slice(2)], {
+    all: true,
+    preferLocal: true,
+  });
