@@ -23,7 +23,9 @@ export class StrictFileChecker {
   private isFileOnPath(currentFilePath: string, pathToStrictFiles: string) {
     const absolutePathToStrictFiles = getAbsolutePath(this.currentDirectory, pathToStrictFiles);
 
-    return getPosixFilePath(currentFilePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));
+    return getPosixFilePath(currentFilePath).startsWith(
+      getPosixFilePath(absolutePathToStrictFiles),
+    );
   }
 
   private isTsStrictCommentPresent(fileName: string): boolean {

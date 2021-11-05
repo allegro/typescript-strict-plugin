@@ -9,6 +9,6 @@
   },
   "exclude": [
     "./sample-project",
-    "./e2e"
+    "./test"
   ]
 }

@@ -1,4 +1,3 @@
-
 import path from 'path';
 
 export function getPosixFilePath(filePath: string) {

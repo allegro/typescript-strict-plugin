@@ -163,11 +163,11 @@ npm run dev
 and restart typescript service inside `sample-project`. Files in `sample-project` folder should use a local plugin.
 After you made changes to a plugin you should probably restart typescript service in order to reload the plugin.
 
-### E2E tests
-In order to run e2e tests run 
+### Tests
+In order to run tests run 
 
 ```bash
-npm run build && npm run e2e
+npm run test
 ```
 
 ## Contributing

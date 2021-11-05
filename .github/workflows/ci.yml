@@ -18,4 +18,4 @@ jobs:
           node-version: '14.x'
       - run: npm i
       - run: npm run build
-      - run: npm run e2e
+      - run: npm run test

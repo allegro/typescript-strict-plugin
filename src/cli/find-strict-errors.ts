@@ -1,7 +1,7 @@
 import ora from 'ora';
 import { findStrictFiles } from './lib/strictFiles';
 import { compile } from './lib/compile';
-import path from 'path'
+import path from 'path';
 
 export interface Args {
   onFoundChangedFiles: (changedFiles: string[]) => void;

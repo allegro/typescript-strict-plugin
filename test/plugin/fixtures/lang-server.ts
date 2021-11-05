@@ -1,7 +1,7 @@
 /* implementation taken from https://github.com/Quramy/ts-graphql-plugin/blob/master/e2e/fixtures/lang-server.js */
-const { fork } = require('child_process');
-const path = require('path');
-const { EventEmitter } = require('events');
+import { ChildProcess, fork } from 'child_process';
+import { EventEmitter } from 'events';
+import { join } from 'path';
 
 export interface ServerResponse {
   command: string;
@@ -24,7 +24,7 @@ export class TSServer {
   private _responseCommandEmitter: NodeJS.EventEmitter;
   private _exitPromise: Promise<string>;
   private _isClosed: boolean;
-  private _server: any;
+  private _server: ChildProcess;
   private _seq: number;
 
   constructor() {
@@ -35,15 +35,15 @@ export class TSServer {
     // to create ts log from tests
     // process.env['TSS_LOG'] = '-logToFile true -file /path/typescript-strict-plugin/log1.txt -level verbose';
     const server = fork(tsserverPath, {
-      cwd: path.join(__dirname, '../project-fixture/src'),
+      cwd: join(__dirname, '../project-fixture/src'),
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
     });
     this._exitPromise = new Promise((resolve, reject) => {
       server.on('exit', (code: string) => resolve(code));
       server.on('error', (reason: string) => reject(reason));
     });
-    server.stdout.setEncoding('utf-8');
-    server.stdout.on('data', (data: string) => {
+    server.stdout?.setEncoding('utf-8');
+    server.stdout?.on('data', (data: string) => {
       const [, , res] = data.split('\n');
       const obj = JSON.parse(res) as ServerResponse;
       if (obj.type === 'event') {
@@ -62,13 +62,13 @@ export class TSServer {
   send(command: ServerRequest) {
     const seq = ++this._seq;
     const req = JSON.stringify(Object.assign({ seq: seq, type: 'request' }, command)) + '\n';
-    this._server.stdin.write(req);
+    this._server.stdin?.write(req);
   }
 
   close() {
     if (!this._isClosed) {
       this._isClosed = true;
-      this._server.stdin.end();
+      this._server.stdin?.end();
     }
     return this._exitPromise;
   }
@@ -77,9 +77,3 @@ export class TSServer {
     return new Promise((res) => this._responseEventEmitter.once(eventName, () => res(undefined)));
   }
 }
-
-function createServer() {
-  return new TSServer();
-}
-
-module.exports = { createServer };
