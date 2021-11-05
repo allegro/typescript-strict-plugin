@@ -22,7 +22,6 @@ const runInPath = async (path: string): Promise<string> => {
 };
 
 it('files are detected correctly', async () => {
-  jest.setTimeout(20000); // this test can run up to 20 seconds
   // given
   const path = process.cwd() + '/test/cli/repository';
 
@@ -35,4 +34,4 @@ it('files are detected correctly', async () => {
   expect(stdout).toMatch(/TS2532: Object is possibly 'undefined'/);
   expect(stdout).toMatch(/Found 2 strict files/);
   expect(stdout).toMatch(/2 errors found/);
-});
+}, 30000);
