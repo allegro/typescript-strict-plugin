@@ -75,6 +75,13 @@ yarn tsc-strict
 
 All your strict files should be checked from command line.
 
+You can also pass some `tsc` arguments to the `tsc-strict` to override default compiler options e.g.
+```shell
+yarn tsc-strict --strictNullChecks false
+```
+would not check for the strict null check in your files. The `tsc-strict` accepts all the arguments that regular `tsc` command
+accepts.
+
 ## Examples
 Let's consider this type and a variable
 ```typescript
