@@ -22,6 +22,7 @@ const runInPath = async (path: string): Promise<string> => {
 };
 
 it('files are detected correctly', async () => {
+  jest.setTimeout(20000); // this test can run up to 20 seconds
   // given
   const path = process.cwd() + '/test/cli/repository';
 
