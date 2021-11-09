@@ -47,5 +47,10 @@ export const compile = async (): Promise<Map<string, string[]>> => {
     tscOutput = (all as string).split(/\r?\n/);
   }
 
+  if (tscOutput.some((it) => it.startsWith('error'))) {
+    console.log(`💥 Typescript did not compile due to some errors. Errors: `, tscOutput);
+    process.exit(1);
+  }
+
   return getPathToErrorsMap(tscOutput);
 };
