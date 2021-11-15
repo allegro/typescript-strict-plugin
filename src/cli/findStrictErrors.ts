@@ -2,10 +2,10 @@ import ora from 'ora';
 import { findStrictFiles } from './lib/strictFiles';
 import { compile } from './lib/compile';
 import path from 'path';
-import { insertIgnoreComment } from './insert-ignore-comment';
+import { updateFileStrictComments } from './updateFileStrictComments';
 
 export interface Args {
-  insertIgnoreComment: boolean | undefined;
+  updateCommentsFlag: boolean | undefined;
   onFoundChangedFiles: (changedFiles: string[]) => void;
   onCheckFile: (file: string, hasErrors: boolean) => void;
 }
@@ -39,8 +39,8 @@ export const findStrictErrors = async (args: Args): Promise<Result> => {
       console.log(fileErrors.join('\n'));
     }
 
-    if (hasErrors && args.insertIgnoreComment) {
-      insertIgnoreComment(fileName);
+    if (args.updateCommentsFlag) {
+      updateFileStrictComments(fileName);
     }
 
     return currentErrorCount + errorCount;

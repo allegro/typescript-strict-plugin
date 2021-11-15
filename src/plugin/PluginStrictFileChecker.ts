@@ -1,10 +1,10 @@
 import { PluginInfo } from './utils';
-import path from 'path';
 import { getPosixFilePath } from '../common/utils';
-import { Config, StrictFileChecker } from '../common/types';
+import { Config } from '../common/types';
 import { isFileStrict } from '../common/isFileStrict';
+import path from 'path';
 
-export class PluginStrictFileChecker implements StrictFileChecker {
+export class PluginStrictFileChecker {
   private readonly currentDirectory: string;
   private readonly config: Config;
 
@@ -17,26 +17,26 @@ export class PluginStrictFileChecker implements StrictFileChecker {
     return isFileStrict({
       filePath,
       config: this.config,
-      isFileOnPath: this.isFileOnPath.bind(this),
-      isCommentPresent: this.isCommentPresent.bind(this),
+      isFileOnPath: this.isFileOnPath,
+      isCommentPresent: this.isCommentPresent,
     });
   }
 
-  private isFileOnPath(currentFilePath: string, pathToStrictFiles: string) {
+  private isFileOnPath = (currentFilePath: string, pathToStrictFiles: string) => {
     const absolutePathToStrictFiles = getAbsolutePath(this.currentDirectory, pathToStrictFiles);
 
     return getPosixFilePath(currentFilePath).startsWith(
       getPosixFilePath(absolutePathToStrictFiles),
     );
-  }
+  };
 
-  private isCommentPresent(comment: string, fileName: string): boolean {
+  private isCommentPresent = (comment: string, fileName: string): boolean => {
     const tsStrictComments = this.info.languageService.getTodoComments(fileName, [
       { text: comment, priority: 0 },
     ]);
 
     return tsStrictComments.length > 0;
-  }
+  };
 }
 
 function getAbsolutePath(projectRootPath: string, filePath: string) {

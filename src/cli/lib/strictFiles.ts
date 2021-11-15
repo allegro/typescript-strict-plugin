@@ -16,8 +16,9 @@ export const findStrictFiles = async (): Promise<string[]> => {
   const filesCheckedByTS = await getFilesCheckedByTs();
 
   const cliStrictFileChecker = new CliStrictFileChecker();
+  const pluginConfig = await cliStrictFileChecker.getPluginConfig();
 
-  return filesCheckedByTS.filter(
-    async (filePath) => await cliStrictFileChecker.isFileStrict(filePath),
+  return filesCheckedByTS.filter((filePath) =>
+    cliStrictFileChecker.isFileStrict(filePath, pluginConfig),
   );
 };

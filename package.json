@@ -35,7 +35,8 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testTimeout": 10000
+    "testTimeout": 10000,
+    "watchPathIgnorePatterns": ["test/cli/repository"]
   },
   "dependencies": {
     "chalk": "^3.0.0",

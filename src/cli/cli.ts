@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 import chalk from 'chalk';
-import { findStrictErrors } from './find-strict-errors';
+import { findStrictErrors } from './findStrictErrors';
 import yargs from 'yargs';
 
 yargs(process.argv.slice(2)).command(
   '$0',
   "Check for strict files' errors",
   (addYarg) => {
-    return addYarg.option('init', {
+    return addYarg.option('updateComments', {
       type: 'boolean',
       description: 'Adds @ts-strict-ignore comment to files that have at least one strict error',
     });
   },
   async (args) => {
     const result = await findStrictErrors({
-      insertIgnoreComment: args.init,
+      updateCommentsFlag: args.updateComments,
       onFoundChangedFiles: (strictFiles) => {
         console.log(`🎯  Found ${chalk.bold(String(strictFiles.length))} strict files`);
       },

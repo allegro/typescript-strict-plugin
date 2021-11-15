@@ -5,7 +5,8 @@
     "lib": ["es2018"],
     "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "./sample-project",
