@@ -1,5 +1,5 @@
 import ora from 'ora';
-import { findStrictFiles } from './lib/strictFiles';
+import { findStrictFiles } from './lib/findStrictFiles';
 import { compile } from './lib/compile';
 import path from 'path';
 import { updateFileStrictComments } from './updateFileStrictComments';
@@ -15,7 +15,7 @@ export interface Result {
   errors: number;
 }
 
-export const findStrictErrors = async (args: Args): Promise<Result> => {
+export async function findStrictErrors(args: Args): Promise<Result> {
   const { onFoundChangedFiles, onCheckFile } = args;
 
   const strictFilePaths = await waitWithSpinner(findStrictFiles, 'Looking for strict files...');
@@ -50,7 +50,7 @@ export const findStrictErrors = async (args: Args): Promise<Result> => {
     success: errorCount === 0,
     errors: errorCount,
   };
-};
+}
 
 async function waitWithSpinner<T>(callback: () => Promise<T>, message: string): Promise<T> {
   const spinner = ora(message).start();

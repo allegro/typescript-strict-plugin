@@ -2,17 +2,7 @@ import { getPosixFilePath } from '../../common/utils';
 import * as typescript from './typescript';
 import { CliStrictFileChecker } from './CliStrictFileChecker';
 
-const filterOutNodeModulesFiles = (files: string[]): string[] =>
-  files.filter((fileName) => !fileName.includes('/node_modules/'));
-
-const getFilesCheckedByTs = async (): Promise<string[]> => {
-  const filesCheckedByTs = await typescript.listFilesOnly();
-  const filePaths = filesCheckedByTs.split(/\r?\n/).map(getPosixFilePath);
-
-  return filterOutNodeModulesFiles(filePaths);
-};
-
-export const findStrictFiles = async (): Promise<string[]> => {
+export async function findStrictFiles(): Promise<string[]> {
   const filesCheckedByTS = await getFilesCheckedByTs();
 
   const cliStrictFileChecker = new CliStrictFileChecker();
@@ -21,4 +11,15 @@ export const findStrictFiles = async (): Promise<string[]> => {
   return filesCheckedByTS.filter((filePath) =>
     cliStrictFileChecker.isFileStrict(filePath, pluginConfig),
   );
+}
+
+const filterOutNodeModulesFiles = (files: string[]): string[] => {
+  return files.filter((fileName) => !fileName.includes('/node_modules/'));
 };
+
+async function getFilesCheckedByTs(): Promise<string[]> {
+  const filesCheckedByTs = await typescript.listFilesOnly();
+  const filePaths = filesCheckedByTs.split(/\r?\n/).map(getPosixFilePath);
+
+  return filterOutNodeModulesFiles(filePaths);
+}

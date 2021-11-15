@@ -8,6 +8,7 @@ type IsFileStrictConfig = {
   isFileOnPath: (currentFilePath: string, pathToStrictFiles: string) => boolean;
 };
 
+// Common logic determining whether file is strict or not
 export function isFileStrict({
   filePath,
   config,

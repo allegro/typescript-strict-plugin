@@ -4,14 +4,14 @@ import * as typescript from './typescript';
 import { PLUGIN_NAME } from '../../common/constants';
 import { getPosixFilePath } from '../../common/utils';
 import { isAbsolute, resolve } from 'path';
-import { isCommentPresent } from './isCommentPresent';
+import { readFileSync } from 'fs';
 
 export class CliStrictFileChecker {
   isFileStrict(filePath: string, config: Config): boolean {
     return isFileStrict({
       filePath,
       config,
-      isFileOnPath: this.isFileOnPath,
+      isFileOnPath,
       isCommentPresent,
     });
   }
@@ -23,17 +23,29 @@ export class CliStrictFileChecker {
 
     return plugins?.find((plugin: { name: string }) => plugin.name === PLUGIN_NAME);
   };
+}
 
-  private isFileOnPath = (currentFilePath: string, pathToStrictFiles: string): boolean => {
-    const absolutePathToStrictFiles = this.getAbsolutePath(process.cwd(), pathToStrictFiles);
+export function isCommentPresent(commentText: string, filePath: string): boolean {
+  const allLines = readFileSync(filePath).toString().split('\n');
+  const comments = allLines.filter((line) => line.startsWith('//'));
 
-    return getPosixFilePath(currentFilePath).startsWith(
-      getPosixFilePath(absolutePathToStrictFiles),
-    );
-  };
+  return comments.some((comment) =>
+    Array.from(comment)
+      .filter((char) => char !== '/')
+      .join('')
+      .trim()
+      .split(' ')
+      .includes(commentText),
+  );
+}
 
-  private getAbsolutePath = (projectRootPath: string, filePath: string): string => {
-    if (isAbsolute(filePath)) return filePath;
-    return resolve(projectRootPath, filePath);
-  };
+function isFileOnPath(currentFilePath: string, pathToStrictFiles: string): boolean {
+  const absolutePathToStrictFiles = getAbsolutePath(process.cwd(), pathToStrictFiles);
+
+  return getPosixFilePath(currentFilePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));
+}
+
+function getAbsolutePath(projectRootPath: string, filePath: string): string {
+  if (isAbsolute(filePath)) return filePath;
+  return resolve(projectRootPath, filePath);
 }

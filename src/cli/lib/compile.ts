@@ -5,13 +5,13 @@ import * as typescript from './typescript';
  * @param tscOutput
  * Converts
  * TscOutput [
-   "fileA(10,15): error TS2532: Object is possibly 'undefined'.",
-   "fileA(11,15): error TS2532: Object is possibly 'undefined'.",
-   "fileB(14,15): error TS2532: Object is possibly 'undefined'.",
-   "fileB(15,15): error TS2532: Object is possibly 'undefined'."
-   ]
+ "fileA(10,15): error TS2532: Object is possibly 'undefined'.",
+ "fileA(11,15): error TS2532: Object is possibly 'undefined'.",
+ "fileB(14,15): error TS2532: Object is possibly 'undefined'.",
+ "fileB(15,15): error TS2532: Object is possibly 'undefined'."
+ ]
  to:
-   Map(2) {
+ Map(2) {
     '/Users/User/project/src/fileA.ts' => [
       "fileA(10,15): error TS2532: Object is possibly 'undefined'.",
       "fileA(11,15): error TS2532: Object is possibly 'undefined'."
@@ -22,7 +22,7 @@ import * as typescript from './typescript';
     ]
 }
  */
-const getPathToErrorsMap = (tscOutput: string[]): Map<string, string[]> => {
+function getPathToErrorsMap(tscOutput: string[]): Map<string, string[]> {
   const result = new Map<string, string[]>();
 
   tscOutput.forEach((error) => {
@@ -36,9 +36,9 @@ const getPathToErrorsMap = (tscOutput: string[]): Map<string, string[]> => {
   });
 
   return result;
-};
+}
 
-export const compile = async (): Promise<Map<string, string[]>> => {
+export async function compile(): Promise<Map<string, string[]>> {
   let tscOutput: string[] = [];
   try {
     await typescript.compile();
@@ -48,4 +48,4 @@ export const compile = async (): Promise<Map<string, string[]>> => {
   }
 
   return getPathToErrorsMap(tscOutput);
-};
+}

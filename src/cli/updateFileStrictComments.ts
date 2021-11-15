@@ -1,6 +1,6 @@
-import { isCommentPresent } from './lib/isCommentPresent';
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../common/constants';
 import { readFileSync, writeFileSync } from 'fs';
+import { isCommentPresent } from './lib/CliStrictFileChecker';
 
 export async function updateFileStrictComments(fileName: string) {
   const strictCommentPresent = isCommentPresent(TS_STRICT_COMMENT, fileName);
