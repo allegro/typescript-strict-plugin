@@ -15,7 +15,6 @@ const runInPath = async (path: string, args: string[] = []): Promise<string> => 
     },
   })
     .then((response) => {
-      console.log('Response', response);
       return response.stdout;
     })
     .catch((error) => error.stdout)
@@ -32,23 +31,32 @@ it('should detect strict file errors', async () => {
   // then
   expect(stdout).toMatch(/onPath.ts/);
   expect(stdout).toMatch(/TS2322: Type 'null' is not assignable to type 'string'/);
-  expect(stdout).toMatch(/Found 2 strict files/);
+  expect(stdout).toMatch(/Found 3 strict files/);
   expect(stdout).toMatch(/2 errors found/);
 });
 
 describe('with --updateComments flag', () => {
-  let strictFilePath: string;
   let repositoryPath: string;
+
+  let strictFilePath: string;
   let initialStrictFileContent: string;
 
+  let noStrictErrorsFilePath: string;
+  let initialNoStrictErrorsFilePath: string;
+
   beforeEach(async () => {
-    repositoryPath = process.cwd() + '/test/cli/repository/src';
-    strictFilePath = join(repositoryPath, 'notOnPathStrict.ts');
+    repositoryPath = process.cwd() + '/test/cli/repository';
+
+    strictFilePath = join(repositoryPath, 'src', 'notOnPathStrict.ts');
     initialStrictFileContent = await readFile(strictFilePath, 'utf-8');
+
+    noStrictErrorsFilePath = join(repositoryPath, 'lib', 'onPathNoStrictErrors.ts');
+    initialNoStrictErrorsFilePath = await readFile(noStrictErrorsFilePath, 'utf-8');
   });
 
   afterEach(async () => {
     await writeFile(strictFilePath, initialStrictFileContent, 'utf-8');
+    await writeFile(strictFilePath, initialNoStrictErrorsFilePath, 'utf-8');
   });
 
   it('should append @ts-strict-ignore comment to files with errors', async () => {
@@ -61,7 +69,17 @@ describe('with --updateComments flag', () => {
     expect(file).toContain('// @ts-strict-ignore\n');
   });
 
-  it('should remove @ts-strict comment to files with errors', async () => {
+  it('should leave files without strict errors as is', async () => {
+    // when
+    await runInPath(repositoryPath, ['--updateComments']);
+
+    // then
+    const file = await readFile(noStrictErrorsFilePath, 'utf-8');
+
+    expect(file).not.toContain('// @ts-strict-ignore\n');
+  });
+
+  it('should remove @ts-strict comment from files with errors', async () => {
     // when
     await runInPath(repositoryPath, ['--updateComments']);
 

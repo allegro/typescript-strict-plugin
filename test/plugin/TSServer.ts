@@ -35,7 +35,7 @@ export class TSServer {
     // to create ts log from tests
     // process.env['TSS_LOG'] = '-logToFile true -file /path/typescript-strict-plugin/log1.txt -level verbose';
     const server = fork(tsserverPath, {
-      cwd: join(__dirname, '../project-fixture/src'),
+      cwd: join(__dirname, './project-fixture/src'),
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
     });
     this._exitPromise = new Promise((resolve, reject) => {

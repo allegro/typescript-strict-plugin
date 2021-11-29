@@ -15,14 +15,14 @@ export class CliStrictFileChecker {
       isCommentPresent,
     });
   }
+}
 
-  getPluginConfig = async (): Promise<Config> => {
-    const tscConfigRaw = await typescript.showConfig();
-    const tscConfig = JSON.parse(tscConfigRaw);
-    const plugins = tscConfig?.compilerOptions?.plugins;
+export async function getPluginConfig(): Promise<Config> {
+  const tscConfigRaw = await typescript.showConfig();
+  const tscConfig = JSON.parse(tscConfigRaw);
+  const plugins = tscConfig?.compilerOptions?.plugins;
 
-    return plugins?.find((plugin: { name: string }) => plugin.name === PLUGIN_NAME);
-  };
+  return plugins?.find((plugin: { name: string }) => plugin.name === PLUGIN_NAME);
 }
 
 export function isCommentPresent(commentText: string, filePath: string): boolean {

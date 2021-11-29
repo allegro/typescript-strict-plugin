@@ -39,7 +39,7 @@ export async function findStrictErrors(args: Args): Promise<Result> {
       console.log(fileErrors.join('\n'));
     }
 
-    if (args.updateCommentsFlag) {
+    if (args.updateCommentsFlag && hasErrors) {
       updateFileStrictComments(fileName);
     }
 

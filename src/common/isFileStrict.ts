@@ -15,7 +15,7 @@ export function isFileStrict({
   isCommentPresent,
   isFileOnPath,
 }: IsFileStrictConfig): boolean {
-  const { paths: pathsToTurnOnStrictMode = [], strictByDefault = false } = config;
+  const { paths: pathsToTurnOnStrictMode = [] } = config;
 
   if (isCommentPresent(TS_STRICT_IGNORE_COMMENT, filePath)) {
     return false;
@@ -29,13 +29,9 @@ export function isFileStrict({
     isFileOnPath(filePath, strictPath),
   );
 
-  if (isFileStrictByPath) {
-    return true;
+  if (pathsToTurnOnStrictMode.length > 0 && !isFileStrictByPath) {
+    return false;
   }
 
-  if (strictByDefault) {
-    return true;
-  }
-
-  return false;
+  return true;
 }

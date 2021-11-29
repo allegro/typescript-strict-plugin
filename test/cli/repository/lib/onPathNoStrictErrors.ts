@@ -1,0 +1,3 @@
+const text = 'text';
+
+export {};

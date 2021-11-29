@@ -1,4 +1,4 @@
-import { ServerResponse, TSServer } from './fixtures/lang-server';
+import { ServerResponse, TSServer } from './TSServer';
 import path from 'path';
 
 interface FileInfo {

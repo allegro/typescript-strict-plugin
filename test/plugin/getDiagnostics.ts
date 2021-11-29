@@ -1,4 +1,4 @@
-import { ServerResponse, TSServer } from './fixtures/lang-server';
+import { ServerResponse, TSServer } from './TSServer';
 import { resolve } from 'path';
 
 function findResponse(responses: ServerResponse[], eventName: string) {

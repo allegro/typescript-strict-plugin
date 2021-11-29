@@ -1,12 +1,12 @@
 import { getPosixFilePath } from '../../common/utils';
 import * as typescript from './typescript';
-import { CliStrictFileChecker } from './CliStrictFileChecker';
+import { CliStrictFileChecker, getPluginConfig } from './CliStrictFileChecker';
 
 export async function findStrictFiles(): Promise<string[]> {
   const filesCheckedByTS = await getFilesCheckedByTs();
 
   const cliStrictFileChecker = new CliStrictFileChecker();
-  const pluginConfig = await cliStrictFileChecker.getPluginConfig();
+  const pluginConfig = await getPluginConfig();
 
   return filesCheckedByTS.filter((filePath) =>
     cliStrictFileChecker.isFileStrict(filePath, pluginConfig),
