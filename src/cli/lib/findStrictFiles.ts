@@ -8,6 +8,10 @@ export async function findStrictFiles(): Promise<string[]> {
   const cliStrictFileChecker = new CliStrictFileChecker();
   const pluginConfig = await getPluginConfig();
 
+  if (!pluginConfig) {
+    return [];
+  }
+
   return filesCheckedByTS.filter((filePath) =>
     cliStrictFileChecker.isFileStrict(filePath, pluginConfig),
   );
