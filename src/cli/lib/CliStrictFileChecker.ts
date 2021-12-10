@@ -17,7 +17,7 @@ export class CliStrictFileChecker {
   }
 }
 
-export async function getPluginConfig(): Promise<Config> {
+export async function getPluginConfig(): Promise<Config | undefined> {
   const tscConfigRaw = await typescript.showConfig();
   const tscConfig = JSON.parse(tscConfigRaw);
   const plugins = tscConfig?.compilerOptions?.plugins;

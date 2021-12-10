@@ -7,12 +7,13 @@ import { updateFileStrictComments } from './updateFileStrictComments';
 export interface Args {
   updateCommentsFlag: boolean | undefined;
   onFoundChangedFiles: (changedFiles: string[]) => void;
-  onCheckFile: (file: string, hasErrors: boolean) => void;
+  onCheckFile: (file: string, fileErrors: string[]) => void;
 }
 
 export interface Result {
   success: boolean;
   errors: number;
+  updatedFiles: number;
 }
 
 export async function findStrictErrors(args: Args): Promise<Result> {
@@ -23,32 +24,32 @@ export async function findStrictErrors(args: Args): Promise<Result> {
   onFoundChangedFiles(strictFilePaths);
 
   if (strictFilePaths.length === 0) {
-    return { success: true, errors: 0 };
+    return { success: true, errors: 0, updatedFiles: 0 };
   }
 
   const tscErrorMap = await waitWithSpinner(compile, 'Compiling with strict mode...');
 
-  const errorCount = strictFilePaths.reduce<number>((currentErrorCount, fileName) => {
+  let errorCount = 0;
+  let fixedCommentFileCount = 0;
+
+  strictFilePaths.forEach((fileName) => {
     const fileErrors = tscErrorMap.get(path.resolve(fileName)) ?? [];
-    const errorCount = fileErrors.length;
-    const hasErrors = errorCount > 0;
+    const fileErrorCount = fileErrors.length;
 
-    onCheckFile(fileName, hasErrors);
-
-    if (hasErrors) {
-      console.log(fileErrors.join('\n'));
-    }
-
-    if (args.updateCommentsFlag && hasErrors) {
+    if (args.updateCommentsFlag && fileErrorCount > 0) {
       updateFileStrictComments(fileName);
+      fixedCommentFileCount++;
+    } else {
+      onCheckFile(fileName, fileErrors);
     }
 
-    return currentErrorCount + errorCount;
-  }, 0);
+    errorCount += fileErrorCount;
+  });
 
   return {
     success: errorCount === 0,
     errors: errorCount,
+    updatedFiles: fixedCommentFileCount,
   };
 }
 
