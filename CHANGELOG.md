@@ -8,7 +8,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [2.0.0] - 2021-29-11
 
 ### Changed
-TODO
+- Strict by default without `@ts-strict` comment
+- Ignores file with `@ts-strict-ignore` comment
+- new flag in cli `--updateComments` which updates comments based on strict errors
 
 ## [1.1.1] - 2021-08-29
 
