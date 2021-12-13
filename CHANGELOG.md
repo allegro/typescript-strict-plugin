@@ -12,6 +12,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Ignores file with `@ts-strict-ignore` comment
 - new flag in cli `--updateComments` which updates comments based on strict errors
 
+## [1.1.2] - 2021-06-15
+
+### Added
+- Rewrites some tests to `jest`
+- Adds feature to pass `tsc` parameters to `tsc-strict` command
+
 ## [1.1.1] - 2021-08-29
 
 ### Fixed

@@ -83,6 +83,13 @@ yarn tsc-strict
 
 All your strict files should be checked from command line.
 
+You can also pass some `tsc` arguments to the `tsc-strict` to override default compiler options e.g.
+```shell
+yarn tsc-strict --strictNullChecks false
+```
+would not check for the strict null check in your files. The `tsc-strict` accepts all the arguments that regular `tsc` command
+accepts.
+
 ## Migrating to v2
 Because of difficulties with migrating large projects to strict mode with original `//@ts-strict` comment, we've taken an another approach. Now in version 2.0+ typescript files are strict by default, and to ignore a file, you can use special `//@ts-strict-ignore` comment. It allows to have strict mode in newly created files without remembering about adding strict comment at the top of it. With version 2.0 script `tsc-strict` comes with a new flag, which detects all files with at least one strict error and adds the ignore comment to ease the migration. To update from v1 to v2, you just need to run:
 ```
@@ -106,7 +113,7 @@ npm run dev
 and restart typescript service inside `sample-project`. Files in `sample-project` folder should use a local plugin.
 After you made changes to a plugin you should probably restart typescript service in order to reload the plugin.
 
-### tests
+### Tests
 In order to run tests run 
 
 ```bash

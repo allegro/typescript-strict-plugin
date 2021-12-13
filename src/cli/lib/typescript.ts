@@ -1,23 +1,25 @@
 import execa from 'execa';
 
-export async function listFilesOnly(): Promise<string> {
+export const listFilesOnly = async (): Promise<string> => {
   const output = await execa('tsc', ['--listFilesOnly'], {
     all: true,
     preferLocal: true,
   });
 
   return output.stdout;
-}
+};
 
-export async function showConfig(): Promise<string> {
+export const showConfig = async (): Promise<string> => {
   const output = await execa('tsc', ['--showConfig'], {
     all: true,
     preferLocal: true,
   });
 
   return output.stdout;
-}
+};
 
-export function compile() {
-  return execa('tsc', ['--strict', '--noEmit'], { all: true, preferLocal: true });
-}
+export const compile = () =>
+  execa('tsc', ['--strict', '--noEmit', ...process.argv.slice(2)], {
+    all: true,
+    preferLocal: true,
+  });
