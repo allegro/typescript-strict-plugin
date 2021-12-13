@@ -36,11 +36,11 @@ export async function findStrictErrors(args: Args): Promise<Result> {
     const fileErrors = tscErrorMap.get(path.resolve(fileName)) ?? [];
     const fileErrorCount = fileErrors.length;
 
+    onCheckFile(fileName, fileErrors);
+
     if (args.updateCommentsFlag && fileErrorCount > 0) {
       updateFileStrictComments(fileName);
       fixedCommentFileCount++;
-    } else {
-      onCheckFile(fileName, fileErrors);
     }
 
     errorCount += fileErrorCount;

@@ -1,3 +1,4 @@
-const text = 'text';
+// @ts-strict
+const text: string = null;
 
 export {};
