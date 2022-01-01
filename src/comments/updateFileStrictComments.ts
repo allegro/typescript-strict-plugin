@@ -1,18 +1,23 @@
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../common/constants';
 import { readFileSync, writeFileSync } from 'fs';
-import { isCommentPresent, isFileOnPath } from '../cli/CliStrictFileChecker';
+import { getAbsolutePath, isCommentPresent, isFileOnPath } from '../cli/CliStrictFileChecker';
+import { getPosixFilePath } from '../common/utils';
 
-export async function updateFileStrictComments(filePath: string, paths: string[] = []) {
-  const isFileStrictByPath = paths.some((strictPath) => isFileOnPath(filePath, strictPath));
-
-  const strictCommentPresent = isCommentPresent(TS_STRICT_COMMENT, filePath);
-  if (strictCommentPresent) {
-    deleteStrictComment(filePath);
-  }
+export async function updateIgnoreComment(filePath: string, strictPaths: string[]) {
+  const isFileStrictByPath = strictPaths?.some((strictPath) => isFileOnPath(filePath, strictPath));
 
   const ignoreCommentPresent = isCommentPresent(TS_STRICT_IGNORE_COMMENT, filePath);
   if (isFileStrictByPath && !ignoreCommentPresent) {
     insertIgnoreComment(filePath);
+  }
+}
+
+export async function updateStrictComment(filePath: string, strictPaths: string[]) {
+  const isFileStrictByPath = strictPaths?.some((strictPath) => isFileOnPath(filePath, strictPath));
+
+  const strictCommentPresent = isCommentPresent(TS_STRICT_COMMENT, filePath);
+  if (isFileStrictByPath && strictCommentPresent) {
+    deleteStrictComment(filePath);
   }
 }
 

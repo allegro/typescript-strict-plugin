@@ -1,1 +1,4 @@
-export const getFilePathFromError = (error: string) => error.split('(')[0];
+import { getAbsolutePath } from '../cli/CliStrictFileChecker';
+
+export const getFilePathFromError = (error: string) =>
+  getAbsolutePath(process.cwd(), error.split('(')[0]);
