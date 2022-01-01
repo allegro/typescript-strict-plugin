@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import * as typescript from './typescript';
+import { ExecaError } from 'execa';
 
 /**
  * @param tscOutput
@@ -43,8 +44,9 @@ export async function compile(): Promise<Map<string, string[]>> {
   try {
     await typescript.compile();
   } catch (error) {
-    const { all } = error;
-    tscOutput = (all as string).split(/\r?\n/);
+    if (isExecaError(error) && error.all) {
+      tscOutput = error.all.split(/\r?\n/);
+    }
   }
 
   if (tscOutput.some((it) => it.startsWith('error'))) {
@@ -53,4 +55,8 @@ export async function compile(): Promise<Map<string, string[]>> {
   }
 
   return getPathToErrorsMap(tscOutput);
+}
+
+function isExecaError(error: unknown): error is ExecaError {
+  return typeof (error as ExecaError)?.all === 'string';
 }

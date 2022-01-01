@@ -1,8 +1,8 @@
-import { isFileStrict } from '../../common/isFileStrict';
-import { Config } from '../../common/types';
-import * as typescript from './typescript';
-import { PLUGIN_NAME } from '../../common/constants';
-import { getPosixFilePath } from '../../common/utils';
+import { isFileStrict } from '../common/isFileStrict';
+import { Config } from '../common/types';
+import * as typescript from './typescript/typescript';
+import { PLUGIN_NAME } from '../common/constants';
+import { getPosixFilePath } from '../common/utils';
 import { isAbsolute, resolve } from 'path';
 import { readFileSync } from 'fs';
 
@@ -39,7 +39,7 @@ export function isCommentPresent(commentText: string, filePath: string): boolean
   );
 }
 
-function isFileOnPath(currentFilePath: string, pathToStrictFiles: string): boolean {
+export function isFileOnPath(currentFilePath: string, pathToStrictFiles: string): boolean {
   const absolutePathToStrictFiles = getAbsolutePath(process.cwd(), pathToStrictFiles);
 
   return getPosixFilePath(currentFilePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));

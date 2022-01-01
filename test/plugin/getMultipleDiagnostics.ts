@@ -3,7 +3,7 @@ import path from 'path';
 
 interface FileInfo {
   fileContent: string;
-  fileName: string;
+  filePath: string;
 }
 
 function findResponses(responses: ServerResponse[], eventName: string) {
@@ -14,7 +14,7 @@ export async function getMultipleDiagnostics(fileInfoList: FileInfo[], rootPath:
   const server = new TSServer();
 
   const openFiles = fileInfoList.map((fileInfo) => ({
-    file: path.resolve(rootPath, fileInfo.fileName),
+    file: path.resolve(rootPath, fileInfo.filePath),
     fileContent: fileInfo.fileContent,
     projectRootPath: rootPath,
     scriptKindName: 'TS',

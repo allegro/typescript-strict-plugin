@@ -21,7 +21,8 @@
   },
   "license": "MIT",
   "bin": {
-    "tsc-strict": "dist/cli/cli.js"
+    "tsc-strict": "dist/cli/cli.js",
+    "update-strict-comments": "dist/comments/comments.js"
   },
   "main": "dist/plugin/index.js",
   "private": false,
@@ -36,7 +37,9 @@
   "jest": {
     "preset": "ts-jest",
     "testTimeout": 10000,
-    "watchPathIgnorePatterns": ["test/cli/repository"]
+    "watchPathIgnorePatterns": [
+      "test/cli/repository"
+    ]
   },
   "dependencies": {
     "chalk": "^3.0.0",
@@ -65,7 +68,7 @@
     "tmp-promise": "2.0.2",
     "ts-jest": "^27.0.5",
     "ts-node": "10.0.0",
-    "typescript": "4.1.3",
+    "typescript": "4.5.4",
     "which-module": "^2.0.0"
   },
   "lint-staged": {

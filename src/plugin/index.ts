@@ -6,8 +6,8 @@ const init: ts.server.PluginModuleFactory = () => {
     const proxy = setupProxy(info);
     log(info, 'Plugin initialized');
 
-    proxy.getSemanticDiagnostics = function (fileName) {
-      const strictFile = new PluginStrictFileChecker(info).isFileStrict(fileName);
+    proxy.getSemanticDiagnostics = function (filePath) {
+      const strictFile = new PluginStrictFileChecker(info).isFileStrict(filePath);
 
       if (strictFile) {
         turnOnStrictMode(info, info.project.getCompilerOptions());
@@ -15,7 +15,7 @@ const init: ts.server.PluginModuleFactory = () => {
         turnOffStrictMode(info, info.project.getCompilerOptions());
       }
 
-      return info.languageService.getSemanticDiagnostics(fileName);
+      return info.languageService.getSemanticDiagnostics(filePath);
     };
 
     return proxy;

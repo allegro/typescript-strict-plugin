@@ -23,23 +23,26 @@ export class PluginStrictFileChecker {
   }
 
   private isFileOnPath = (currentFilePath: string, pathToStrictFiles: string) => {
-    const absolutePathToStrictFiles = getAbsolutePath(this.currentDirectory, pathToStrictFiles);
+    const absolutePathToStrictFiles = this.getAbsolutePath(
+      this.currentDirectory,
+      pathToStrictFiles,
+    );
 
     return getPosixFilePath(currentFilePath).startsWith(
       getPosixFilePath(absolutePathToStrictFiles),
     );
   };
 
-  private isCommentPresent = (comment: string, fileName: string): boolean => {
-    const tsStrictComments = this.info.languageService.getTodoComments(fileName, [
+  private isCommentPresent = (comment: string, filePath: string): boolean => {
+    const tsStrictComments = this.info.languageService.getTodoComments(filePath, [
       { text: comment, priority: 0 },
     ]);
 
     return tsStrictComments.length > 0;
   };
-}
 
-function getAbsolutePath(projectRootPath: string, filePath: string) {
-  if (path.isAbsolute(filePath)) return filePath;
-  return path.resolve(projectRootPath, filePath);
+  private getAbsolutePath(projectRootPath: string, filePath: string) {
+    if (path.isAbsolute(filePath)) return filePath;
+    return path.resolve(projectRootPath, filePath);
+  }
 }

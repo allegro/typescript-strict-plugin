@@ -5,10 +5,10 @@ function findResponse(responses: ServerResponse[], eventName: string) {
   return responses.find((response) => response.event === eventName);
 }
 
-export async function getDiagnostics(fileContent: string, fileName = 'src/notOnPath.ts') {
+export async function getDiagnostics(fileContent: string, filePath = 'src/notOnPath.ts') {
   const server = new TSServer();
 
-  const file = resolve(__dirname, 'project-fixture', fileName);
+  const file = resolve(__dirname, 'project-fixture', filePath);
 
   server.send({ command: 'open', arguments: { file, fileContent, scriptKindName: 'TS' } });
 

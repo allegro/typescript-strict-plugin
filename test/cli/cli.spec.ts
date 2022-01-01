@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const runInPath = async (path: string, args: string[] = []): Promise<string> => {
   const cwd = process.cwd();
-  const cli = join(cwd, 'dist/cli/cli.js');
+  const cli = join(cwd, 'dist/argv/argv.js');
 
   process.chdir(path);
   return execa('node', [cli, ...args], {
@@ -22,7 +22,7 @@ const runInPath = async (path: string, args: string[] = []): Promise<string> => 
 
 it('should detect strict file errors', async () => {
   // given
-  const path = process.cwd() + '/test/cli/repository';
+  const path = process.cwd() + '/test/argv/repository';
 
   // when
   const stdout = await runInPath(path);

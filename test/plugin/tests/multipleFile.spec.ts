@@ -6,8 +6,8 @@ it('should show errors only on file with strict comment', async () => {
   // given
   const rootPath = path.resolve(__dirname, '../project-fixture/');
   const fileInfoList = [
-    { fileName: 'src/notOnPath.ts', fileContent: FILE_CONTENT_WITH_STRICT },
-    { fileName: 'src/otherFileNotOnPath.ts', fileContent: FILE_CONTENT_WITHOUT_STRICT },
+    { filePath: 'src/notOnPath.ts', fileContent: FILE_CONTENT_WITH_STRICT },
+    { filePath: 'src/otherFileNotOnPath.ts', fileContent: FILE_CONTENT_WITHOUT_STRICT },
   ];
 
   // when

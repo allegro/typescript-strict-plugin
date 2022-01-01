@@ -1,68 +1,42 @@
 #!/usr/bin/env node
+
 import chalk from 'chalk';
 import { findStrictErrors } from './findStrictErrors';
-import yargs from 'yargs';
-import { getPluginConfig } from './lib/CliStrictFileChecker';
+import { getPluginConfig } from './CliStrictFileChecker';
+import { findStrictFiles } from './findStrictFiles';
+import { waitWithSpinner } from './waitWithSpinner';
+import { notConfiguredError } from './errors';
 
-yargs(process.argv.slice(2)).command(
-  '$0',
-  "Check for strict files' errors",
-  (addYarg) => {
-    return addYarg.option('updateComments', {
-      type: 'boolean',
-      description: 'Adds @ts-strict-ignore comment to files that have at least one strict error',
-    });
-  },
-  async (args) => {
-    const pluginConfig = await getPluginConfig();
+(async () => {
+  const pluginConfig = await getPluginConfig();
 
-    if (!pluginConfig) {
-      console.log(chalk.red(notConfiguredError));
-      process.exit(1);
-      return;
-    }
+  if (!pluginConfig) {
+    console.log(chalk.red(notConfiguredError));
+    process.exit(1);
+    return;
+  }
 
-    const result = await findStrictErrors({
-      updateCommentsFlag: args.updateComments,
-      onFoundChangedFiles: (strictFiles) => {
-        console.log(`🎯  Found ${chalk.bold(String(strictFiles.length))} strict files`);
-      },
-      onCheckFile: (file, fileErrors) => {
-        if (fileErrors.length > 0) {
-          console.log(`❌  ${chalk.bold(file)} failed`);
-          console.log(fileErrors.join('\n'));
-        }
-      },
-    });
+  const strictFilePaths = await waitWithSpinner(findStrictFiles, 'Looking for strict files...');
 
-    if (result.updatedFiles > 0) {
-      console.log(`🔧  Updated comments in ${result.updatedFiles} files`);
-      return;
-    }
+  console.log(`🎯 Found ${chalk.bold(String(strictFilePaths.length))} strict files`);
 
-    if (result.errors === 1) {
-      console.log(`💥  ${result.errors} error found`);
-      return;
-    }
+  const errors = await findStrictErrors(strictFilePaths);
 
-    if (result.errors > 1) {
-      console.log(`💥  ${result.errors} errors found`);
-      return;
-    }
+  errors.forEach((error) => {
+    console.log(chalk.red(error));
+  });
 
-    console.log(`🎉  ${chalk.green('All files passed')}`);
-  },
-).argv;
+  if (errors.length === 1) {
+    console.log(`💥 1 error found`);
+    process.exit(1);
+    return;
+  }
 
-const notConfiguredError = `typescript-strict-plugin is configured in tsconfig.json
-        
-Please add following configuration:
-{
-  "compilerOptions": {
-    ...
-    "plugins": [{
-      "name": "typescript-strict-plugin"
-    }]
-  },
-}
-`;
+  if (errors.length > 1) {
+    console.log(`💥 ${errors.length} errors found`);
+    process.exit(1);
+    return;
+  }
+
+  console.log(`🎉 ${chalk.green('All files passed')}`);
+})();
