@@ -11,3 +11,7 @@ Please add following configuration:
   },
 }
 `;
+
+export const noStrictFilesError = `
+Project does not contain any strict files.
+`;

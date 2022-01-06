@@ -6,8 +6,9 @@ import chalk from 'chalk';
 import { updateStrictComments } from './updateStrictComments';
 import { waitWithSpinner } from '../cli/waitWithSpinner';
 import { notConfiguredError } from '../cli/errors';
+import { pluralize } from '../common/utils';
 
-(async () => {
+export const run = async () => {
   const pluginConfig = await getPluginConfig();
 
   if (!pluginConfig) {
@@ -20,9 +21,15 @@ import { notConfiguredError } from '../cli/errors';
 
   const strictFilePaths = await waitWithSpinner(findStrictFiles, 'Looking for strict files...');
 
-  console.log(`🎯 Found ${chalk.bold(String(strictFilePaths.length))} strict files`);
+  console.log(
+    `🎯 Found ${strictFilePaths.length} strict ${pluralize('file', strictFilePaths.length)}`,
+  );
 
   const { updatedFileCount } = await updateStrictComments(strictFilePaths, configPaths);
 
-  console.log(`🔧 Updated comments in ${updatedFileCount} files`);
-})();
+  console.log(
+    `🔧 Updated comments in ${updatedFileCount} ${pluralize('file', strictFilePaths.length)}`,
+  );
+};
+
+run();

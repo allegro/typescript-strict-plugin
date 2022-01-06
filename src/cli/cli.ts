@@ -5,9 +5,10 @@ import { findStrictErrors } from './findStrictErrors';
 import { getPluginConfig } from './CliStrictFileChecker';
 import { findStrictFiles } from './findStrictFiles';
 import { waitWithSpinner } from './waitWithSpinner';
-import { notConfiguredError } from './errors';
+import { noStrictFilesError, notConfiguredError } from './errors';
+import { pluralize } from '../common/utils';
 
-(async () => {
+export const run = async () => {
   const pluginConfig = await getPluginConfig();
 
   if (!pluginConfig) {
@@ -18,7 +19,15 @@ import { notConfiguredError } from './errors';
 
   const strictFilePaths = await waitWithSpinner(findStrictFiles, 'Looking for strict files...');
 
-  console.log(`🎯 Found ${chalk.bold(String(strictFilePaths.length))} strict files`);
+  if (!strictFilePaths.length) {
+    console.log(chalk.red(noStrictFilesError));
+    process.exit(1);
+    return;
+  }
+
+  console.log(
+    `🎯 Found ${strictFilePaths.length} strict ${pluralize('file', strictFilePaths.length)}`,
+  );
 
   const errors = await findStrictErrors(strictFilePaths);
 
@@ -26,17 +35,13 @@ import { notConfiguredError } from './errors';
     console.log(chalk.red(error));
   });
 
-  if (errors.length === 1) {
-    console.log(`💥 1 error found`);
-    process.exit(1);
-    return;
-  }
-
-  if (errors.length > 1) {
-    console.log(`💥 ${errors.length} errors found`);
+  if (errors.length > 0) {
+    console.log(`💥 Found ${errors.length} ${pluralize('error', errors.length)}`);
     process.exit(1);
     return;
   }
 
   console.log(`🎉 ${chalk.green('All files passed')}`);
-})();
+};
+
+run();
