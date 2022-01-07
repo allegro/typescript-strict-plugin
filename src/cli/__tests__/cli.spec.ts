@@ -2,7 +2,6 @@ import { findStrictErrors } from '../findStrictErrors';
 import { findStrictFiles } from '../findStrictFiles';
 import { getPluginConfig } from '../CliStrictFileChecker';
 import { run } from '../cli';
-import chalk from 'chalk';
 
 jest.mock('../CliStrictFileChecker', () => ({
   getPluginConfig: jest.fn(),
@@ -16,15 +15,15 @@ jest.mock('../findStrictErrors', () => ({
   findStrictErrors: jest.fn(),
 }));
 
-const getPluginConfigMock = getPluginConfig as jest.MockedFunction<typeof getPluginConfig>;
-const findStrictFilesMock = findStrictFiles as jest.MockedFunction<typeof findStrictFiles>;
-const findStrictErrorsMock = findStrictErrors as jest.MockedFunction<typeof findStrictErrors>;
+const getPluginConfigMock = jest.mocked(getPluginConfig);
+const findStrictFilesMock = jest.mocked(findStrictFiles);
+const findStrictErrorsMock = jest.mocked(findStrictErrors);
 
 jest.spyOn(process, 'exit').mockImplementation();
 jest.spyOn(console, 'log').mockImplementation();
 
 describe('tsc-strict root', () => {
-  beforeEach(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 

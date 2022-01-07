@@ -5,10 +5,10 @@ function findResponse(responses: ServerResponse[], eventName: string) {
   return responses.find((response) => response.event === eventName);
 }
 
-export async function getDiagnostics(fileContent: string, filePath = 'src/notOnPath.ts') {
+export async function getDiagnostics(fileContent: string, projectPath: string, filePath: string) {
   const server = new TSServer();
 
-  const file = resolve(__dirname, 'project-fixture', filePath);
+  const file = resolve(__dirname, projectPath, filePath);
 
   server.send({ command: 'open', arguments: { file, fileContent, scriptKindName: 'TS' } });
 
@@ -21,5 +21,6 @@ export async function getDiagnostics(fileContent: string, filePath = 'src/notOnP
   await server.close();
 
   const semanticDiagEvent = findResponse(server.responses, 'semanticDiag');
+
   return semanticDiagEvent?.body.diagnostics;
 }

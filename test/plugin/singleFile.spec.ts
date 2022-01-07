@@ -1,16 +1,20 @@
-import { getDiagnostics } from '../getDiagnostics';
+import { getDiagnostics } from './getDiagnostics';
 import {
   FILE_CONTENT_WITHOUT_STRICT,
   NULL_ERROR_MESSAGE,
   FILE_CONTENT_WITH_STRICT,
   FILE_CONTENT_WITH_STRICT_AND_IGNORE,
   FILE_CONTENT_WITH_IGNORE,
-} from '../fileContents';
+} from './fileContents';
 
 describe('single file diagnostics', () => {
   it('should not enable strict mode when file is not on path and does not contain strict comment', async () => {
     // when
-    const diagnostics = await getDiagnostics(FILE_CONTENT_WITHOUT_STRICT, 'src/notOnPath.ts');
+    const diagnostics = await getDiagnostics(
+      FILE_CONTENT_WITHOUT_STRICT,
+      'project-fixture',
+      'src/notOnPath.ts',
+    );
 
     // then
     expect(diagnostics).toHaveLength(0);
@@ -20,7 +24,8 @@ describe('single file diagnostics', () => {
     // when
     const diagnostics = await getDiagnostics(
       FILE_CONTENT_WITHOUT_STRICT,
-      '../project-fixture-default/index.ts',
+      'project-fixture-default',
+      'index.ts',
     );
 
     // then
@@ -32,7 +37,8 @@ describe('single file diagnostics', () => {
     // when
     const diagnostics = await getDiagnostics(
       FILE_CONTENT_WITH_IGNORE,
-      '../project-fixture-default/index.ts',
+      'project-fixture-default',
+      'index.ts',
     );
 
     // then
@@ -41,7 +47,11 @@ describe('single file diagnostics', () => {
 
   it('should enable strict mode when file is on path and does not contain strict comment', async () => {
     // when
-    const diagnostics = await getDiagnostics(FILE_CONTENT_WITHOUT_STRICT, 'lib/onPath.ts');
+    const diagnostics = await getDiagnostics(
+      FILE_CONTENT_WITHOUT_STRICT,
+      'project-fixture',
+      'lib/onPath.ts',
+    );
 
     // then
     expect(diagnostics).toHaveLength(1);
@@ -49,10 +59,12 @@ describe('single file diagnostics', () => {
   });
 
   it('should enable strict mode when file is on path and contains strict comment', async () => {
-    // given
-
     // when
-    const diagnostics = await getDiagnostics(FILE_CONTENT_WITH_STRICT, 'lib/onPath.ts');
+    const diagnostics = await getDiagnostics(
+      FILE_CONTENT_WITH_STRICT,
+      'project-fixture',
+      'lib/onPath.ts',
+    );
 
     // then
     expect(diagnostics).toHaveLength(1);
@@ -60,10 +72,12 @@ describe('single file diagnostics', () => {
   });
 
   it('should enable strict mode when file is not on path and contains strict comment', async () => {
-    // given
-
     // when
-    const diagnostics = await getDiagnostics(FILE_CONTENT_WITH_STRICT, 'src/notOnPath.ts');
+    const diagnostics = await getDiagnostics(
+      FILE_CONTENT_WITH_STRICT,
+      'project-fixture',
+      'src/notOnPath.ts',
+    );
 
     // then
     expect(diagnostics).toHaveLength(1);
@@ -74,6 +88,7 @@ describe('single file diagnostics', () => {
     // when
     const diagnostics = await getDiagnostics(
       FILE_CONTENT_WITH_STRICT_AND_IGNORE,
+      'project-fixture',
       'src/notOnPath.ts',
     );
 
@@ -83,7 +98,11 @@ describe('single file diagnostics', () => {
 
   it('should not enable strict mode when file is on path and contains strict-ignore comments', async () => {
     // when
-    const diagnostics = await getDiagnostics(FILE_CONTENT_WITH_STRICT_AND_IGNORE, 'lib/onPath.ts');
+    const diagnostics = await getDiagnostics(
+      FILE_CONTENT_WITH_STRICT_AND_IGNORE,
+      'project-fixture',
+      'lib/onPath.ts',
+    );
 
     // then
     expect(diagnostics).toHaveLength(0);

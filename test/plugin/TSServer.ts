@@ -32,11 +32,10 @@ export class TSServer {
     this._responseCommandEmitter = new EventEmitter();
     const tsserverPath = require.resolve('typescript/lib/tsserver');
 
-    // to create ts log from tests
-    // process.env['TSS_LOG'] = '-logToFile true -file /path/typescript-strict-plugin/log1.txt -level verbose';
     const server = fork(tsserverPath, {
-      cwd: join(__dirname, './project-fixture/src'),
+      cwd: join(__dirname, 'project-fixture/src'),
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
+      // env: { TSS_LOG: '-logToFile true -file ./ts.log -level verbose' }, // creates tsserver log from tests
     });
     this._exitPromise = new Promise((resolve, reject) => {
       server.on('exit', (code: string) => resolve(code));

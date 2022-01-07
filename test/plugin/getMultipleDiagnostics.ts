@@ -10,13 +10,13 @@ function findResponses(responses: ServerResponse[], eventName: string) {
   return responses.filter((response) => response.event === eventName);
 }
 
-export async function getMultipleDiagnostics(fileInfoList: FileInfo[], rootPath: string) {
+export async function getMultipleDiagnostics(fileInfoList: FileInfo[], projectPath: string) {
   const server = new TSServer();
 
   const openFiles = fileInfoList.map((fileInfo) => ({
-    file: path.resolve(rootPath, fileInfo.filePath),
+    file: path.resolve(__dirname, projectPath, fileInfo.filePath),
     fileContent: fileInfo.fileContent,
-    projectRootPath: rootPath,
+    projectRootPath: projectPath,
     scriptKindName: 'TS',
   }));
 
