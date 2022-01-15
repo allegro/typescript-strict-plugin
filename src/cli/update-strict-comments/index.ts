@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import { getPluginConfig } from '../cli/CliStrictFileChecker';
-import { findStrictFiles } from '../cli/findStrictFiles';
+import { findStrictFiles } from '../tsc-strict/findStrictFiles';
 import chalk from 'chalk';
 import { updateStrictComments } from './updateStrictComments';
-import { waitWithSpinner } from '../cli/waitWithSpinner';
-import { notConfiguredError } from '../cli/errors';
-import { pluralize } from '../common/utils';
+import { waitWithSpinner } from '../waitWithSpinner';
+import { notConfiguredError } from '../errorMessages';
+import { pluralize } from '../../common/utils';
+import { getPluginConfig } from '../getPluginConfig';
 
 export const run = async () => {
   const pluginConfig = await getPluginConfig();

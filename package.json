@@ -21,8 +21,8 @@
   },
   "license": "MIT",
   "bin": {
-    "tsc-strict": "dist/cli/cli.js",
-    "update-strict-comments": "dist/comments/comments.js"
+    "tsc-strict": "dist/tsc-strict/index.js",
+    "update-strict-comments": "dist/update-strict-comments/index.js"
   },
   "main": "dist/plugin/index.js",
   "private": false,

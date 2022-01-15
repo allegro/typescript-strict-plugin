@@ -1,8 +1,6 @@
 import { PluginInfo } from './utils';
-import { getPosixFilePath } from '../common/utils';
 import { Config } from '../common/types';
 import { isFileStrict } from '../common/isFileStrict';
-import path from 'path';
 
 export class PluginStrictFileChecker {
   private readonly currentDirectory: string;

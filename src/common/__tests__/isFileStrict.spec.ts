@@ -41,7 +41,7 @@ describe('isFileStrict', () => {
     expect(result).toBe(true);
   });
 
-  it('should return false when both strict and ignore comments are present', () => {
+  it('should return false when both strict and ignore update-strict-comments are present', () => {
     // given
     isCommentPresent.mockImplementation(
       (comment) => comment === '@ts-strict' || comment === '@ts-strict-ignore',

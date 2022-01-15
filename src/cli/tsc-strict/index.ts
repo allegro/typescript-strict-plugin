@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
-import { findStrictErrors } from './findStrictErrors';
-import { getPluginConfig } from './CliStrictFileChecker';
+import { findStrictErrors } from '../findStrictErrors';
 import { findStrictFiles } from './findStrictFiles';
-import { waitWithSpinner } from './waitWithSpinner';
-import { noStrictFilesError, notConfiguredError } from './errors';
-import { pluralize } from '../common/utils';
+import { waitWithSpinner } from '../waitWithSpinner';
+import { noStrictFilesError, notConfiguredError } from '../errorMessages';
+import { pluralize } from '../../common/utils';
+import { getPluginConfig } from '../getPluginConfig';
 
 export const run = async () => {
   const pluginConfig = await getPluginConfig();

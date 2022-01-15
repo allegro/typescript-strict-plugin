@@ -1,5 +1,5 @@
-import { getAbsolutePath } from '../cli/CliStrictFileChecker';
-import { isFileStrictByPath } from '../common/isFileStrict';
+import { isFileStrictByPath } from '../../common/isFileStrict';
+import { getAbsolutePath } from '../../common/getAbsolutePath';
 
 export const getFilePathsFromErrors = (errors: string[]) =>
   new Set(errors.map((error) => getAbsolutePath(process.cwd(), error.split('(')[0])));
