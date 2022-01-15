@@ -13,11 +13,11 @@ import { ExecaError } from 'execa';
  ]
  to:
  Map(2) {
-    '/Users/User/project/excluded/fileA.ts' => [
+    '/Users/User/project/src/fileA.ts' => [
       "fileA(10,15): error TS2532: Object is possibly 'undefined'.",
       "fileA(11,15): error TS2532: Object is possibly 'undefined'."
     ],
-    '/Users/User/project/excluded/fileB.ts' => [
+    '/Users/User/project/src/fileB.ts' => [
       "fileB(14,15): error TS2532: Object is possibly 'undefined'.",
       "fileB(15,15): error TS2532: Object is possibly 'undefined'."
     ]
