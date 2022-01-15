@@ -2,7 +2,6 @@ import { isFileStrict } from '../common/isFileStrict';
 import { Config } from '../common/types';
 import * as typescript from './typescript/typescript';
 import { PLUGIN_NAME } from '../common/constants';
-import { getPosixFilePath } from '../common/utils';
 import { isAbsolute, resolve } from 'path';
 import { readFileSync } from 'fs';
 
@@ -11,7 +10,6 @@ export class CliStrictFileChecker {
     return isFileStrict({
       filePath,
       config,
-      isFileOnPath,
       isCommentPresent,
     });
   }
@@ -22,7 +20,11 @@ export async function getPluginConfig(): Promise<Config | undefined> {
   const tscConfig = JSON.parse(tscConfigRaw);
   const plugins = tscConfig?.compilerOptions?.plugins;
 
-  return plugins?.find((plugin: { name: string }) => plugin.name === PLUGIN_NAME);
+  return plugins?.find(
+    (plugin: { name: string }) =>
+      plugin.name === PLUGIN_NAME ||
+      (process.env.NODE_ENV === 'test' && plugin.name === '../../dist/plugin'),
+  );
 }
 
 export function isCommentPresent(commentText: string, filePath: string): boolean {
@@ -37,12 +39,6 @@ export function isCommentPresent(commentText: string, filePath: string): boolean
       .split(' ')
       .includes(commentText),
   );
-}
-
-export function isFileOnPath(currentFilePath: string, pathToStrictFiles: string): boolean {
-  const absolutePathToStrictFiles = getAbsolutePath(process.cwd(), pathToStrictFiles);
-
-  return getPosixFilePath(currentFilePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));
 }
 
 export function getAbsolutePath(projectRootPath: string, filePath: string): string {

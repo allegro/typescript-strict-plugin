@@ -1,23 +1,15 @@
 import { Config } from './types';
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from './constants';
-import { isFileOnPath } from '../cli/CliStrictFileChecker';
+import { isFileOnPath } from './isFileOnPath';
 
 type IsFileStrictConfig = {
   filePath: string;
-  config: Config;
+  config?: Config;
   isCommentPresent: (comment: string, filePath: string) => boolean;
-  isFileOnPath: (currentFilePath: string, pathToStrictFiles: string) => boolean;
 };
 
 // Common logic determining whether file is strict or not
-export function isFileStrict({
-  filePath,
-  config,
-  isCommentPresent,
-  isFileOnPath,
-}: IsFileStrictConfig): boolean {
-  const { paths: strictPaths = [] } = config;
-
+export function isFileStrict({ filePath, config, isCommentPresent }: IsFileStrictConfig): boolean {
   if (isCommentPresent(TS_STRICT_IGNORE_COMMENT, filePath)) {
     return false;
   }
@@ -26,6 +18,7 @@ export function isFileStrict({
     return true;
   }
 
+  const strictPaths = config?.paths ?? [];
   const isFileStrictByPath = strictPaths.some((strictPath) => isFileOnPath(filePath, strictPath));
 
   if (strictPaths.length > 0 && !isFileStrictByPath) {

@@ -73,7 +73,7 @@ describe('tsc-strict root', () => {
     expect(process.exit).toHaveBeenCalledWith(1);
   });
 
-  it('should display a singular file and error', async () => {
+  it('should display a singular filePath and error', async () => {
     // given
     findStrictFilesMock.mockResolvedValue(['1.ts']);
     findStrictErrorsMock.mockResolvedValue(['error1']);

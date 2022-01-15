@@ -17,21 +17,9 @@ export class PluginStrictFileChecker {
     return isFileStrict({
       filePath,
       config: this.config,
-      isFileOnPath: this.isFileOnPath,
       isCommentPresent: this.isCommentPresent,
     });
   }
-
-  private isFileOnPath = (currentFilePath: string, pathToStrictFiles: string) => {
-    const absolutePathToStrictFiles = this.getAbsolutePath(
-      this.currentDirectory,
-      pathToStrictFiles,
-    );
-
-    return getPosixFilePath(currentFilePath).startsWith(
-      getPosixFilePath(absolutePathToStrictFiles),
-    );
-  };
 
   private isCommentPresent = (comment: string, filePath: string): boolean => {
     const tsStrictComments = this.info.languageService.getTodoComments(filePath, [
@@ -40,9 +28,4 @@ export class PluginStrictFileChecker {
 
     return tsStrictComments.length > 0;
   };
-
-  private getAbsolutePath(projectRootPath: string, filePath: string) {
-    if (path.isAbsolute(filePath)) return filePath;
-    return path.resolve(projectRootPath, filePath);
-  }
 }

@@ -33,7 +33,6 @@ export class TSServer {
     const tsserverPath = require.resolve('typescript/lib/tsserver');
 
     const server = fork(tsserverPath, {
-      cwd: join(__dirname, 'project-fixture/src'),
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
       // env: { TSS_LOG: '-logToFile true -file ./ts.log -level verbose' }, // creates tsserver log from tests
     });

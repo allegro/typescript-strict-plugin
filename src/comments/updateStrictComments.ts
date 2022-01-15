@@ -1,8 +1,9 @@
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../common/constants';
-import { isCommentPresent, isFileOnPath } from '../cli/CliStrictFileChecker';
+import { isCommentPresent } from '../cli/CliStrictFileChecker';
 import { findStrictErrors } from '../cli/findStrictErrors';
 import { getFilePathsFromErrors, getFilesOnPathWithoutErrors } from './getFilePaths';
 import { readFileSync, writeFileSync } from 'fs';
+import { isFileOnPath } from '../common/isFileOnPath';
 
 interface UpdateStrictCommentsResult {
   updatedFileCount: number;

@@ -10,8 +10,7 @@
   },
   "exclude": [
     "./sample-project",
-    "./test/cli/repository",
-    "./test/plugin/project-fixture",
-    "./test/plugin/project-fixture-default"
+    "./e2e",
+    "./*.spec.ts"
   ]
 }

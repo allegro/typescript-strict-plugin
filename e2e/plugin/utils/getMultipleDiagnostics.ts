@@ -1,24 +1,23 @@
 import { ServerResponse, TSServer } from './TSServer';
 import path from 'path';
-
-interface FileInfo {
-  fileContent: string;
-  filePath: string;
-}
+import * as fs from 'fs';
 
 function findResponses(responses: ServerResponse[], eventName: string) {
   return responses.filter((response) => response.event === eventName);
 }
 
-export async function getMultipleDiagnostics(fileInfoList: FileInfo[], projectPath: string) {
+export async function getMultipleDiagnostics(projectPath: string, filePaths: string[]) {
   const server = new TSServer();
 
-  const openFiles = fileInfoList.map((fileInfo) => ({
-    file: path.resolve(__dirname, projectPath, fileInfo.filePath),
-    fileContent: fileInfo.fileContent,
-    projectRootPath: projectPath,
-    scriptKindName: 'TS',
-  }));
+  const openFiles = filePaths.map((filePath) => {
+    const file = path.resolve(projectPath, filePath);
+    return {
+      file,
+      fileContent: fs.readFileSync(file, 'utf-8'),
+      projectRootPath: projectPath,
+      scriptKindName: 'TS',
+    };
+  });
 
   const openFilePaths = openFiles.map((file) => file.file);
 

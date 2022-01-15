@@ -37,12 +37,7 @@
   "jest": {
     "preset": "ts-jest",
     "testTimeout": 10000,
-    "roots": ["src", "test"],
-    "watchPathIgnorePatterns": [
-      "test/cli/repository",
-      "test/plugin/project-fixture",
-      "test/plugin/project-fixture-default"
-    ]
+    "roots": ["src", "e2e"]
   },
   "dependencies": {
     "chalk": "^3.0.0",
