@@ -10,7 +10,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 - Strict by default without `@ts-strict` comment
 - Ignores file with `@ts-strict-ignore` comment
-- new flag in argv `--updateComments` which updates comments based on strict errors
+- Migration tool `update-strict-comments` which updates comments in files which contain at least 1 strict error
 
 ## [1.1.2] - 2021-06-15
 
@@ -28,7 +28,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- Adds argv tool to check strict files during build time
+- Adds cli tool to check strict files during build time
 
 ## [1.0.1] - 2021-06-01
 

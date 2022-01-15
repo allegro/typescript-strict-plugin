@@ -66,7 +66,7 @@ Plugin takes one extra non-mandatory argument `paths` that is an array of relati
 ```
 All files contained in those paths will be strictly checked. Yay!
 
-To add argv tool to your build time you can add a script to scripts list in package.json
+To add cli tool to your build time you can add a script to scripts list in package.json
 ```json
 {
   "scripts": {
