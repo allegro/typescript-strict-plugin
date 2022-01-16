@@ -1,6 +1,6 @@
 import { Config } from './types';
+import { isFileStrictByPath } from './isFileStrictByPath';
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from './constants';
-import { isFileOnPath } from './isFileOnPath';
 
 type IsFileStrictConfig = {
   filePath: string;
@@ -19,15 +19,10 @@ export function isFileStrict({ filePath, config, isCommentPresent }: IsFileStric
   }
 
   const strictPaths = config?.paths ?? [];
-  const isFileStrictByPath = strictPaths.some((strictPath) => isFileOnPath(filePath, strictPath));
 
-  if (strictPaths.length > 0 && !isFileStrictByPath) {
+  if (strictPaths.length > 0 && !isFileStrictByPath(filePath, strictPaths)) {
     return false;
   }
 
   return true;
-}
-
-export function isFileStrictByPath(filePath: string, strictPaths: string[]) {
-  return strictPaths.some((strictPath) => isFileOnPath(filePath, strictPath));
 }

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { findStrictFiles } from '../tsc-strict/findStrictFiles';
+import { findStrictFiles } from '../findStrictFiles';
 import chalk from 'chalk';
 import { updateStrictComments } from './updateStrictComments';
 import { waitWithSpinner } from '../waitWithSpinner';
-import { notConfiguredError } from '../errorMessages';
+import { noStrictFilesError, notConfiguredError } from '../errorMessages';
 import { pluralize } from '../../common/utils';
 import { getPluginConfig } from '../getPluginConfig';
 
@@ -17,15 +17,19 @@ export const run = async () => {
     return;
   }
 
-  const configPaths = pluginConfig.paths ?? [];
-
   const strictFilePaths = await waitWithSpinner(findStrictFiles, 'Looking for strict files...');
+
+  if (!strictFilePaths.length) {
+    console.log(chalk.red(noStrictFilesError));
+    process.exit(1);
+    return;
+  }
 
   console.log(
     `🎯 Found ${strictFilePaths.length} strict ${pluralize('file', strictFilePaths.length)}`,
   );
 
-  const { updatedFileCount } = await updateStrictComments(strictFilePaths, configPaths);
+  const { updatedFileCount } = await updateStrictComments(strictFilePaths, pluginConfig.paths);
 
   console.log(
     `🔧 Updated comments in ${updatedFileCount} ${pluralize('file', strictFilePaths.length)}`,

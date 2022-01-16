@@ -1,17 +1,17 @@
 import { findStrictErrors } from '../../findStrictErrors';
-import { findStrictFiles } from '../findStrictFiles';
+import { findStrictFiles } from '../../findStrictFiles';
 import { run } from '../index';
 import { getPluginConfig } from '../../getPluginConfig';
 
-jest.mock('../CliStrictFileChecker', () => ({
+jest.mock('../../getPluginConfig', () => ({
   getPluginConfig: jest.fn(),
 }));
 
-jest.mock('../findStrictFiles', () => ({
+jest.mock('../../findStrictFiles', () => ({
   findStrictFiles: jest.fn(),
 }));
 
-jest.mock('../findStrictErrors', () => ({
+jest.mock('../../findStrictErrors', () => ({
   findStrictErrors: jest.fn(),
 }));
 

@@ -1,15 +1,23 @@
-import { isFileStrictByPath } from '../../common/isFileStrict';
+import { isFileStrictByPath } from '../../common/isFileStrictByPath';
 import { getAbsolutePath } from '../../common/getAbsolutePath';
+import { findStrictErrors } from '../findStrictErrors';
 
-export const getFilePathsFromErrors = (errors: string[]) =>
-  new Set(errors.map((error) => getAbsolutePath(process.cwd(), error.split('(')[0])));
+export const getFilePathsWithErrors = async (allFilePaths: string[]) => {
+  const errors = await findStrictErrors(allFilePaths);
 
-export const getFilesOnPathWithoutErrors = (
-  filePaths: string[],
-  filesWithStrictErrors: Set<string>,
-  configPaths: string[],
+  const getFilePathFromErrorMessage = (error: string) =>
+    getAbsolutePath(process.cwd(), error.split('(')[0]);
+
+  return [...new Set(errors.map(getFilePathFromErrorMessage))];
+};
+
+// Returns an array of file paths that are on config path and do not contain strict errors
+export const getFilePathsWithoutErrors = (
+  allFilePaths: string[],
+  filePathsWithErrors: string[],
+  configPaths?: string[],
 ) =>
-  filePaths.filter(
+  allFilePaths.filter(
     (filePath) =>
-      !isFileStrictByPath(filePath, configPaths) && !filesWithStrictErrors.has(filePath),
+      !isFileStrictByPath(filePath, configPaths) && !filePathsWithErrors.includes(filePath),
   );

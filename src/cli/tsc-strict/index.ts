@@ -2,7 +2,7 @@
 
 import chalk from 'chalk';
 import { findStrictErrors } from '../findStrictErrors';
-import { findStrictFiles } from './findStrictFiles';
+import { findStrictFiles } from '../findStrictFiles';
 import { waitWithSpinner } from '../waitWithSpinner';
 import { noStrictFilesError, notConfiguredError } from '../errorMessages';
 import { pluralize } from '../../common/utils';

@@ -1,5 +1,5 @@
 import { getMultipleDiagnostics } from './utils/getMultipleDiagnostics';
-import { fixtureWithDefaultConfig, fixtureWithPathConfig } from '../fixtures/paths';
+import { fixtureWithDefaultConfig } from '../fixtures/paths';
 
 it('should show errors only on file with strict comment', async () => {
   // given
