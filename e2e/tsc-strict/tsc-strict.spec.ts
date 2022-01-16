@@ -4,7 +4,7 @@ import { fixtureWithDefaultConfig } from '../fixtures/paths';
 
 const runInPath = async (path: string, args: string[] = []): Promise<string> => {
   const cwd = process.cwd();
-  const cli = join(cwd, 'dist/tsc-strict/tsc-strict.js');
+  const cli = join(cwd, 'dist/cli/tsc-strict/index.js');
 
   process.chdir(path);
   return execa('node', [cli, ...args], {
