@@ -6,7 +6,7 @@ Typescript plugin that allows turning on strict mode in specific files or direct
 `typescript-strict-plugin` was created mainly for existing projects that want to incorporate typescript strict mode, but project is so big that refactoring everything would take ages.
 
 
-Our plugin allows adding strict mode to a TypeScript project without fixing all the errors at once. By adding `//@ts-strict-ignore` comment at the top of a file, its whole content will be removed from strict type checking. To ease migrating a project to use this plugin, you can use `tsc-strict --updateComment` script, which adds the ignore comment to all files that contain at least one strict error.
+Our plugin allows adding strict mode to a TypeScript project without fixing all the errors at once. By adding `//@ts-strict-ignore` comment at the top of a file, its whole content will be removed from strict type checking. To ease migrating a project to use this plugin, you can use `update-strict-comments` script, which adds the ignore comment to all files that contain at least one strict error.
 
 
 TypeScript plugins don't work at compile-time. They will show errors in your IDE, but they won't appear during compilation.
@@ -41,7 +41,7 @@ add plugin to your `tsconfig.json`:
 ```
 and run the migration script
 ```
-tsc-strict --updateComments
+update-strict-comments
 ```
 That's it! You should be able to see strict typechecking in files without the `@ts-strict-ignore` comment. To make these files strict too, just remove its' ignore comments.
 
@@ -91,9 +91,9 @@ would not check for the strict null check in your files. The `tsc-strict` accept
 accepts.
 
 ## Migrating to v2
-Because of difficulties with migrating large projects to strict mode with original `//@ts-strict` comment, we've taken an another approach. Now in version 2.0+ typescript files are strict by default, and to ignore a file, you can use special `//@ts-strict-ignore` comment. It allows to have strict mode in newly created files without remembering about adding strict comment at the top of it. With version 2.0 script `tsc-strict` comes with a new flag, which detects all files with at least one strict error and adds the ignore comment to ease the migration. To update from v1 to v2, you just need to run:
+Because of difficulties with migrating large projects to strict mode with original `//@ts-strict` comment, we've taken an another approach. Now in version 2.0+ typescript files are strict by default, and to ignore a file, you can use special `//@ts-strict-ignore` comment. It allows to have strict mode in newly created files without remembering about adding strict comment at the top of it. Version 2.0 comes with a new script `update-strict-comments`, which detects all files with at least one strict error and adds the ignore comment to ease the migration. To update from v1 to v2, you just need to run:
 ```
-tsc-strict --updateComments
+update-strict-comments
 ```
 
 ## Testing the plugin
