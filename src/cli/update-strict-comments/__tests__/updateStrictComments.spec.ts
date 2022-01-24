@@ -1,6 +1,6 @@
 import { mocked } from 'jest-mock';
 import { isIgnoreCommentPresent, isStrictCommentPresent } from '../../isCommentPresent';
-import { getFilePathsWithErrors, getFilePathsWithoutErrors } from '../getFilePaths';
+import { getFilePathsWithErrors, getFilePathsOnPathWithoutErrors } from '../getFilePaths';
 import { updateStrictComments } from '../updateStrictComments';
 import { insertIgnoreComment, removeStrictComment } from '../commentOperations';
 
@@ -10,7 +10,7 @@ jest.mock('../../findStrictErrors', () => ({
 
 jest.mock('../getFilePaths', () => ({
   getFilePathsWithErrors: jest.fn(),
-  getFilePathsWithoutErrors: jest.fn(),
+  getFilePathsOnPathWithoutErrors: jest.fn(),
 }));
 
 jest.mock('../../isCommentPresent', () => ({
@@ -24,7 +24,7 @@ jest.mock('../commentOperations', () => ({
 }));
 
 const getFilePathsWithErrorsMock = mocked(getFilePathsWithErrors);
-const getFilePathsWithoutErrorsMock = mocked(getFilePathsWithoutErrors);
+const getFilePathsOnPathWithoutErrorsMock = mocked(getFilePathsOnPathWithoutErrors);
 
 const isStrictCommentPresentMock = mocked(isStrictCommentPresent);
 const isIgnoreCommentPresentMock = mocked(isIgnoreCommentPresent);
@@ -33,7 +33,7 @@ describe('updateStrictComments', () => {
   beforeEach(() => {
     jest.resetAllMocks();
     getFilePathsWithErrorsMock.mockResolvedValue([]);
-    getFilePathsWithoutErrorsMock.mockReturnValue([]);
+    getFilePathsOnPathWithoutErrorsMock.mockReturnValue([]);
   });
 
   it('should not change comments when there is no strict errors in file', async () => {
@@ -89,7 +89,7 @@ describe('updateStrictComments', () => {
 
   it('should remove strict comment when file is on configured path', async () => {
     // given
-    getFilePathsWithoutErrorsMock.mockReturnValue(['/dir/file.ts']);
+    getFilePathsOnPathWithoutErrorsMock.mockReturnValue(['/dir/file.ts']);
     isStrictCommentPresentMock.mockReturnValue(true);
     isIgnoreCommentPresentMock.mockReturnValue(false);
 

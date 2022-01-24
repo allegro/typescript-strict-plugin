@@ -11,13 +11,12 @@ export const getFilePathsWithErrors = async (allFilePaths: string[]) => {
   return [...new Set(errors.map(getFilePathFromErrorMessage))];
 };
 
-// Returns an array of file paths that are on config path and do not contain strict errors
-export const getFilePathsWithoutErrors = (
+export const getFilePathsOnPathWithoutErrors = (
   allFilePaths: string[],
   filePathsWithErrors: string[],
   configPaths?: string[],
 ) =>
   allFilePaths.filter(
     (filePath) =>
-      !isFileStrictByPath(filePath, configPaths) && !filePathsWithErrors.includes(filePath),
+      isFileStrictByPath(filePath, configPaths) && !filePathsWithErrors.includes(filePath),
   );
