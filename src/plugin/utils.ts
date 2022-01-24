@@ -2,10 +2,6 @@ import { CompilerOptions } from 'typescript';
 import * as ts_module from 'typescript/lib/tsserverlibrary';
 import { PLUGIN_NAME } from '../common/constants';
 
-export interface Config {
-  paths?: string[];
-}
-
 export type PluginInfo = ts_module.server.PluginCreateInfo;
 
 export function turnOnStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {

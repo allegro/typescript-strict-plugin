@@ -2,12 +2,16 @@
 
 Typescript plugin that allows turning on strict mode in specific files or directories.
 
-## Do i need this plugin?
-This plugin was created for bigger repositories that want to incorporate typescript strict mode, but project is so big that refactoring everything would take ages. This plugin allows user to simply put `//@ts-strict` comment to a top of a file and turn a strict mode to that file. If needed, strict mode can be turned on to directories too.
-Plugins in general doesn't work in compile time. They will show errors in your IDE but they won't appear during compilation.
-To check strict errors in marked files you can use our script `tsc-strict`.
-This command line tool is created to check for files that should be checked with strict rules in compilation time.
-It finds all files with `//@ts-strict` comment and files specified in `paths` parameter and checks for strict typescript errors only for that files.
+## Do I need this plugin?
+`typescript-strict-plugin` was created mainly for existing projects that want to incorporate typescript strict mode, but project is so big that refactoring everything would take ages.
+
+
+Our plugin allows adding strict mode to a TypeScript project without fixing all the errors at once. By adding `//@ts-strict-ignore` comment at the top of a file, its whole content will be removed from strict type checking. To ease migrating a project to use this plugin, you can use `tsc-strict --updateComment` script, which adds the ignore comment to all files that contain at least one strict error.
+
+
+TypeScript plugins don't work at compile-time. They will show errors in your IDE, but they won't appear during compilation.
+To check strict errors in marked files you can use `tsc-strict` script. This command line tool is created to check for files that should be checked with strict rules in compilation time.
+It finds all relevant files and checks for strict typescript errors only for that files.
 Therefore, we have strict errors inside our files and during build time.
 
 
@@ -21,7 +25,7 @@ or yarn
 ```bash
 yarn add -D typescript-strict-plugin
 ```
-and add plugin to your `tsconfig.json`:
+add plugin to your `tsconfig.json`:
 ```json
 {
  "compilerOptions": {
@@ -35,10 +39,14 @@ and add plugin to your `tsconfig.json`:
  }
 }
 ```
-That's it! You should be able to use `@ts-strict` comment to strictly check your files.
+and run the migration script
+```
+tsc-strict --updateComments
+```
+That's it! You should be able to see strict typechecking in files without the `@ts-strict-ignore` comment. To make these files strict too, just remove its' ignore comments.
 
 ## Configuration
-Plugin takes one extra non-mandatory argument `paths` that is an array of relative or absolute paths of directories that should be included.
+Plugin takes one extra non-mandatory argument `paths` that is an array of relative or absolute paths of directories that should be included. To add strict mode to files from ignored paths you can insert `//@ts-strict` comment.
 ```json
 {
   "compilerOptions": {
@@ -82,75 +90,10 @@ yarn tsc-strict --strictNullChecks false
 would not check for the strict null check in your files. The `tsc-strict` accepts all the arguments that regular `tsc` command
 accepts.
 
-## Examples
-Let's consider this type and a variable
-```typescript
-interface TestType {
-   bar: string;
-}
-
-const foo: TestType | undefined = undefined;
+## Migrating to v2
+Because of difficulties with migrating large projects to strict mode with original `//@ts-strict` comment, we've taken an another approach. Now in version 2.0+ typescript files are strict by default, and to ignore a file, you can use special `//@ts-strict-ignore` comment. It allows to have strict mode in newly created files without remembering about adding strict comment at the top of it. With version 2.0 script `tsc-strict` comes with a new flag, which detects all files with at least one strict error and adds the ignore comment to ease the migration. To update from v1 to v2, you just need to run:
 ```
-1. No `paths` argument
-With `tsconfig.json` like this:
-```json
-{
-  "compilerOptions": {
-    ...
-    "strict": false,
-    "plugins": [
-      {
-        "name": "typescript-strict-plugin"
-      }
-    ]
-  }
-}
-```
-Typescript will produce errors:
-```typescript
-//@ts-strict
-...
-const boo = foo.bar; // TS2532: Object is possibly 'undefined'.
-```
-Or not, depending on whether we used `ts-strict` or not:
-```typescript
-//no strict comment here
-...
-const boo = foo.bar; // no error here
-```
-
-2. With `paths` argument
-   With `tsconfig.json` like this:
-```json
-{
-  "compilerOptions": {
-    ...
-    "strict": false,
-    "plugins": [
-      {
-        "name": "typescript-strict-plugin",
-         "path": "./src"
-      }
-    ]
-  }
-}
-```
-If file is in the directory typescript will produce errors even if `ts-strict` comment is not in the file :
-```typescript
-// ./src/index.ts
-const boo = foo.bar; // TS2532: Object is possibly 'undefined'.
-```
-If file is not in the diretory there will be no error
-```typescript
-// ./lib/index.ts
-const boo = foo.bar; // no error here
-```
-If file is not in the diretory but there is `ts-strict` file will be check with strict mode:
-```typescript
-// ./lib/index.ts
-//@ts-strict
-...
-const boo = foo.bar; // TS2532: Object is possibly 'undefined'. 
+tsc-strict --updateComments
 ```
 
 ## Testing the plugin
