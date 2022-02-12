@@ -30,6 +30,7 @@ add plugin to your `tsconfig.json`:
 {
  "compilerOptions": {
    ...
+   "pretty": false,
    "strict": false,
    "plugins": [
     {
