@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import * as typescript from './typescript';
-import { ExecaError } from 'execa';
+import { isFile } from '../../common/utils';
 
 /**
  * @param tscOutput
@@ -40,14 +40,9 @@ function getPathToErrorsMap(tscOutput: string[]): Map<string, string[]> {
 }
 
 export async function compile(): Promise<Map<string, string[]>> {
-  let tscOutput: string[] = [];
-  try {
-    await typescript.compile();
-  } catch (error) {
-    if (isExecaError(error) && error.all) {
-      tscOutput = error.all.split(/\r?\n/);
-    }
-  }
+  const tscOutput: string[] = (await typescript.compile())
+    .split(/\r?\n/)
+    .filter((it) => !isFile(it));
 
   if (tscOutput.some((it) => it.startsWith('error'))) {
     console.log(`💥 Typescript did not compile due to some errors. Errors: `, tscOutput);
@@ -55,8 +50,4 @@ export async function compile(): Promise<Map<string, string[]>> {
   }
 
   return getPathToErrorsMap(tscOutput);
-}
-
-function isExecaError(error: unknown): error is ExecaError {
-  return typeof (error as ExecaError)?.all === 'string';
 }
