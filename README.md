@@ -96,10 +96,11 @@ Because of difficulties with migrating large projects to strict mode with origin
 update-strict-comments
 ```
 ## VSCode support
-VSCode supports this plugin out of the box. However VScode sometimes uses its own typescript version, not the project one - resulting in not reading local tsconfig. If you are using VSCode be sure to have `Use workspace version` option selected instead of `Use VS Code version`. This options can be found by clicking on the typescript version in the bottom right corner.
+VSCode supports this plugin out of the box. However VScode sometimes uses its own typescript version, not the project one - resulting in not reading local tsconfig. If you are using VSCode be sure to have `Use workspace version` option selected instead of `Use VS Code version`. This options can be found by opening the [command pallete](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and selecting `Typescript: Select Typescript Version...`
 
 
-![image](https://user-images.githubusercontent.com/35625949/126079904-7860a128-71d1-44a9-adca-15e1302fc515.png)
+<img width="729" alt="image" src="https://user-images.githubusercontent.com/35625949/153884371-e0f488d4-05b8-4b88-93d2-1caa7e6081f7.png">
+
 
 ## Testing the plugin
 ### Manually
