@@ -6,6 +6,7 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "strict": false,
+    "pretty": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
     "plugins": [

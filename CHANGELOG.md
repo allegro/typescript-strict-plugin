@@ -11,6 +11,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Strict by default without `@ts-strict` comment
 - Ignores file with `@ts-strict-ignore` comment
 - Migration tool `update-strict-comments` which updates comments in files which contain at least 1 strict error
+- Fixes error when `pretty: true` option was set in `tsconfig.json`
+- Adds a cache to compilation for `tsc-strict` process resulting in
+  50% speedup
 
 ## [1.1.2] - 2021-06-15
 
