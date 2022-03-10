@@ -1,7 +1,6 @@
-import { getFilePathsWithErrors, getFilePathsWithoutErrors } from './getFilePaths';
+import { getFilePathsWithErrors, getFilePathsOnPathWithoutErrors } from './getFilePaths';
 import { isIgnoreCommentPresent, isStrictCommentPresent } from '../isCommentPresent';
 import { isFileStrictByPath } from '../../common/isFileStrictByPath';
-import { file } from 'tmp-promise';
 import { insertIgnoreComment, removeStrictComment } from './commentOperations';
 
 interface UpdateStrictCommentsResult {
@@ -13,7 +12,7 @@ export async function updateStrictComments(
   configPaths?: string[],
 ): Promise<UpdateStrictCommentsResult> {
   const filesWithErrors = await getFilePathsWithErrors(filePaths);
-  const filesOnPathWithoutErrors = getFilePathsWithoutErrors(
+  const filesOnPathWithoutErrors = getFilePathsOnPathWithoutErrors(
     filePaths,
     filesWithErrors,
     configPaths,

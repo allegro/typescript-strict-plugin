@@ -1,4 +1,4 @@
-import { getPosixFilePath } from '../common/utils';
+import { getPosixFilePath, isFile } from '../common/utils';
 import * as typescript from './typescript/typescript';
 import { CliStrictFileChecker } from './CliStrictFileChecker';
 import { getPluginConfig } from './getPluginConfig';
@@ -23,8 +23,8 @@ const filterOutNodeModulesFiles = (files: string[]): string[] => {
 };
 
 async function getFilesCheckedByTs(): Promise<string[]> {
-  const filesCheckedByTs = await typescript.listFilesOnly();
-  const filePaths = filesCheckedByTs.split(/\r?\n/).map(getPosixFilePath);
+  const filesCheckedByTs = await typescript.compile();
+  const filePaths = filesCheckedByTs.split(/\r?\n/).filter(isFile).map(getPosixFilePath);
 
   return filterOutNodeModulesFiles(filePaths);
 }
