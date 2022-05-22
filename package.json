@@ -37,10 +37,13 @@
   "jest": {
     "preset": "ts-jest",
     "testTimeout": 10000,
-    "roots": ["src", "e2e"]
+    "roots": [
+      "src",
+      "e2e"
+    ]
   },
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "execa": "^4.0.0",
     "ora": "^5.4.1",
     "yargs": "^16.2.0"
