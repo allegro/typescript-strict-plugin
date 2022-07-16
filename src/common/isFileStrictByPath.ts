@@ -1,9 +1,25 @@
 import { isFileOnPath } from './isFileOnPath';
 
-export const isFileStrictByPath = (filePath: string, configPaths?: string[]): boolean => {
+interface IsFileStrictByPathParams {
+  filePath: string;
+  projectPath?: string;
+  configPaths?: string[];
+}
+
+export function isFileStrictByPath({
+  filePath,
+  projectPath,
+  configPaths,
+}: IsFileStrictByPathParams): boolean {
   if (configPaths === undefined) {
     return true;
   }
 
-  return configPaths?.some((strictPath) => isFileOnPath(filePath, strictPath));
-};
+  return configPaths?.some((strictPath) =>
+    isFileOnPath({
+      filePath,
+      targetPath: strictPath,
+      projectPath,
+    }),
+  );
+}

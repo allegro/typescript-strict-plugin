@@ -15,7 +15,7 @@ describe('isFileStrict', () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    isFileOnPathMock.mockImplementation((_, path) => path === filePath);
+    isFileOnPathMock.mockImplementation(({ targetPath }) => targetPath === filePath);
     isCommentPresent.mockReturnValue(false);
   });
 

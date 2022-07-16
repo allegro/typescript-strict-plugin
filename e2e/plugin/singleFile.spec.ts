@@ -45,4 +45,17 @@ describe('single file diagnostics', () => {
     // then
     expect(diagnostics).toHaveLength(1);
   });
+
+  it('should enable strict mode with a relative path config', async () => {
+    // given
+    const { projectPath, filePaths } = fixtureWithPathConfig;
+
+    // when
+    const diagnosticsIncluded = await getDiagnostics(projectPath, filePaths.included);
+    const diagnosticsExcluded = await getDiagnostics(projectPath, filePaths.excluded);
+
+    // then
+    expect(diagnosticsIncluded).toHaveLength(1);
+    expect(diagnosticsExcluded).toHaveLength(0);
+  });
 });
