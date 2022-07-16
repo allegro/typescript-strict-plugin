@@ -16,6 +16,7 @@ export class PluginStrictFileChecker {
       filePath,
       config: this.config,
       isCommentPresent: this.isCommentPresent,
+      projectPath: this.currentDirectory,
     });
   }
 

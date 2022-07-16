@@ -18,5 +18,5 @@ export const getFilePathsOnPathWithoutErrors = (
 ) =>
   allFilePaths.filter(
     (filePath) =>
-      isFileStrictByPath(filePath, configPaths) && !filePathsWithErrors.includes(filePath),
+      isFileStrictByPath({ filePath, configPaths }) && !filePathsWithErrors.includes(filePath),
   );

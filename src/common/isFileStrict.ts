@@ -4,12 +4,18 @@ import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from './constants';
 
 type IsFileStrictConfig = {
   filePath: string;
+  projectPath?: string;
   config?: Config;
   isCommentPresent: (comment: string, filePath: string) => boolean;
 };
 
 // Common logic determining whether file is strict or not
-export function isFileStrict({ filePath, config, isCommentPresent }: IsFileStrictConfig): boolean {
+export function isFileStrict({
+  filePath,
+  config,
+  projectPath,
+  isCommentPresent,
+}: IsFileStrictConfig): boolean {
   if (isCommentPresent(TS_STRICT_IGNORE_COMMENT, filePath)) {
     return false;
   }
@@ -18,9 +24,10 @@ export function isFileStrict({ filePath, config, isCommentPresent }: IsFileStric
     return true;
   }
 
-  const strictPaths = config?.paths ?? [];
+  const configPaths = config?.paths ?? [];
+  const fileStrictByPath = isFileStrictByPath({ filePath, configPaths, projectPath });
 
-  if (strictPaths.length > 0 && !isFileStrictByPath(filePath, strictPaths)) {
+  if (configPaths.length > 0 && !fileStrictByPath) {
     return false;
   }
 

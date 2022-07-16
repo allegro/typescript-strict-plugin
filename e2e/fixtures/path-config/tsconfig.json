@@ -12,7 +12,7 @@
       {
         "name": "../../dist/plugin",
         "paths": [
-          "./lib"
+          "./included"
         ]
       }
     ]

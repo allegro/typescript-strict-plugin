@@ -47,10 +47,10 @@ export async function updateStrictComments(
   return { updatedFileCount };
 }
 
-function shouldInsertIgnoreComment(filePath: string, strictPaths?: string[]): boolean {
-  return isFileStrictByPath(filePath, strictPaths) && !isIgnoreCommentPresent(filePath);
+function shouldInsertIgnoreComment(filePath: string, configPaths?: string[]): boolean {
+  return isFileStrictByPath({ filePath, configPaths }) && !isIgnoreCommentPresent(filePath);
 }
 
-function shouldRemoveStrictComment(filePath: string, strictPaths?: string[]): boolean {
-  return isFileStrictByPath(filePath, strictPaths) && isStrictCommentPresent(filePath);
+function shouldRemoveStrictComment(filePath: string, configPaths?: string[]): boolean {
+  return isFileStrictByPath({ filePath, configPaths }) && isStrictCommentPresent(filePath);
 }
