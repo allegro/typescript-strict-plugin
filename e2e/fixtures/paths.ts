@@ -18,3 +18,12 @@ export const fixtureWithPathConfig = {
     excludedWithStrictComment: 'excluded/excludedWithStrictComment.ts',
   },
 };
+
+export const fixtureWithNonRootConfig = {
+  projectPath: path.resolve(__dirname, 'non-root-config'),
+  filePaths: {
+    strict: 'strict.ts',
+    ignored: 'ignored.ts',
+  },
+  args: ['--project', './nested/tsconfig.json'],
+};

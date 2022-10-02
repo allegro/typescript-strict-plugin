@@ -1,6 +1,10 @@
 import execa from 'execa';
 import { join } from 'path';
-import { fixtureWithDefaultConfig, fixtureWithPathConfig } from '../fixtures/paths';
+import {
+  fixtureWithDefaultConfig,
+  fixtureWithNonRootConfig,
+  fixtureWithPathConfig,
+} from '../fixtures/paths';
 
 const runInPath = async (path: string, args: string[] = []): Promise<string> => {
   const cwd = process.cwd();
@@ -47,4 +51,19 @@ it('should enable strict mode with a relative path config', async () => {
   expect(stdout).not.toEqual(expect.stringContaining(filePaths.excluded));
   expect(stdout).toEqual(expect.stringContaining(filePaths.included));
   expect(stdout).toMatch(/error TS2322: Type 'null' is not assignable to type 'string'\./i);
+});
+
+it('should enable strict mode with a non-root path config', async () => {
+  //given
+  const { projectPath, filePaths, args } = fixtureWithNonRootConfig;
+
+  //when
+  const stdout = await runInPath(projectPath, args);
+
+  // then
+  expect(stdout).toEqual(expect.stringContaining(filePaths.strict));
+  expect(stdout).not.toEqual(expect.stringContaining(filePaths.ignored));
+  expect(stdout).toMatch(/error TS2322: Type 'null' is not assignable to type 'string'\./i);
+  expect(stdout).toMatch(/Found 1 strict file/i);
+  expect(stdout).toMatch(/Found 1 error/i);
 });

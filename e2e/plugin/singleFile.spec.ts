@@ -1,5 +1,9 @@
 import { getDiagnostics } from './utils/getDiagnostics';
-import { fixtureWithDefaultConfig, fixtureWithPathConfig } from '../fixtures/paths';
+import {
+  fixtureWithDefaultConfig,
+  fixtureWithNonRootConfig,
+  fixtureWithPathConfig,
+} from '../fixtures/paths';
 
 describe('single file diagnostics', () => {
   it('should enable strict mode by default in project without config', async () => {
