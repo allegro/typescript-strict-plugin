@@ -1,9 +1,9 @@
-import { getProjectPath } from '../utils';
+import { getProjectPathFromArgs } from '../utils';
 
 let globalProcessArgv: string[];
 
 describe('utils', () => {
-  describe('getProjectPath', () => {
+  describe('getProjectPathFromArgs', () => {
     beforeEach(() => {
       globalProcessArgv = process.argv;
     });
@@ -18,7 +18,7 @@ describe('utils', () => {
         '/home/neenjaw/typescript-strict-plugin/node_modules/.bin/update-strict-comments',
       ];
 
-      expect(getProjectPath()).toEqual(undefined);
+      expect(getProjectPathFromArgs()).toEqual(undefined);
     });
 
     it('should return undefined if --project not present in path', () => {
@@ -29,7 +29,7 @@ describe('utils', () => {
         './some/inner/project/tsconfig.json',
       ];
 
-      expect(getProjectPath()).toEqual('./some/inner/project');
+      expect(getProjectPathFromArgs()).toEqual('./some/inner/project');
     });
   });
 });

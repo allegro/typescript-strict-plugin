@@ -19,7 +19,7 @@ export function isFile(path: string) {
   }
 }
 
-export function getProjectPath(): string | undefined {
+export function getProjectPathFromArgs(): string | undefined {
   const args = process.argv.slice(2);
   for (let index = 0; index < args.length; index++) {
     const arg = args[index];
