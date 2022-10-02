@@ -1,5 +1,6 @@
 import { getPosixFilePath } from './utils';
 import { getAbsolutePath } from './getAbsolutePath';
+import { getProjectPathFromArgs } from './utils';
 
 interface IsFileOnPathParams {
   filePath: string;
@@ -10,7 +11,7 @@ interface IsFileOnPathParams {
 export function isFileOnPath({
   filePath,
   targetPath,
-  projectPath = process.cwd(),
+  projectPath = getProjectPathFromArgs() ?? process.cwd(),
 }: IsFileOnPathParams): boolean {
   const absolutePathToStrictFiles = getAbsolutePath(projectPath, targetPath);
 
