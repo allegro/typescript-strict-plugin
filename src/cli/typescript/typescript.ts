@@ -1,7 +1,7 @@
 import execa, { ExecaError } from 'execa';
 
 export const showConfig = async (): Promise<string> => {
-  const output = await execa('tsc', ['--showConfig'], {
+  const output = await execa('tsc', [...process.argv.slice(2), '--showConfig'], {
     all: true,
     preferLocal: true,
   });
