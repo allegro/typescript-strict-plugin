@@ -1,7 +1,6 @@
 name: CI
 
-on:
-  [pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -19,5 +18,5 @@ jobs:
       - run: npm i
       - run: npm run build
       - run: npm run lint
-      - run: npm run prettier
+      - run: npm run prettier:ci
       - run: npm run test

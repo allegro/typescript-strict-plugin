@@ -14,16 +14,18 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [2.0.0] - 2021-29-11
 
 ### Changed
+
 - Strict by default without `@ts-strict` comment
 - Ignores file with `@ts-strict-ignore` comment
-- Migration tool `update-strict-comments` which updates comments in files which contain at least 1 strict error
+- Migration tool `update-strict-comments` which updates comments in files which contain at least 1
+  strict error
 - Fixes error when `pretty: true` option was set in `tsconfig.json`
-- Adds a cache to compilation for `tsc-strict` process resulting in
-  50% speedup
+- Adds a cache to compilation for `tsc-strict` process resulting in 50% speedup
 
 ## [1.1.2] - 2021-06-15
 
 ### Added
+
 - Rewrites some tests to `jest`
 - Adds feature to pass `tsc` parameters to `tsc-strict` command
 
