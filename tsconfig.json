@@ -8,9 +8,5 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "./sample-project",
-    "./e2e",
-    "./*.spec.ts"
-  ]
+  "exclude": ["./sample-project", "./e2e", "./*.spec.ts"]
 }

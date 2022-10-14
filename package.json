@@ -31,6 +31,9 @@
   ],
   "scripts": {
     "test": "jest",
+    "lint": "./node_modules/.bin/eslint './src/**/*.ts' --env jest --quiet",
+    "prettier": "prettier --loglevel error --write .",
+    "prettier:ci": "prettier --check .",
     "build": "tsc",
     "dev": "tsc --watch -p ."
   },
