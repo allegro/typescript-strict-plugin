@@ -1,6 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from '../../common/constants';
-import { file } from 'tmp-promise';
 
 export function insertIgnoreComment(filePath: string) {
   const fileContent = readFileSync(filePath, 'utf-8');

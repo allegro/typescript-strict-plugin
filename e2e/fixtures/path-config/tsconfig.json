@@ -11,9 +11,7 @@
     "plugins": [
       {
         "name": "../../dist/plugin",
-        "paths": [
-          "./included"
-        ]
+        "paths": ["./included"]
       }
     ]
   }
