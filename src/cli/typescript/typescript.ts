@@ -28,7 +28,6 @@ export const compile = async (): Promise<string> => {
     compilerOutputCache = compilerResult.stdout;
   } catch (error) {
     if (isExecaError(error) && error.all) {
-      console.log('Error.all', JSON.stringify(error));
       if (wasCompileAborted(error)) {
         console.log(`💥 Typescript task was aborted. Full error log: `, error.all);
         process.exit(error.exitCode);
