@@ -28,9 +28,7 @@ export const compile = async (): Promise<string> => {
     compilerOutputCache = compilerResult.stdout;
   } catch (error) {
     if (isExecaError(error) && error.all) {
-      console.log('Error.all', JSON.stringify(error));
-      console.log('Error.all', error.all);
-      if (wasCompileAborted(error)) {
+      if (wasCompileAborted(error) || wasOutOfMemoryException(error)) {
         console.log(`💥 Typescript task was aborted. Full error log: `, error.all);
         process.exit(error.exitCode);
       }
@@ -48,4 +46,8 @@ function isExecaError(error: unknown): error is ExecaError {
 
 function wasCompileAborted(error: ExecaError): boolean {
   return error.signal === 'SIGABRT';
+}
+
+function wasOutOfMemoryException(error: ExecaError): boolean {
+  return Boolean(error.all?.includes('heap out of memory'));
 }
