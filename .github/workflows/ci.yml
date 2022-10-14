@@ -3,6 +3,18 @@ name: CI
 on: [pull_request]
 
 jobs:
+  lint:
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - run: npm i
+      - run: npm run lint
+      - run: npm run prettier:ci
+
   build:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -17,6 +29,4 @@ jobs:
           node-version: '14.x'
       - run: npm i
       - run: npm run build
-      - run: npm run lint
-      - run: npm run prettier:ci
       - run: npm run test
