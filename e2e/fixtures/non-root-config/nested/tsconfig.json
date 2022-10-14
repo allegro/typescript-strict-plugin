@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["es2018"],
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "strict": false,
+    "pretty": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "plugins": [
+      {
+        "name": "../../dist/plugin"
+      }
+    ]
+  }
+}
