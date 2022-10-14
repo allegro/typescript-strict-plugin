@@ -41,7 +41,7 @@ it('should detect strict file errors', async () => {
   expect(stdout).toMatch(/Found 1 error/i);
 });
 
-it('should detect heap out of memory exception', async () => {
+it.only('should detect heap out of memory exception', async () => {
   //given
   const { projectPath } = fixtureWithDefaultConfig;
 
