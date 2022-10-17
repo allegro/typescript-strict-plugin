@@ -12,7 +12,6 @@ export function isFileExcludedByPath({
   configExclude,
 }: IsFileExcludedByPathParams): boolean {
   if (configExclude === undefined) {
-    console.log('No Exludes detected');
     return false;
   }
 
