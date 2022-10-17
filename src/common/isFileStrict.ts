@@ -1,6 +1,7 @@
 import { Config } from './types';
 import { isFileStrictByPath } from './isFileStrictByPath';
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from './constants';
+import { isFileExcludedByPath } from './isFileExcludedByPath';
 
 type IsFileStrictConfig = {
   filePath: string;
@@ -22,6 +23,18 @@ export function isFileStrict({
 
   if (isCommentPresent(TS_STRICT_COMMENT, filePath)) {
     return true;
+  }
+
+  const configExclude = config?.exclude ?? [];
+
+  if (
+    isFileExcludedByPath({
+      filePath,
+      configExclude,
+      projectPath,
+    })
+  ) {
+    return false;
   }
 
   const configPaths = config?.paths ?? [];

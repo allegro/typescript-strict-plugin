@@ -60,9 +60,7 @@ comment. To make these files strict too, just remove its' ignore comments.
 
 ## Configuration
 
-Plugin takes one extra non-mandatory argument `paths` that is an array of relative or absolute paths
-of directories that should be included. To add strict mode to files from ignored paths you can
-insert `//@ts-strict` comment.
+Plugin takes extra, non-mandatory arguments `paths` and `exlude`. Both of them take an array of relative or absolute paths that should be included (property `paths`) or excluded (property `exclude`). To add strict mode to files from ignored paths you can insert `//@ts-strict` comment.
 
 ```json
 {
@@ -75,6 +73,10 @@ insert `//@ts-strict` comment.
         "paths": [
           "./src",
           "/absolute/path/to/source/"
+        ],
+        "exclude": [
+          "./src/tests",
+          "./src/fileToExclude.ts"
         ]
       }
     ]
