@@ -52,7 +52,7 @@ add plugin to your `tsconfig.json`:
 and run the migration script
 
 ```
-update-strict-comments
+./node_modules/.bin/update-strict-comments
 ```
 
 That's it! You should be able to see strict typechecking in files without the `@ts-strict-ignore`
