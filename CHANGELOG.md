@@ -8,6 +8,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [2.2.0] - 2022-10-17
 
 ### Added
+
 - Add feature to exclude files from strict check based on `exclude` config property
 
 ## [2.1.0] - 2022-10-14
