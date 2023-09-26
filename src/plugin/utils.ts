@@ -1,21 +1,14 @@
-import { CompilerOptions } from 'typescript';
-import * as ts_module from 'typescript/lib/tsserverlibrary';
+import * as ts from 'typescript/lib/tsserverlibrary';
 import { PLUGIN_NAME } from '../common/constants';
 
-export type PluginInfo = ts_module.server.PluginCreateInfo;
+export type PluginInfo = ts.server.PluginCreateInfo;
 
-export function turnOnStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {
-  info.project.setCompilerOptions({
-    ...currentOptions,
-    strict: true,
-  });
+export function turnOnStrictMode(info: PluginInfo): void {
+  info.project['compilerOptions'].strict = true;
 }
 
-export function turnOffStrictMode(info: PluginInfo, currentOptions: CompilerOptions): void {
-  info.project.setCompilerOptions({
-    ...currentOptions,
-    strict: false,
-  });
+export function turnOffStrictMode(info: PluginInfo): void {
+  info.project['compilerOptions'].strict = false;
 }
 
 export function setupProxy(info: PluginInfo) {

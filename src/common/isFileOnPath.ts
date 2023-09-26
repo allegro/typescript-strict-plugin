@@ -13,6 +13,10 @@ export function isFileOnPath({
   targetPath,
   projectPath = getProjectPathFromArgs() ?? process.cwd(),
 }: IsFileOnPathParams): boolean {
+  if (!projectPath) {
+    return false;
+  }
+
   const absolutePathToStrictFiles = getAbsolutePath(projectPath, targetPath);
 
   return getPosixFilePath(filePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));

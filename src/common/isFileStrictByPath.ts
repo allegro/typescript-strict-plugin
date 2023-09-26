@@ -15,7 +15,7 @@ export function isFileStrictByPath({
     return true;
   }
 
-  return configPaths?.some((strictPath) =>
+  return configPaths.some((strictPath) =>
     isFileOnPath({
       filePath,
       targetPath: strictPath,
