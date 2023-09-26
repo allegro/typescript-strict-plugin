@@ -41,8 +41,7 @@
     "preset": "ts-jest",
     "testTimeout": 10000,
     "roots": [
-      "src",
-      "e2e"
+      "src"
     ]
   },
   "dependencies": {
