@@ -9,12 +9,8 @@ export class InMemoryProgram {
     private readonly info: PluginInfo,
   ) {}
 
-  private getSourceFile(
-    fileName: string,
-    languageVersionOrOptions?: ts.ScriptTarget | ts.CreateSourceFileOptions,
-    onError?: (message: string) => void,
-    shouldCreateNewSourceFile?: boolean,
-  ) {
+  private getSourceFile(fileName: string) {
+    // Assume the file is canonicalized and absolute.
     const path = fileName as ts.Path;
     const sourceFile = this.info.project.getSourceFile(path);
     return sourceFile;
@@ -30,17 +26,27 @@ export class InMemoryProgram {
     const options = { ...currentProgram.getCompilerOptions(), strict: true };
     const compilerHost: ts.CompilerHost = {
       ...this._ts.createCompilerHost(options),
-      getSourceFile: (...args) => this.getSourceFile(...args),
-      getSourceFileByPath: (fileName, filePath, ...args) => this.getSourceFile(fileName, ...args),
+
+      // Assume we can ignore the other arguments to these function.
+      getSourceFile: (fileName) => this.getSourceFile(fileName),
+      getSourceFileByPath: (fileName) => this.getSourceFile(fileName),
     };
+    const configFileParsingDiagnostics = currentProgram.getConfigFileParsingDiagnostics();
+    const projectReferences = currentProgram.getProjectReferences();
+
+    // Always create a new program since we assume the file has changed if diagnostics are requested.
     this.program = this._ts.createSemanticDiagnosticsBuilderProgram(
       rootFiles,
       options,
       compilerHost,
       this.program,
+      configFileParsingDiagnostics,
+      projectReferences,
     );
 
     const strictDiags = this.program.getSemanticDiagnostics(this.getSourceFile(filePath));
-    return [...strictDiags];
+
+    // Assume the diagnostics won't be mutated.
+    return strictDiags as ts.Diagnostic[];
   }
 }
