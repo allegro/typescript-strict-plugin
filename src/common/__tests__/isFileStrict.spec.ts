@@ -138,6 +138,20 @@ describe('isFileStrict', () => {
     expect(result).toBe(false);
   });
 
+  it('should return false when file is on path and matched by exclude pattern', () => {
+    // given
+    const config: Config = {
+      paths: ['otherFilePath', filePath, 'otherFilePath'],
+      excludePattern: ['*'],
+    };
+
+    // when
+    const result = isFileStrict({ filePath, isCommentPresent, config });
+
+    // then
+    expect(result).toBe(false);
+  });
+
   it('should return true when path config is empty', () => {
     // given
     const config: Config = {
