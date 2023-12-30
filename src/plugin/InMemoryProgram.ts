@@ -1,4 +1,4 @@
-import { PluginInfo } from './utils';
+import { log, PluginInfo } from './utils';
 import * as ts from 'typescript/lib/tsserverlibrary';
 
 /**
@@ -41,6 +41,12 @@ export class InMemoryProgram {
           sourceFile.text,
         );
       }
+    } else if (!sourceFile) {
+      // Perhaps we should try to deal with this situation by creating a SourceFile?
+      log(
+        this.info,
+        `Could not obtain SourceFile from language service and 'languageVerisionOrOptions' is not set for path '${fileName}'`,
+      );
     }
 
     return sourceFile;
@@ -49,6 +55,7 @@ export class InMemoryProgram {
   public getSemanticDiagnostics(filePath: string): ts.Diagnostic[] {
     const currentProgram = this.info.languageService.getProgram();
     if (!currentProgram) {
+      log(this.info, `Program is undefined for file with path '${filePath}'`);
       return this.info.languageService.getSemanticDiagnostics(filePath);
     }
 
@@ -85,6 +92,7 @@ export class InMemoryProgram {
       // Assume the diagnostics won't be mutated.
       return strictDiags as ts.Diagnostic[];
     } else {
+      log(this.info, `Could not obtain SourceFile for file with path '${filePath}'`);
       return this.info.languageService.getSemanticDiagnostics(filePath);
     }
   }
