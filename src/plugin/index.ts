@@ -1,6 +1,6 @@
 import { InMemoryProgram } from './InMemoryProgram';
 import { PluginStrictFileChecker } from './PluginStrictFileChecker';
-import { log, PluginInfo, setupProxy, turnOffStrictMode, turnOnStrictMode } from './utils';
+import { log, PluginInfo, setupProxy } from './utils';
 import * as ts from 'typescript/lib/tsserverlibrary';
 
 const init: ts.server.PluginModuleFactory = (mod) => {
