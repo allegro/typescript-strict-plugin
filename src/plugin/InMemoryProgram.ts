@@ -25,7 +25,7 @@ export class InMemoryProgram {
   private getSourceFile(
     fileName: string,
     languageVersionOrOptions?: ts.ScriptTarget | ts.CreateSourceFileOptions,
-  ) {
+  ): ts.SourceFile | undefined {
     // Assume the file is canonicalized and absolute.
     const path = fileName as ts.Path;
     let sourceFile = this.info.project.getSourceFile(path);
@@ -77,9 +77,15 @@ export class InMemoryProgram {
       projectReferences,
     );
 
-    const strictDiags = this.program.getSemanticDiagnostics(this.getSourceFile(filePath));
+    const sourceFile = this.getSourceFile(filePath);
 
-    // Assume the diagnostics won't be mutated.
-    return strictDiags as ts.Diagnostic[];
+    if (sourceFile) {
+      const strictDiags = this.program.getSemanticDiagnostics(sourceFile);
+
+      // Assume the diagnostics won't be mutated.
+      return strictDiags as ts.Diagnostic[];
+    } else {
+      return this.info.languageService.getSemanticDiagnostics(filePath);
+    }
   }
 }
