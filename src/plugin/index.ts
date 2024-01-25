@@ -25,6 +25,14 @@ const init: ts.server.PluginModuleFactory = ({ typescript }) => {
         return info.languageService.getSemanticDiagnostics(filePath);
       }
     };
+    proxy.cleanupSemanticCache = function () {
+      strictLanguageService.cleanupSemanticCache();
+      info.languageService.cleanupSemanticCache();
+    };
+    proxy.dispose = function () {
+      strictLanguageService.dispose();
+      info.languageService.dispose();
+    };
 
     return proxy;
   }
