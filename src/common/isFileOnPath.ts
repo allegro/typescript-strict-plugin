@@ -1,3 +1,4 @@
+import path from 'path';
 import { getPosixFilePath } from './utils';
 import { getAbsolutePath } from './getAbsolutePath';
 import { getProjectPathFromArgs } from './utils';
@@ -19,5 +20,7 @@ export function isFileOnPath({
 
   const absolutePathToStrictFiles = getAbsolutePath(projectPath, targetPath);
 
-  return getPosixFilePath(filePath).startsWith(getPosixFilePath(absolutePathToStrictFiles));
+  return getPosixFilePath(filePath).startsWith(
+    getPosixFilePath(absolutePathToStrictFiles) + path.posix.sep,
+  );
 }
