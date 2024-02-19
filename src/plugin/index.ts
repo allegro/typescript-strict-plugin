@@ -33,6 +33,15 @@ const init: ts.server.PluginModuleFactory = ({ typescript }) => {
       strictLanguageService.dispose();
       info.languageService.dispose();
     };
+    proxy.getQuickInfoAtPosition = function (filePath, position) {
+      const strictFile = new PluginStrictFileChecker(info).isFileStrict(filePath);
+
+      if (strictFile) {
+        return strictLanguageService.getQuickInfoAtPosition(filePath, position);
+      } else {
+        return info.languageService.getQuickInfoAtPosition(filePath, position);
+      }
+    };
 
     return proxy;
   }
