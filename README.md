@@ -60,9 +60,10 @@ comment. To make these files strict too, just remove its' ignore comments.
 
 ## Configuration
 
-Plugin takes extra, non-mandatory arguments `paths`, `exlude` and `excludePattern`. Args `paths` and `exlude` accept an array of
-relative or absolute path prefixes that should be included (property `paths`) or excluded (property
-`exclude`). Arg `excludePattern` accepts an array of strings that will be matched with [minimatch](https://github.com/isaacs/minimatch). To add strict mode to files from ignored paths you can insert `//@ts-strict` comment.
+Plugin takes extra, non-mandatory arguments `paths`, `exlude` and `excludePattern`. Args `paths` and `exclude` accept an array of
+relative or absolute paths that should be included (property `paths`) or excluded (property
+`exclude`). Arg `excludePattern` accepts an array of strings that will be matched with [minimatch](https://github.com/isaacs/minimatch).
+To add strict mode to files from ignored paths you can insert `//@ts-strict` comment.
 
 ```json
 {
