@@ -2,6 +2,7 @@ import { Config } from './types';
 import { isFileStrictByPath } from './isFileStrictByPath';
 import { TS_STRICT_COMMENT, TS_STRICT_IGNORE_COMMENT } from './constants';
 import { isFileExcludedByPath } from './isFileExcludedByPath';
+import { isFileExcludedByPattern } from './isFileExcludedByPattern';
 
 type IsFileStrictConfig = {
   filePath: string;
@@ -26,12 +27,17 @@ export function isFileStrict({
   }
 
   const configExclude = config?.exclude ?? [];
+  const configExcludePattern = config?.excludePattern ?? [];
 
   if (
     isFileExcludedByPath({
       filePath,
       configExclude,
       projectPath,
+    }) ||
+    isFileExcludedByPattern({
+      filePath,
+      configExcludePattern,
     })
   ) {
     return false;
