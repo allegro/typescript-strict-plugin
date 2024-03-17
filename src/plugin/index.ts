@@ -13,6 +13,7 @@ const init: ts.server.PluginModuleFactory = ({ typescript }) => {
 
     const strictLanguageServiceHost = setupStrictLanguageServiceHostProxy(info);
     const strictLanguageService = typescript.createLanguageService(strictLanguageServiceHost);
+    strictLanguageService.getProgram();
 
     log(info, 'Plugin initialized');
 
