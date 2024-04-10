@@ -7,10 +7,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [2.4.1] - 2024-04-09
 
-### Fixed 
+### Fixed
 
 - Fix typescript server crashing when using the plugin with Typescript 5.4
-
 
 ## [2.4.0] - 2024-03-07
 
