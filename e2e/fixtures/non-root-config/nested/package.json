@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "typescript-strict-plugin": "file:../../../../typescript-strict-plugin"
+  }
+}

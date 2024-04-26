@@ -41,7 +41,8 @@
     "preset": "ts-jest",
     "testTimeout": 10000,
     "roots": [
-      "src"
+      "src",
+      "e2e"
     ]
   },
   "dependencies": {
@@ -72,7 +73,7 @@
     "tmp-promise": "2.0.2",
     "ts-jest": "^29.1.2",
     "ts-node": "10.4.0",
-    "typescript": "5.2.2",
+    "typescript": "5.4.5",
     "which-module": "^2.0.0"
   },
   "lint-staged": {
