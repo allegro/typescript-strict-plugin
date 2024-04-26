@@ -27,15 +27,15 @@ export class TSServer {
   private _server: ChildProcess;
   private _seq: number;
 
-  constructor() {
+  constructor(projectPath: string) {
     this._responseEventEmitter = new EventEmitter();
     this._responseCommandEmitter = new EventEmitter();
     const tsserverPath = require.resolve('typescript/lib/tsserver');
 
     const server = fork(tsserverPath, {
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
-      cwd: '/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config',
-      env: { TSS_LOG: '-logToFile true -file ./ts.log -level verbose' }, // creates tsserver log from tests
+      cwd: projectPath,
+      // env: { TSS_LOG: '-logToFile true -file ./ts.log -level verbose' }, // creates tsserver log from tests
     });
     this._exitPromise = new Promise((resolve, reject) => {
       server.on('exit', (code: string) => resolve(code));
@@ -45,7 +45,6 @@ export class TSServer {
     server.stdout?.on('data', (data: string) => {
       const [, , res] = data.split('\n');
       const obj = JSON.parse(res) as ServerResponse;
-      console.log('[TSServer.ts:46] -- obj = ', obj);
       if (obj.type === 'event') {
         this._responseEventEmitter.emit(obj.event, obj);
       } else if (obj.type === 'response') {

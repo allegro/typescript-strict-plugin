@@ -8,7 +8,7 @@ function findResponse(responses: ServerResponse[], eventName: string) {
 }
 
 export async function getDiagnostics(projectPath: string, filePath: string) {
-  const server = new TSServer();
+  const server = new TSServer(projectPath);
 
   const file = resolve(projectPath, filePath);
 

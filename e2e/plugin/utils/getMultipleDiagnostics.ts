@@ -7,7 +7,7 @@ function findResponses(responses: ServerResponse[], eventName: string) {
 }
 
 export async function getMultipleDiagnostics(projectPath: string, filePaths: string[]) {
-  const server = new TSServer();
+  const server = new TSServer(projectPath);
 
   const openFiles = filePaths.map((filePath) => {
     const file = path.resolve(projectPath, filePath);
