@@ -14,11 +14,16 @@ export async function getDiagnostics(projectPath: string, filePath: string) {
 
   const fileContent = readFileSync(file, 'utf-8');
 
-  server.send({ command: 'open', arguments: { file, fileContent, scriptKindName: 'TS' } });
+  server.send({
+    command: 'updateOpen',
+    arguments: {
+      openFiles: [{ file: file, fileContent, scriptKindName: 'TS', projectRootPath: projectPath }],
+    },
+  });
 
   await server.waitEvent('projectLoadingFinish');
 
-  server.send({ command: 'geterr', arguments: { files: [file], delay: 0 } });
+  server.send({ command: 'geterr', arguments: { files: [file], delay: 10 } });
 
   await server.waitEvent('semanticDiag');
 

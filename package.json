@@ -1,6 +1,6 @@
 {
   "name": "typescript-strict-plugin",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Typescript tools that help with migration to the strict mode",
   "author": "Allegro",
   "contributors": [
@@ -39,7 +39,7 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testTimeout": 10000,
+    "testTimeout": 20000,
     "roots": [
       "src",
       "e2e"
@@ -74,8 +74,8 @@
     "ts-jest": "^29.1.2",
     "ts-node": "10.4.0",
     "typescript": "5.2.2",
-    "which-module": "^2.0.0",
-    "typescript-strict-plugin": "file:../typescript-strict-plugin"
+    "typescript-strict-plugin": "file:./",
+    "which-module": "^2.0.0"
   },
   "lint-staged": {
     "*.(js|ts)": [

@@ -7,13 +7,12 @@ import {
 } from './utils';
 import * as ts from 'typescript/lib/tsserverlibrary';
 
-const init: ts.server.PluginModuleFactory = ({ typescript }) => {
+const init: ts.server.PluginModuleFactory = () => {
   function create(info: PluginInfo) {
     const proxy = setupLanguageServiceProxy(info);
 
     const strictLanguageServiceHost = setupStrictLanguageServiceHostProxy(info);
-    const strictLanguageService = typescript.createLanguageService(strictLanguageServiceHost);
-    strictLanguageService.getProgram();
+    const strictLanguageService = ts.createLanguageService(strictLanguageServiceHost);
 
     log(info, 'Plugin initialized');
 
