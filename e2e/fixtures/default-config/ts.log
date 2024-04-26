@@ -1,16 +1,16 @@
-Info 0    [13:17:41.781] Starting TS Server
-Info 1    [13:17:41.781] Version: 5.2.2
-Info 2    [13:17:41.781] Arguments: /Users/jaroslaw.glegola/.nvm/versions/node/v20.11.0/bin/node /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/tsserver.js
-Info 3    [13:17:41.781] Platform: darwin NodeVersion: v20.11.0 CaseSensitive: false
-Info 4    [13:17:41.781] ServerMode: undefined hasUnknownServerMode: undefined
-Info 5    [13:17:41.784] Binding...
-Info 6    [13:17:41.786] request:
+Info 0    [13:24:28.671] Starting TS Server
+Info 1    [13:24:28.671] Version: 5.2.2
+Info 2    [13:24:28.671] Arguments: /Users/jaroslaw.glegola/.nvm/versions/node/v20.11.0/bin/node /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/tsserver.js
+Info 3    [13:24:28.671] Platform: darwin NodeVersion: v20.11.0 CaseSensitive: false
+Info 4    [13:24:28.671] ServerMode: undefined hasUnknownServerMode: undefined
+Info 5    [13:24:28.674] Binding...
+Info 6    [13:24:28.676] request:
     {"seq":1,"type":"request","command":"open","arguments":{"file":"/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts","fileContent":"const text: string = null;\n\nexport {};\n","scriptKindName":"TS"}}
-Info 7    [13:17:41.787] Search path: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config
-Info 8    [13:17:41.787] For info: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts :: Config file name: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
-Info 9    [13:17:41.787] Creating configuration project /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
-Info 10   [13:17:41.788] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Config file
-Info 11   [13:17:41.789] event:
+Info 7    [13:24:28.677] Search path: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config
+Info 8    [13:24:28.677] For info: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts :: Config file name: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
+Info 9    [13:24:28.677] Creating configuration project /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
+Info 10   [13:24:28.678] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Config file
+Info 11   [13:24:28.679] event:
     {
      "seq": 0,
      "type": "event",
@@ -20,7 +20,7 @@ Info 11   [13:17:41.789] event:
       "reason": "Creating possible configured project for /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts to open"
      }
     }
-Info 12   [13:17:41.796] Config: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json : {
+Info 12   [13:24:28.686] Config: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json : {
  "rootNames": [
   "/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/ignored.ts",
   "/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts"
@@ -45,117 +45,115 @@ Info 12   [13:17:41.796] Config: /Users/jaroslaw.glegola/Documents/Praca/typescr
   "configFilePath": "/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json"
  }
 }
-Info 13   [13:17:41.796] DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config 1 undefined Config: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Wild card directory
-Info 14   [13:17:41.797] Elapsed:: 0.3856670000000122ms DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config 1 undefined Config: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Wild card directory
-Info 15   [13:17:41.797] Enabling plugin typescript-strict-plugin from candidate paths: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/tsserver.js/../../..
-Info 16   [13:17:41.797] Loading typescript-strict-plugin from /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/tsserver.js/../../.. (resolved to /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/node_modules)
-Info 17   [13:17:41.898] [typescript-strict-plugin]: Plugin initialized
-Info 18   [13:17:41.899] Plugin validation succeeded
-Info 19   [13:17:41.899] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/ignored.ts 500 undefined WatchType: Closed Script info
-Info 20   [13:17:41.907] Starting updateGraphWorker: Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
-Info 21   [13:17:41.917] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 22   [13:17:41.918] Elapsed:: 0.15212500000001228ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 23   [13:17:41.918] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 24   [13:17:41.918] Elapsed:: 0.24791700000000105ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 25   [13:17:41.918] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 26   [13:17:41.918] Elapsed:: 0.06083300000000236ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 27   [13:17:41.918] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__core/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 28   [13:17:41.919] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__generator/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 29   [13:17:41.920] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__template/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 30   [13:17:41.920] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__traverse/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 31   [13:17:41.920] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/graceful-fs/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 32   [13:17:41.921] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/istanbul-lib-coverage/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 33   [13:17:41.921] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/istanbul-lib-report/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 34   [13:17:41.922] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/istanbul-reports/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 35   [13:17:41.922] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/jest/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 36   [13:17:41.923] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/json-schema/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 37   [13:17:41.923] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/minimatch/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 38   [13:17:41.924] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/node/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 39   [13:17:41.925] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/parse-json/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 40   [13:17:41.925] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/semver/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 41   [13:17:41.926] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/stack-utils/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 42   [13:17:41.926] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/yargs/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 43   [13:17:41.927] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/yargs-parser/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 44   [13:17:41.927] DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
-Info 45   [13:17:41.927] Elapsed:: 0.19829200000000924ms DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
-Info 46   [13:17:42.079] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 47   [13:17:42.079] Elapsed:: 0.008041999999989002ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 48   [13:17:42.080] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 49   [13:17:42.080] Elapsed:: 0.24012499999997772ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 50   [13:17:42.080] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 51   [13:17:42.080] Elapsed:: 0.0404999999999518ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 52   [13:17:42.080] DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
-Info 53   [13:17:42.080] Elapsed:: 0.005791999999985364ms DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
-Info 54   [13:17:42.129] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/jest-diff/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 55   [13:17:42.131] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/pretty-format/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 56   [13:17:42.231] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/@babel 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 57   [13:17:42.232] Elapsed:: 0.06200000000001182ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/@babel 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 58   [13:17:42.232] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/generator/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 59   [13:17:42.232] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/parser/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 60   [13:17:42.232] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/template/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 61   [13:17:42.232] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/traverse/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 62   [13:17:42.233] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/types/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 63   [13:17:42.233] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-coverage 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 64   [13:17:42.233] Elapsed:: 0.0225830000000542ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-coverage 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 65   [13:17:42.233] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 66   [13:17:42.233] Elapsed:: 0.05712499999992815ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 67   [13:17:42.233] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/istanbul-lib-coverage/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 68   [13:17:42.233] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-report 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 69   [13:17:42.233] Elapsed:: 0.016874999999913598ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-report 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 70   [13:17:42.233] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/istanbul-lib-report/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 71   [13:17:42.233] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/jest-diff 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 72   [13:17:42.233] Elapsed:: 0.022083000000066022ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/jest-diff 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 73   [13:17:42.234] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/pretty-format 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 74   [13:17:42.234] Elapsed:: 0.016666999999984ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/pretty-format 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 75   [13:17:42.234] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/yargs-parser 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 76   [13:17:42.234] Elapsed:: 0.07170900000005531ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/yargs-parser 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
-Info 77   [13:17:42.234] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/yargs-parser/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
-Info 78   [13:17:42.234] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 79   [13:17:42.234] Elapsed:: 0.05912500000010823ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 80   [13:17:42.234] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 81   [13:17:42.234] Elapsed:: 0.027874999999994543ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 82   [13:17:42.234] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 83   [13:17:42.234] Elapsed:: 0.015666000000010172ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 84   [13:17:42.234] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 85   [13:17:42.235] Elapsed:: 0.04399999999998272ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 86   [13:17:42.235] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 87   [13:17:42.235] Elapsed:: 0.08241700000007768ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 88   [13:17:42.235] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 89   [13:17:42.235] Elapsed:: 0.010374999999953616ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
-Info 90   [13:17:42.235] Finishing updateGraphWorker: Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 327.24979199999996ms
-Info 91   [13:17:42.235] Project '/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json' (Configured)
-Info 92   [13:17:42.238] 	Files (141)
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es5.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2016.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2018.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.core.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.collection.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.generator.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.iterable.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.promise.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.proxy.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.reflect.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.symbol.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2016.array.include.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.date.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.object.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.string.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.intl.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2018.intl.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2018.promise.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2018.regexp.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2020.bigint.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.es2020.intl.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.esnext.intl.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.decorators.d.ts
-	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+Info 13   [13:24:28.686] DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config 1 undefined Config: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Wild card directory
+Info 14   [13:24:28.686] Elapsed:: 0.3488750000000067ms DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config 1 undefined Config: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Wild card directory
+Info 15   [13:24:28.687] Enabling plugin typescript-strict-plugin from candidate paths: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/tsserver.js/../../..
+Info 16   [13:24:28.687] Loading typescript-strict-plugin from /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/tsserver.js/../../.. (resolved to /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/node_modules)
+Info 17   [13:24:28.787] [typescript-strict-plugin]: Plugin initialized
+Info 18   [13:24:28.787] Plugin validation succeeded
+Info 19   [13:24:28.788] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/ignored.ts 500 undefined WatchType: Closed Script info
+Info 20   [13:24:28.796] Starting updateGraphWorker: Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
+Info 21   [13:24:28.806] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 22   [13:24:28.807] Elapsed:: 0.2367089999999905ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 23   [13:24:28.807] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 24   [13:24:28.807] Elapsed:: 0.04779099999998948ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 25   [13:24:28.807] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 26   [13:24:28.807] Elapsed:: 0.039874999999995ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 27   [13:24:28.807] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__core/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 28   [13:24:28.808] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__generator/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 29   [13:24:28.809] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__template/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 30   [13:24:28.809] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/babel__traverse/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 31   [13:24:28.809] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/graceful-fs/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 32   [13:24:28.810] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/istanbul-lib-coverage/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 33   [13:24:28.810] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/istanbul-lib-report/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 34   [13:24:28.811] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/istanbul-reports/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 35   [13:24:28.811] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/jest/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 36   [13:24:28.812] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/json-schema/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 37   [13:24:28.812] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/minimatch/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 38   [13:24:28.814] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/node/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 39   [13:24:28.815] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/parse-json/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 40   [13:24:28.815] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/semver/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 41   [13:24:28.815] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/stack-utils/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 42   [13:24:28.816] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/yargs/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 43   [13:24:28.816] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/yargs-parser/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 44   [13:24:28.816] DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
+Info 45   [13:24:28.817] Elapsed:: 0.2081659999999772ms DirectoryWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
+Info 46   [13:24:28.966] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 47   [13:24:28.966] Elapsed:: 0.008000000000038199ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 48   [13:24:28.966] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 49   [13:24:28.966] Elapsed:: 0.23091699999997672ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 50   [13:24:28.966] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 51   [13:24:28.966] Elapsed:: 0.05874999999997499ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 52   [13:24:29.010] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/jest-diff/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 53   [13:24:29.012] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/pretty-format/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 54   [13:24:29.118] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/@babel 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 55   [13:24:29.118] Elapsed:: 0.06483400000001893ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/@babel 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 56   [13:24:29.118] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/generator/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 57   [13:24:29.118] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/parser/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 58   [13:24:29.118] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/template/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 59   [13:24:29.119] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/traverse/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 60   [13:24:29.119] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/types/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 61   [13:24:29.119] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-coverage 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 62   [13:24:29.119] Elapsed:: 0.023041000000034728ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-coverage 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 63   [13:24:29.119] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 64   [13:24:29.119] Elapsed:: 0.059708999999998014ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 65   [13:24:29.119] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/istanbul-lib-coverage/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 66   [13:24:29.119] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-report 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 67   [13:24:29.119] Elapsed:: 0.01879200000007586ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/istanbul-lib-report 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 68   [13:24:29.120] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/istanbul-lib-report/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 69   [13:24:29.120] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/jest-diff 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 70   [13:24:29.120] Elapsed:: 0.021958999999924345ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/jest-diff 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 71   [13:24:29.120] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/pretty-format 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 72   [13:24:29.120] Elapsed:: 0.08100000000001728ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/pretty-format 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 73   [13:24:29.120] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/yargs-parser 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 74   [13:24:29.120] Elapsed:: 0.02379200000007131ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/yargs-parser 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Failed Lookup Locations
+Info 75   [13:24:29.120] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/yargs-parser/package.json 2000 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: File location affecting resolution
+Info 76   [13:24:29.120] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 77   [13:24:29.120] Elapsed:: 0.020957999999950516ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 78   [13:24:29.120] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 79   [13:24:29.121] Elapsed:: 0.01879200000007586ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 80   [13:24:29.121] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 81   [13:24:29.121] Elapsed:: 0.011000000000080945ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 82   [13:24:29.121] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 83   [13:24:29.121] Elapsed:: 0.056541999999922155ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 84   [13:24:29.121] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 85   [13:24:29.121] Elapsed:: 0.01345800000001418ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 86   [13:24:29.121] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 87   [13:24:29.121] Elapsed:: 0.012458000000037828ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/node_modules/@types 1 undefined Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json WatchType: Type roots
+Info 88   [13:24:29.121] Finishing updateGraphWorker: Project: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 325.08016699999996ms
+Info 89   [13:24:29.121] Project '/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json' (Configured)
+Info 90   [13:24:29.124] 	Files (141)
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2016.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2018.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.core.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.collection.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.generator.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.promise.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.date.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.object.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.string.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.intl.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2018.intl.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2018.promise.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.es2020.intl.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.esnext.intl.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/typescript/lib/lib.decorators.legacy.d.ts
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/ignored.ts
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@babel/types/lib/index.d.ts
@@ -268,114 +266,114 @@ Info 92   [13:17:42.238] 	Files (141)
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/yargs/index.d.ts
 
 
-	node_modules/typescript/lib/lib.es5.d.ts
-	  Library referenced via 'es5' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es5' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.d.ts
-	  Library referenced via 'es2015' from file 'node_modules/typescript/lib/lib.es2016.d.ts'
-	  Library referenced via 'es2015' from file 'node_modules/typescript/lib/lib.es2016.d.ts'
-	node_modules/typescript/lib/lib.es2016.d.ts
-	  Library referenced via 'es2016' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2016' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2017.d.ts
-	  Library referenced via 'es2017' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2017' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	node_modules/typescript/lib/lib.es2018.d.ts
+	../../../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es5' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.d.ts
+	  Library referenced via 'es2015' from file '../../../node_modules/typescript/lib/lib.es2016.d.ts'
+	  Library referenced via 'es2015' from file '../../../node_modules/typescript/lib/lib.es2016.d.ts'
+	../../../node_modules/typescript/lib/lib.es2016.d.ts
+	  Library referenced via 'es2016' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2016' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.d.ts
+	  Library referenced via 'es2017' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2017' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	../../../node_modules/typescript/lib/lib.es2018.d.ts
 	  Library referenced via 'es2018' from file '../../../node_modules/@types/node/index.d.ts'
 	  Library 'lib.es2018.d.ts' specified in compilerOptions
-	node_modules/typescript/lib/lib.es2015.core.d.ts
-	  Library referenced via 'es2015.core' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.core' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.collection.d.ts
-	  Library referenced via 'es2015.collection' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.collection' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.generator.d.ts
-	  Library referenced via 'es2015.generator' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.generator' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.iterable.d.ts
-	  Library referenced via 'es2015.iterable' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.iterable' from file 'node_modules/typescript/lib/lib.es2015.generator.d.ts'
-	  Library referenced via 'es2015.iterable' from file 'node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
-	  Library referenced via 'es2015.iterable' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.iterable' from file 'node_modules/typescript/lib/lib.es2015.generator.d.ts'
-	  Library referenced via 'es2015.iterable' from file 'node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
-	node_modules/typescript/lib/lib.es2015.promise.d.ts
-	  Library referenced via 'es2015.promise' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.promise' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.proxy.d.ts
-	  Library referenced via 'es2015.proxy' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.proxy' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.reflect.d.ts
-	  Library referenced via 'es2015.reflect' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.reflect' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	node_modules/typescript/lib/lib.es2015.symbol.d.ts
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2015.iterable.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2015.iterable.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
-	  Library referenced via 'es2015.symbol' from file 'node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
-	node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
-	  Library referenced via 'es2015.symbol.wellknown' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.symbol.wellknown' from file 'node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
-	  Library referenced via 'es2015.symbol.wellknown' from file 'node_modules/typescript/lib/lib.es2015.d.ts'
-	  Library referenced via 'es2015.symbol.wellknown' from file 'node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
-	node_modules/typescript/lib/lib.es2016.array.include.d.ts
-	  Library referenced via 'es2016.array.include' from file 'node_modules/typescript/lib/lib.es2016.d.ts'
-	  Library referenced via 'es2016.array.include' from file 'node_modules/typescript/lib/lib.es2016.d.ts'
-	node_modules/typescript/lib/lib.es2017.date.d.ts
-	  Library referenced via 'es2017.date' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2017.date' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2017.object.d.ts
-	  Library referenced via 'es2017.object' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2017.object' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
-	  Library referenced via 'es2017.sharedmemory' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2017.sharedmemory' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2017.string.d.ts
-	  Library referenced via 'es2017.string' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2017.string' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2017.intl.d.ts
-	  Library referenced via 'es2017.intl' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2017.intl' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
-	  Library referenced via 'es2017.typedarrays' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	  Library referenced via 'es2017.typedarrays' from file 'node_modules/typescript/lib/lib.es2017.d.ts'
-	node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
-	  Library referenced via 'es2018.asyncgenerator' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2018.asyncgenerator' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
-	  Library referenced via 'es2018.asynciterable' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2018.asynciterable' from file 'node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.core.d.ts
+	  Library referenced via 'es2015.core' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.core' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.collection.d.ts
+	  Library referenced via 'es2015.collection' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.collection' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.generator.d.ts
+	  Library referenced via 'es2015.generator' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.generator' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	  Library referenced via 'es2015.iterable' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../../../node_modules/typescript/lib/lib.es2015.generator.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../../../node_modules/typescript/lib/lib.es2015.generator.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.promise.d.ts
+	  Library referenced via 'es2015.promise' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.promise' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	  Library referenced via 'es2015.proxy' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.proxy' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	  Library referenced via 'es2015.reflect' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.reflect' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2015.iterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2015.iterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	../../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	  Library referenced via 'es2015.symbol.wellknown' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol.wellknown' from file '../../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	  Library referenced via 'es2015.symbol.wellknown' from file '../../../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol.wellknown' from file '../../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	../../../node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	  Library referenced via 'es2016.array.include' from file '../../../node_modules/typescript/lib/lib.es2016.d.ts'
+	  Library referenced via 'es2016.array.include' from file '../../../node_modules/typescript/lib/lib.es2016.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.date.d.ts
+	  Library referenced via 'es2017.date' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2017.date' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.object.d.ts
+	  Library referenced via 'es2017.object' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2017.object' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	  Library referenced via 'es2017.sharedmemory' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2017.sharedmemory' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.string.d.ts
+	  Library referenced via 'es2017.string' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2017.string' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.intl.d.ts
+	  Library referenced via 'es2017.intl' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2017.intl' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	  Library referenced via 'es2017.typedarrays' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	  Library referenced via 'es2017.typedarrays' from file '../../../node_modules/typescript/lib/lib.es2017.d.ts'
+	../../../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	  Library referenced via 'es2018.asyncgenerator' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.asyncgenerator' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	../../../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	  Library referenced via 'es2018.asynciterable' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.asynciterable' from file '../../../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
 	  Library referenced via 'esnext.asynciterable' from file '../../../node_modules/@types/node/index.d.ts'
-	  Library referenced via 'es2018.asynciterable' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2018.asynciterable' from file 'node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
-	node_modules/typescript/lib/lib.es2018.intl.d.ts
-	  Library referenced via 'es2018.intl' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2018.intl' from file 'node_modules/typescript/lib/lib.es2020.intl.d.ts'
-	  Library referenced via 'es2018.intl' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	node_modules/typescript/lib/lib.es2018.promise.d.ts
-	  Library referenced via 'es2018.promise' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2018.promise' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	node_modules/typescript/lib/lib.es2018.regexp.d.ts
-	  Library referenced via 'es2018.regexp' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	  Library referenced via 'es2018.regexp' from file 'node_modules/typescript/lib/lib.es2018.d.ts'
-	node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	  Library referenced via 'es2018.asynciterable' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.asynciterable' from file '../../../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
+	../../../node_modules/typescript/lib/lib.es2018.intl.d.ts
+	  Library referenced via 'es2018.intl' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.intl' from file '../../../node_modules/typescript/lib/lib.es2020.intl.d.ts'
+	  Library referenced via 'es2018.intl' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	../../../node_modules/typescript/lib/lib.es2018.promise.d.ts
+	  Library referenced via 'es2018.promise' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.promise' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	../../../node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	  Library referenced via 'es2018.regexp' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.regexp' from file '../../../node_modules/typescript/lib/lib.es2018.d.ts'
+	../../../node_modules/typescript/lib/lib.es2020.bigint.d.ts
 	  Library referenced via 'esnext.bigint' from file '../../../node_modules/@types/node/index.d.ts'
-	node_modules/typescript/lib/lib.es2020.intl.d.ts
-	  Library referenced via 'es2020.intl' from file 'node_modules/typescript/lib/lib.es2020.bigint.d.ts'
-	node_modules/typescript/lib/lib.esnext.intl.d.ts
+	../../../node_modules/typescript/lib/lib.es2020.intl.d.ts
+	  Library referenced via 'es2020.intl' from file '../../../node_modules/typescript/lib/lib.es2020.bigint.d.ts'
+	../../../node_modules/typescript/lib/lib.esnext.intl.d.ts
 	  Library referenced via 'esnext.intl' from file '../../../node_modules/@types/node/index.d.ts'
-	node_modules/typescript/lib/lib.decorators.d.ts
-	  Library referenced via 'decorators' from file 'node_modules/typescript/lib/lib.es5.d.ts'
-	  Library referenced via 'decorators' from file 'node_modules/typescript/lib/lib.es5.d.ts'
-	node_modules/typescript/lib/lib.decorators.legacy.d.ts
-	  Library referenced via 'decorators.legacy' from file 'node_modules/typescript/lib/lib.es5.d.ts'
-	  Library referenced via 'decorators.legacy' from file 'node_modules/typescript/lib/lib.es5.d.ts'
+	../../../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../../../node_modules/typescript/lib/lib.es5.d.ts'
+	  Library referenced via 'decorators' from file '../../../node_modules/typescript/lib/lib.es5.d.ts'
+	../../../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../../../node_modules/typescript/lib/lib.es5.d.ts'
+	  Library referenced via 'decorators.legacy' from file '../../../node_modules/typescript/lib/lib.es5.d.ts'
 	ignored.ts
 	  Matched by default include pattern '**/*'
 	strict.ts
@@ -697,29 +695,28 @@ Info 92   [13:17:42.238] 	Files (141)
 	../../../node_modules/@types/yargs/index.d.ts
 	  Entry point for implicit type library 'yargs' with packageId '@types/yargs/index.d.ts@17.0.32'
 
-Info 93   [13:17:42.238] -----------------------------------------------
-Info 94   [13:17:42.240] FileWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/e2e/fixtures/default-config/package.json 250 undefined WatchType: package.json file
-Info 95   [13:17:42.240] FileWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/package.json 250 undefined WatchType: package.json file
-Info 96   [13:17:42.242] AutoImportProviderProject: found 4 root files in 4 dependencies in 3.503750000000082 ms
-Info 97   [13:17:42.243] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
-Info 98   [13:17:42.245] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 99   [13:17:42.245] Elapsed:: 0.005332999999950516ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 100  [13:17:42.245] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 101  [13:17:42.245] Elapsed:: 0.0027919999999994616ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 102  [13:17:42.245] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 103  [13:17:42.245] Elapsed:: 0.003041000000052918ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 104  [13:17:42.245] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/node/package.json 2000 undefined Project: /dev/null/autoImportProviderProject1* WatchType: File location affecting resolution
-Info 105  [13:17:42.247] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 106  [13:17:42.247] Elapsed:: 0.0031669999999621723ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 107  [13:17:42.247] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/minimatch/package.json 2000 undefined Project: /dev/null/autoImportProviderProject1* WatchType: File location affecting resolution
-Info 108  [13:17:42.254] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/cli-spinners 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 109  [13:17:42.254] Elapsed:: 0.05624999999997726ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/cli-spinners 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 110  [13:17:42.254] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 111  [13:17:42.254] Elapsed:: 0.003375000000005457ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
-Info 112  [13:17:42.254] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/cli-spinners/package.json 2000 undefined Project: /dev/null/autoImportProviderProject1* WatchType: File location affecting resolution
-Info 113  [13:17:42.254] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 11.150249999999915ms
-Info 114  [13:17:42.254] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
-Info 115  [13:17:42.255] 	Files (52)
+Info 91   [13:24:29.124] -----------------------------------------------
+Info 92   [13:24:29.126] FileWatcher:: Added:: WatchInfo: /users/jaroslaw.glegola/documents/praca/typescript-strict-plugin/package.json 250 undefined WatchType: package.json file
+Info 93   [13:24:29.128] AutoImportProviderProject: found 4 root files in 4 dependencies in 2.93425000000002 ms
+Info 94   [13:24:29.129] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 95   [13:24:29.131] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 96   [13:24:29.131] Elapsed:: 0.005125000000020918ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 97   [13:24:29.131] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 98   [13:24:29.131] Elapsed:: 0.002207999999995991ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 99   [13:24:29.131] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 100  [13:24:29.131] Elapsed:: 0.0017499999999017746ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 101  [13:24:29.131] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/node/package.json 2000 undefined Project: /dev/null/autoImportProviderProject1* WatchType: File location affecting resolution
+Info 102  [13:24:29.133] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 103  [13:24:29.133] Elapsed:: 0.004042000000026746ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 104  [13:24:29.133] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/minimatch/package.json 2000 undefined Project: /dev/null/autoImportProviderProject1* WatchType: File location affecting resolution
+Info 105  [13:24:29.139] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/cli-spinners 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 106  [13:24:29.139] Elapsed:: 0.05083300000001145ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/cli-spinners 1 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 107  [13:24:29.139] DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 108  [13:24:29.139] Elapsed:: 0.003165999999964697ms DirectoryWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config 0 undefined Project: /dev/null/autoImportProviderProject1* WatchType: Failed Lookup Locations
+Info 109  [13:24:29.139] FileWatcher:: Added:: WatchInfo: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/cli-spinners/package.json 2000 undefined Project: /dev/null/autoImportProviderProject1* WatchType: File location affecting resolution
+Info 110  [13:24:29.140] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 10.680000000000064ms
+Info 111  [13:24:29.140] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 112  [13:24:29.140] 	Files (52)
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/chalk/index.d.ts
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/node/assert.d.ts
 	/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/node_modules/@types/node/globals.d.ts
@@ -883,8 +880,8 @@ Info 115  [13:17:42.255] 	Files (52)
 	../../../node_modules/ora/index.d.ts
 	  Root file specified for compilation
 
-Info 116  [13:17:42.255] -----------------------------------------------
-Info 117  [13:17:42.255] event:
+Info 113  [13:24:29.140] -----------------------------------------------
+Info 114  [13:24:29.140] event:
     {
      "seq": 0,
      "type": "event",
@@ -893,7 +890,7 @@ Info 117  [13:17:42.255] event:
       "projectName": "/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json"
      }
     }
-Info 118  [13:17:42.256] event:
+Info 115  [13:24:29.141] event:
     {
      "seq": 0,
      "type": "event",
@@ -949,7 +946,7 @@ Info 118  [13:17:42.256] event:
       }
      }
     }
-Info 119  [13:17:42.256] event:
+Info 116  [13:24:29.142] event:
     {
      "seq": 0,
      "type": "event",
@@ -960,31 +957,31 @@ Info 119  [13:17:42.256] event:
       "diagnostics": []
      }
     }
-Info 120  [13:17:42.257] Project '/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json' (Configured)
-Info 120  [13:17:42.257] 	Files (141)
+Info 117  [13:24:29.142] Project '/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json' (Configured)
+Info 117  [13:24:29.142] 	Files (141)
 
-Info 120  [13:17:42.257] -----------------------------------------------
-Info 120  [13:17:42.257] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
-Info 120  [13:17:42.257] 	Files (52)
+Info 117  [13:24:29.142] -----------------------------------------------
+Info 117  [13:24:29.142] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 117  [13:24:29.142] 	Files (52)
 
-Info 120  [13:17:42.257] -----------------------------------------------
-Info 120  [13:17:42.257] Open files: 
-Info 120  [13:17:42.257] 	FileName: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts ProjectRootPath: undefined
-Info 120  [13:17:42.257] 		Projects: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
-Perf 120  [13:17:42.257] 1::open: async elapsed time (in milliseconds) 470.4471
-Info 121  [13:17:42.257] event:
+Info 117  [13:24:29.142] -----------------------------------------------
+Info 117  [13:24:29.142] Open files: 
+Info 117  [13:24:29.142] 	FileName: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts ProjectRootPath: undefined
+Info 117  [13:24:29.142] 		Projects: /Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/tsconfig.json
+Perf 117  [13:24:29.142] 1::open: async elapsed time (in milliseconds) 465.7011
+Info 118  [13:24:29.142] event:
     {
      "seq": 0,
      "type": "event",
      "event": "typingsInstallerPid",
      "body": {
-      "pid": 71417
+      "pid": 80238
      }
     }
-Info 122  [13:17:42.258] request:
+Info 119  [13:24:29.144] request:
     {"seq":2,"type":"request","command":"geterr","arguments":{"files":["/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/strict.ts"],"delay":0}}
-Perf 123  [13:17:42.259] 2::geterr: async elapsed time (in milliseconds) 0.3469
-Info 124  [13:17:42.260] event:
+Perf 120  [13:24:29.144] 2::geterr: async elapsed time (in milliseconds) 0.3718
+Info 121  [13:24:29.145] event:
     {
      "seq": 0,
      "type": "event",
@@ -994,7 +991,7 @@ Info 124  [13:17:42.260] event:
       "diagnostics": []
      }
     }
-Info 125  [13:17:42.517] event:
+Info 122  [13:24:29.403] event:
     {
      "seq": 0,
      "type": "event",
@@ -1018,7 +1015,7 @@ Info 125  [13:17:42.517] event:
       ]
      }
     }
-Info 126  [13:17:42.522] event:
+Info 123  [13:24:29.409] event:
     {
      "seq": 0,
      "type": "event",
@@ -1043,7 +1040,7 @@ Info 126  [13:17:42.522] event:
       ]
      }
     }
-Info 127  [13:17:42.523] event:
+Info 124  [13:24:29.409] event:
     {
      "seq": 0,
      "type": "event",
@@ -1052,4 +1049,4 @@ Info 127  [13:17:42.523] event:
       "request_seq": 2
      }
     }
-Info 128  [13:17:42.523] Exiting...
+Info 125  [13:24:29.409] Exiting...

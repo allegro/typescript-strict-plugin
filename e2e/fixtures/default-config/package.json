@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "typescript": "5.2.2",
-    "typescript-strict-plugin": "file:../../../../typescript-strict-plugin"
-  }
-}

@@ -30,9 +30,7 @@ export class TSServer {
   constructor() {
     this._responseEventEmitter = new EventEmitter();
     this._responseCommandEmitter = new EventEmitter();
-    const tsserverPath = require.resolve(
-      '/Users/jaroslaw.glegola/Documents/Praca/typescript-strict-plugin/e2e/fixtures/default-config/node_modules/typescript/lib/tsserver',
-    );
+    const tsserverPath = require.resolve('typescript/lib/tsserver');
 
     const server = fork(tsserverPath, {
       stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
