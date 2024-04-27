@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        typescript_version: [4.x, 5.2.2, 5.4.5]
+        typescript_version: [4.x, 5.2.2, latest]
 
     steps:
       - uses: actions/checkout@v4
