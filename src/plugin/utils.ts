@@ -25,6 +25,9 @@ export function setupStrictLanguageServiceHostProxy(info: PluginInfo): ts.Langua
       if (prop === 'getCompilationSettings') {
         return strictGetCompilationSettings;
       }
+      if (prop === 'updateFromProject') {
+        return false;
+      }
       return Reflect.get(target, prop, receiver);
     },
   });
