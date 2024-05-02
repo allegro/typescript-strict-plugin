@@ -25,6 +25,11 @@ export function setupStrictLanguageServiceHostProxy(info: PluginInfo): ts.Langua
       if (prop === 'getCompilationSettings') {
         return strictGetCompilationSettings;
       }
+      // returning `false` because of https://github.com/microsoft/TypeScript/blob/v5.4.5/src/services/services.ts#L1625
+      // if `true` was returned instead, the `program` would become undefined and it would crash the plugin
+      if (prop === 'updateFromProject') {
+        return false;
+      }
       return Reflect.get(target, prop, receiver);
     },
   });

@@ -6,27 +6,29 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 15.x
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
         with:
-          node-version: '15.x'
+          node-version: '20.x'
       - run: npm i
       - run: npm run lint
       - run: npm run prettier:ci
 
-  build:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+        typescript_version: [4.x, 5.2.2, latest]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 15.x
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
         with:
-          node-version: '15.x'
+          node-version: '20.x'
       - run: npm i
+      - run: npm i -D typescript@${{ matrix.typescript_version }}
       - run: npm run build
       - run: npm run test
