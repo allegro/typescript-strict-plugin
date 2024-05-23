@@ -60,11 +60,12 @@ comment. To make these files strict too, just remove its' ignore comments.
 
 ## Configuration
 
-Plugin takes extra, non-mandatory arguments `paths`, `exlude` and `excludePattern`. Args `paths` and
+Plugin takes extra, non-mandatory arguments `paths`, `exclude`, `excludePattern` and `convertStrictErrorsToWarnings`. Args `paths` and
 `exclude` accept an array of relative or absolute paths that should be included (property `paths`)
 or excluded (property `exclude`). Arg `excludePattern` accepts an array of strings that will be
 matched with [minimatch](https://github.com/isaacs/minimatch). To add strict mode to files from
-ignored paths you can insert `//@ts-strict` comment.
+ignored paths you can insert `//@ts-strict` comment. Arg `convertStrictErrorsToWarnings` show errors from strict checking as warnings instead of errors. This allows for showing strict checking as a warning in codebases with a large amount
+of strict errors.
 
 ```json
 {
@@ -145,6 +146,7 @@ command available in the
 
 <img width="729" alt="image" src="https://user-images.githubusercontent.com/35625949/153884371-e0f488d4-05b8-4b88-93d2-1caa7e6081f7.png">
 
+To only show strict erros as warnings in VSCode, set `convertStrictErrorsToWarnings` to true. 
 ## Testing the plugin
 
 ### Manually
