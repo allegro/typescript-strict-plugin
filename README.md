@@ -60,11 +60,11 @@ comment. To make these files strict too, just remove its' ignore comments.
 
 ## Configuration
 
-Plugin takes extra, non-mandatory arguments `paths`, `exclude` and `excludePattern`. Args `paths` and
-`exclude` accept an array of relative or absolute paths that should be included (property `paths`)
-or excluded (property `exclude`). Arg `excludePattern` accepts an array of strings that will be
-matched with [minimatch](https://github.com/isaacs/minimatch). To add strict mode to files from
-ignored paths you can insert `//@ts-strict` comment.
+Plugin takes extra, non-mandatory arguments `paths`, `exclude` and `excludePattern`. Args `paths`
+and `exclude` accept an array of relative or absolute paths that should be included (property
+`paths`) or excluded (property `exclude`). Arg `excludePattern` accepts an array of strings that
+will be matched with [minimatch](https://github.com/isaacs/minimatch). To add strict mode to files
+from ignored paths you can insert `//@ts-strict` comment.
 
 ```json
 {
@@ -120,6 +120,34 @@ yarn tsc-strict --strictNullChecks false
 
 would not check for the strict null check in your files. The `tsc-strict` accepts all the arguments
 that regular `tsc` command accepts.
+
+### Customizing the ignore comment
+
+You can customize the ignore comment used by the plugin through the `TS_STRICT_IGNORE_COMMENT`
+environment variable. This is particularly useful for teams migrating to strict mode who want
+different behavior between their development environment and CI pipeline.
+
+Example:
+
+```ts
+// @ts-strict-cli-ignore
+const str: string | null = null;
+const len = str.length; // error in IDE, passes cli with proper env var
+```
+
+in package.json scripts:
+
+```json
+{
+  "scripts": {
+    "typecheck": "tsc && TS_STRICT_IGNORE_COMMENT=@ts-strict-ci-ignore tsc-strict"
+  }
+}
+```
+
+- Files marked with e.g `@ts-strict-cli-ignore` will be ignored only by the CLI tool in CI
+- This allows gradual migration where developers see and fix issues locally without breaking the
+  build
 
 ## Migrating to v2
 
