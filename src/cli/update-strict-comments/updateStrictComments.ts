@@ -1,7 +1,7 @@
-import { getFilePathsWithErrors, getFilePathsOnPathWithoutErrors } from './getFilePaths';
+import { getFilePathsWithErrors, getFilePathsOnPathWithoutErrors } from '../getFilePaths';
 import { isIgnoreCommentPresent, isStrictCommentPresent } from '../isCommentPresent';
 import { isFileStrictByPath } from '../../common/isFileStrictByPath';
-import { insertIgnoreComment, removeStrictComment } from './commentOperations';
+import { insertIgnoreComment, removeStrictComment } from '../commentOperations';
 
 interface UpdateStrictCommentsResult {
   updatedFileCount: number;

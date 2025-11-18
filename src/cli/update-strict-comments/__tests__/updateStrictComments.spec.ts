@@ -1,14 +1,14 @@
 import { mocked } from 'jest-mock';
 import { isIgnoreCommentPresent, isStrictCommentPresent } from '../../isCommentPresent';
-import { getFilePathsWithErrors, getFilePathsOnPathWithoutErrors } from '../getFilePaths';
+import { getFilePathsWithErrors, getFilePathsOnPathWithoutErrors } from '../../getFilePaths';
 import { updateStrictComments } from '../updateStrictComments';
-import { insertIgnoreComment, removeStrictComment } from '../commentOperations';
+import { insertIgnoreComment, removeStrictComment } from '../../commentOperations';
 
 jest.mock('../../findStrictErrors', () => ({
   findStrictErrors: jest.fn(),
 }));
 
-jest.mock('../getFilePaths', () => ({
+jest.mock('../../getFilePaths', () => ({
   getFilePathsWithErrors: jest.fn(),
   getFilePathsOnPathWithoutErrors: jest.fn(),
 }));
@@ -18,7 +18,7 @@ jest.mock('../../isCommentPresent', () => ({
   isIgnoreCommentPresent: jest.fn(),
 }));
 
-jest.mock('../commentOperations', () => ({
+jest.mock('../../commentOperations', () => ({
   removeStrictComment: jest.fn(),
   insertIgnoreComment: jest.fn(),
 }));

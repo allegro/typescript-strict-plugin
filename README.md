@@ -135,6 +135,14 @@ just need to run:
 update-strict-comments
 ```
 
+## Check for files already strict and remove `//@ts-strict-ignore` comments
+
+When working on a large project, files can become strict without the authors noticing. Unless someone removes the `//@ts-strict-ignore` comment, the file will remain non-strict longer than necessary. To clean up such files and see the actual progress you can run:
+
+```
+check-strict-comments
+```
+
 ## VSCode support
 
 VSCode supports this plugin out of the box. However, sometimes it can use its own typescript version

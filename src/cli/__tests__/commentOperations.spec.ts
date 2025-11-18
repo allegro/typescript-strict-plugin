@@ -1,6 +1,10 @@
 import { mocked } from 'jest-mock';
 import { readFileSync, writeFileSync } from 'fs';
-import { insertIgnoreComment, removeStrictComment } from '../commentOperations';
+import {
+  insertIgnoreComment,
+  removeIgnoreComment,
+  removeStrictComment,
+} from '../commentOperations';
 
 jest.mock('fs', () => ({
   readFileSync: jest.fn(),
@@ -24,6 +28,34 @@ describe('insertIgnoreComment', () => {
 
     // then
     expect(writeFileSyncMock).toBeCalledWith('file.ts', '// @ts-strict-ignore\nconst x = 0;');
+  });
+});
+
+describe('removeIgnoreComment', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should remove comment', () => {
+    // given
+    readFileSyncMock.mockReturnValue('// @ts-strict-ignore\nconst x = 0;');
+
+    // when
+    removeIgnoreComment('file.ts');
+
+    // then
+    expect(writeFileSyncMock).toBeCalledWith('file.ts', 'const x = 0;');
+  });
+
+  it('should not change file content without strict comment', () => {
+    // given
+    readFileSyncMock.mockReturnValue('const x = 0;');
+
+    // when
+    removeIgnoreComment('file.ts');
+
+    // then
+    expect(writeFileSyncMock).not.toBeCalled();
   });
 });
 

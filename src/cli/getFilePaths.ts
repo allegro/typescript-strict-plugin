@@ -1,6 +1,6 @@
-import { isFileStrictByPath } from '../../common/isFileStrictByPath';
-import { getAbsolutePath } from '../../common/getAbsolutePath';
-import { findStrictErrors } from '../findStrictErrors';
+import { isFileStrictByPath } from '../common/isFileStrictByPath';
+import { getAbsolutePath } from '../common/getAbsolutePath';
+import { findStrictErrors } from './findStrictErrors';
 
 export const getFilePathsWithErrors = async (allFilePaths: string[]) => {
   const errors = await findStrictErrors(allFilePaths);

@@ -1,6 +1,6 @@
 {
   "name": "typescript-strict-plugin",
-  "version": "2.4.4",
+  "version": "2.5.0",
   "description": "Typescript tools that help with migration to the strict mode",
   "author": "Allegro",
   "contributors": [
@@ -22,7 +22,8 @@
   "license": "MIT",
   "bin": {
     "tsc-strict": "dist/cli/tsc-strict/index.js",
-    "update-strict-comments": "dist/cli/update-strict-comments/index.js"
+    "update-strict-comments": "dist/cli/update-strict-comments/index.js",
+    "check-strict-comments": "dist/cli/check-strict-comments/index.js"
   },
   "main": "dist/plugin/index.js",
   "private": false,
