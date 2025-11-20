@@ -4,7 +4,6 @@ import { findStrictErrors } from '../findStrictErrors';
 
 export const getFilePathsWithErrors = async (allFilePaths: string[]) => {
   const errors = await findStrictErrors(allFilePaths);
-  console.log(errors);
 
   const getFilePathFromErrorMessage = (error: string) => {
     const match = error.match(/^(.*?)(?=\(\d+,\d+\))/);

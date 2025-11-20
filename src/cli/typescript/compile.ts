@@ -37,7 +37,6 @@ function getPathToErrorsMap(tscOutput: string[]): Map<string, string[]> {
       result.set(path, [error]);
     }
   });
-  console.log(result);
 
   return result;
 }
