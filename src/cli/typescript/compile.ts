@@ -27,7 +27,9 @@ function getPathToErrorsMap(tscOutput: string[]): Map<string, string[]> {
   const result = new Map<string, string[]>();
 
   tscOutput.forEach((error) => {
-    const path = resolve(process.cwd(), error.split('(')[0]);
+    const match = error.match(/^(.*?)(?=\(\d+,\d+\))/);
+    const beforePattern = match ? match[1] : error;
+    const path = resolve(process.cwd(), beforePattern);
 
     if (result.has(path)) {
       result.set(path, [...result.get(path)!, error]);
