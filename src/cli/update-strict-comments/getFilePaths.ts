@@ -4,9 +4,13 @@ import { findStrictErrors } from '../findStrictErrors';
 
 export const getFilePathsWithErrors = async (allFilePaths: string[]) => {
   const errors = await findStrictErrors(allFilePaths);
+  console.log(errors);
 
-  const getFilePathFromErrorMessage = (error: string) =>
-    getAbsolutePath(process.cwd(), error.split('(')[0]);
+  const getFilePathFromErrorMessage = (error: string) => {
+    const match = error.match(/^(.*?)(?=\(\d+,\d+\))/);
+    const beforePattern = match ? match[1] : error;
+    return getAbsolutePath(process.cwd(), beforePattern);
+  };
 
   return [...new Set(errors.map(getFilePathFromErrorMessage))];
 };
